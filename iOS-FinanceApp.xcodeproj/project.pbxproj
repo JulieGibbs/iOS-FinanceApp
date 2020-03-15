@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */; };
 		3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */; };
-		3FBFDE17241ECEE1006DAC7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE16241ECEE1006DAC7A /* ViewController.swift */; };
+		3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE16241ECEE1006DAC7A /* FinanceOverviewController.swift */; };
 		3FBFDE1A241ECEE1006DAC7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBFDE18241ECEE1006DAC7A /* Main.storyboard */; };
 		3FBFDE1C241ECEE1006DAC7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */; };
 		3FBFDE1F241ECEE1006DAC7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBFDE1D241ECEE1006DAC7A /* LaunchScreen.storyboard */; };
 		3FBFDE2A241ECEE1006DAC7A /* iOS_FinanceAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE29241ECEE1006DAC7A /* iOS_FinanceAppTests.swift */; };
+		3FBFDE35241ED1A7006DAC7A /* ExpensesDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE34241ED1A7006DAC7A /* ExpensesDetailsViewController.swift */; };
+		3FBFDE37241ED1CC006DAC7A /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE36241ED1CC006DAC7A /* GraphViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +32,7 @@
 		3FBFDE0F241ECEE0006DAC7A /* iOS-FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-FinanceApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3FBFDE16241ECEE1006DAC7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FBFDE16241ECEE1006DAC7A /* FinanceOverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceOverviewController.swift; sourceTree = "<group>"; };
 		3FBFDE19241ECEE1006DAC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FBFDE1E241ECEE1006DAC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		3FBFDE25241ECEE1006DAC7A /* iOS-FinanceAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-FinanceAppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBFDE29241ECEE1006DAC7A /* iOS_FinanceAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_FinanceAppTests.swift; sourceTree = "<group>"; };
 		3FBFDE2B241ECEE1006DAC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FBFDE34241ED1A7006DAC7A /* ExpensesDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailsViewController.swift; sourceTree = "<group>"; };
+		3FBFDE36241ED1CC006DAC7A /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,7 @@
 			children = (
 				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
 				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
-				3FBFDE16241ECEE1006DAC7A /* ViewController.swift */,
+				3FBFDE38241ED1D9006DAC7A /* Controllers */,
 				3FBFDE18241ECEE1006DAC7A /* Main.storyboard */,
 				3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */,
 				3FBFDE1D241ECEE1006DAC7A /* LaunchScreen.storyboard */,
@@ -97,6 +101,16 @@
 				3FBFDE2B241ECEE1006DAC7A /* Info.plist */,
 			);
 			path = "iOS-FinanceAppTests";
+			sourceTree = "<group>";
+		};
+		3FBFDE38241ED1D9006DAC7A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FBFDE16241ECEE1006DAC7A /* FinanceOverviewController.swift */,
+				3FBFDE36241ED1CC006DAC7A /* GraphViewController.swift */,
+				3FBFDE34241ED1A7006DAC7A /* ExpensesDetailsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FBFDE17241ECEE1006DAC7A /* ViewController.swift in Sources */,
+				3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */,
+				3FBFDE37241ED1CC006DAC7A /* GraphViewController.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,
+				3FBFDE35241ED1A7006DAC7A /* ExpensesDetailsViewController.swift in Sources */,
 				3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,24 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ddN-Yt-2Ua">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Finance Overview-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Finance Overview" id="BYZ-38-t0r" customClass="FinanceOverviewController" customModule="iOS_FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Overview" image="1.circle" catalog="system" selectedImage="1.circle" id="wvk-6p-ZLI"/>
+                    <navigationItem key="navigationItem" title="Finance Overview" id="PQe-Ft-fkh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="320" y="865"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="omM-eB-hCd">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ddN-Yt-2Ua" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="KHa-JN-BRY"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XUt-3m-mb9">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hmD-NN-MoB"/>
+                        <segue destination="IdV-m1-yUL" kind="relationship" relationship="viewControllers" id="vLl-Na-Hsa"/>
+                        <segue destination="31N-ib-iZc" kind="relationship" relationship="viewControllers" id="WWi-GF-ZES"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wga-R6-noB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Graph View-->
+        <scene sceneID="AQx-e4-uls">
+            <objects>
+                <viewController title="Graph View" id="IdV-m1-yUL" customClass="GraphViewController" customModule="iOS_FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="01w-UC-Pwd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="f3j-Fb-uZZ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Graph" image="2.circle" catalog="system" selectedImage="2.circle" id="kPC-ZI-NtD"/>
+                    <navigationItem key="navigationItem" title="Graph View" id="ljV-Nj-QQW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHf-3K-oEZ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="865"/>
+        </scene>
+        <!--Expenses Details-->
+        <scene sceneID="inA-eX-syh">
+            <objects>
+                <viewController title="Expenses Details" id="31N-ib-iZc" customClass="ExpensesDetailsViewController" customModule="iOS_FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MA3-ME-iM8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jLP-Qd-4c9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Expenses Details" image="3.circle" catalog="system" selectedImage="3.circle" id="NdC-Ly-ecU"/>
+                    <navigationItem key="navigationItem" title="Expenses Details" id="aJO-2J-FIr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdb-9Q-5tv" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="865"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1.circle" catalog="system" width="64" height="60"/>
+        <image name="2.circle" catalog="system" width="64" height="60"/>
+        <image name="3.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

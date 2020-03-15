@@ -14,7 +14,68 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v9i-3j-dWA">
+                                <rect key="frame" x="20" y="371" width="374" height="328"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4CB-z4-3TN">
+                                <rect key="frame" x="20" y="722" width="109" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add Income">
+                                    <color key="titleColor" red="0.17245018819999999" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your Current Balance Is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-WB-yfh">
+                                <rect key="frame" x="91" y="97" width="232" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 000 RUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-8g-bk1">
+                                <rect key="frame" x="130" y="179" width="155" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent entries:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6S-hB-Xvm">
+                                <rect key="frame" x="20" y="339.5" width="134.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hew-mL-dBR">
+                                <rect key="frame" x="274" y="722" width="120" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add Expense">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ehM-WB-yfh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="1Hf-9w-a5M"/>
+                            <constraint firstItem="v9i-3j-dWA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="327" id="1L8-98-Rpl"/>
+                            <constraint firstItem="Hew-mL-dBR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="4CB-z4-3TN" secondAttribute="trailing" constant="156" id="3aY-pZ-GRc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v9i-3j-dWA" secondAttribute="bottom" constant="114" id="5XZ-iV-JUg"/>
+                            <constraint firstItem="v9i-3j-dWA" firstAttribute="top" secondItem="ZX2-8g-bk1" secondAttribute="bottom" constant="158" id="8CJ-jT-sl8"/>
+                            <constraint firstItem="ZX2-8g-bk1" firstAttribute="top" secondItem="ehM-WB-yfh" secondAttribute="bottom" constant="56" id="99n-r4-ljC"/>
+                            <constraint firstItem="ZX2-8g-bk1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="Ce3-0G-Ecb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ehM-WB-yfh" secondAttribute="trailing" constant="91" id="Dzd-zc-v0M"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v9i-3j-dWA" secondAttribute="trailing" constant="20" id="FJc-zJ-IGi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4CB-z4-3TN" secondAttribute="bottom" constant="61" id="Fln-OT-WJj"/>
+                            <constraint firstItem="4CB-z4-3TN" firstAttribute="top" secondItem="v9i-3j-dWA" secondAttribute="bottom" constant="23" id="IDh-jo-kvq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZX2-8g-bk1" secondAttribute="trailing" constant="129" id="OWb-gc-bum"/>
+                            <constraint firstItem="v9i-3j-dWA" firstAttribute="top" secondItem="u6S-hB-Xvm" secondAttribute="bottom" constant="8" id="ZXr-YJ-k0T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hew-mL-dBR" secondAttribute="trailing" constant="20" id="ee1-Bt-RHO"/>
+                            <constraint firstItem="v9i-3j-dWA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="efP-b7-fMw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hew-mL-dBR" secondAttribute="bottom" constant="61" id="fTs-Bb-AZu"/>
+                            <constraint firstItem="ZX2-8g-bk1" firstAttribute="top" secondItem="ehM-WB-yfh" secondAttribute="bottom" constant="56" id="h9H-ck-B6N"/>
+                            <constraint firstItem="4CB-z4-3TN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hcb-Yk-S9B"/>
+                            <constraint firstItem="ehM-WB-yfh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="kha-eC-Vgn"/>
+                            <constraint firstItem="Hew-mL-dBR" firstAttribute="top" secondItem="v9i-3j-dWA" secondAttribute="bottom" constant="23" id="mOz-u0-4uD"/>
+                            <constraint firstItem="u6S-hB-Xvm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uuR-x5-spC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Overview" image="1.circle" catalog="system" selectedImage="1.circle" id="wvk-6p-ZLI"/>
@@ -22,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="320" y="865"/>
+            <point key="canvasLocation" x="318.84057971014494" y="864.50892857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="omM-eB-hCd">
@@ -52,7 +113,31 @@
                     <view key="view" contentMode="scaleToFill" id="01w-UC-Pwd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nP-LJ-oSw">
+                                <rect key="frame" x="73.5" y="84" width="267" height="32"/>
+                                <segments>
+                                    <segment title="Week"/>
+                                    <segment title="Month"/>
+                                    <segment title="Quarter"/>
+                                    <segment title="All"/>
+                                </segments>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Obm-L9-yKT">
+                                <rect key="frame" x="20" y="193" width="374" height="275"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Obm-L9-yKT" firstAttribute="leading" secondItem="01w-UC-Pwd" secondAttribute="leadingMargin" id="5Iu-OF-SYc"/>
+                            <constraint firstItem="Obm-L9-yKT" firstAttribute="top" secondItem="3nP-LJ-oSw" secondAttribute="bottom" constant="78" id="9It-7r-oxA"/>
+                            <constraint firstItem="3nP-LJ-oSw" firstAttribute="top" secondItem="f3j-Fb-uZZ" secondAttribute="top" constant="40" id="PBU-IG-nT8"/>
+                            <constraint firstItem="3nP-LJ-oSw" firstAttribute="centerX" secondItem="01w-UC-Pwd" secondAttribute="centerX" id="ZaO-Sj-Cod"/>
+                            <constraint firstItem="Obm-L9-yKT" firstAttribute="centerX" secondItem="01w-UC-Pwd" secondAttribute="centerX" id="bHK-ZE-Rmx"/>
+                            <constraint firstItem="Obm-L9-yKT" firstAttribute="top" secondItem="3nP-LJ-oSw" secondAttribute="bottom" constant="78" id="qcf-Zl-CWZ"/>
+                            <constraint firstItem="f3j-Fb-uZZ" firstAttribute="bottom" secondItem="Obm-L9-yKT" secondAttribute="bottom" constant="345" id="wvm-od-G29"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="f3j-Fb-uZZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Graph" image="2.circle" catalog="system" selectedImage="2.circle" id="kPC-ZI-NtD"/>
@@ -60,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHf-3K-oEZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="865"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="864.50892857142856"/>
         </scene>
         <!--Expenses Details-->
         <scene sceneID="inA-eX-syh">
@@ -69,7 +154,37 @@
                     <view key="view" contentMode="scaleToFill" id="MA3-ME-iM8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNE-fe-qww">
+                                <rect key="frame" x="20" y="336" width="374" height="328"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUA-pY-0gn">
+                                <rect key="frame" x="103.5" y="687" width="207" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add Expense Category">
+                                    <color key="titleColor" red="0.17245018819999999" green="0.602715373" blue="0.602715373" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAq-qF-a5h">
+                                <rect key="frame" x="142" y="143" width="130" height="34"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qNE-fe-qww" firstAttribute="leading" secondItem="jLP-Qd-4c9" secondAttribute="leading" constant="20" id="2Uy-Fe-kSr"/>
+                            <constraint firstItem="jLP-Qd-4c9" firstAttribute="bottom" secondItem="GUA-pY-0gn" secondAttribute="bottom" constant="90" id="3Ub-g6-efh"/>
+                            <constraint firstItem="GUA-pY-0gn" firstAttribute="centerX" secondItem="MA3-ME-iM8" secondAttribute="centerX" id="Dfw-vz-WbO"/>
+                            <constraint firstItem="JAq-qF-a5h" firstAttribute="top" secondItem="jLP-Qd-4c9" secondAttribute="top" constant="99" id="ERp-Wh-OtI"/>
+                            <constraint firstItem="qNE-fe-qww" firstAttribute="centerX" secondItem="MA3-ME-iM8" secondAttribute="centerX" id="MEp-47-eTc"/>
+                            <constraint firstItem="JAq-qF-a5h" firstAttribute="centerX" secondItem="MA3-ME-iM8" secondAttribute="centerX" id="Ply-nq-iCs"/>
+                            <constraint firstItem="jLP-Qd-4c9" firstAttribute="trailing" secondItem="qNE-fe-qww" secondAttribute="trailing" constant="20" id="Y34-OW-uzL"/>
+                            <constraint firstItem="GUA-pY-0gn" firstAttribute="top" secondItem="qNE-fe-qww" secondAttribute="bottom" constant="23" id="yhL-K2-mJU"/>
+                            <constraint firstItem="qNE-fe-qww" firstAttribute="top" secondItem="JAq-qF-a5h" secondAttribute="bottom" constant="159" id="ynT-EO-D3e"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jLP-Qd-4c9"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Expenses Details" image="3.circle" catalog="system" selectedImage="3.circle" id="NdC-Ly-ecU"/>

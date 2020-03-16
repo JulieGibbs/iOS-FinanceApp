@@ -35,7 +35,6 @@ xcuserdata/
 
 ## Playgrounds
 timeline.xctimeline
-playground.xcworkspace
 
 # Swift Package Manager
 # Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
@@ -51,8 +50,7 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+# Add this line if you want to avoid checking in source code from the Xcode
 
 # Carthage
 # Add this line if you want to avoid checking in source code from Carthage dependencies.

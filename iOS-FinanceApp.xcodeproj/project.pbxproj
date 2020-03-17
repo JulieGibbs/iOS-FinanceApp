@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F002F5D24201F19002C73F4 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* DataModel.swift */; };
 		3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */; };
 		3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */; };
 		3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE16241ECEE1006DAC7A /* FinanceOverviewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		0D33046D10F3C7B6F8AAD027 /* Pods_iOS_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2858A21C49D374232C16FF9A /* Pods-iOS-FinanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.release.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.release.xcconfig"; sourceTree = "<group>"; };
+		3F002F5C24201F19002C73F4 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3FBFDE0F241ECEE0006DAC7A /* iOS-FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-FinanceApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 				5E496E4FD60BA64AAD139CD5 /* Pods-iOS-FinanceApp.debug.xcconfig */,
 				2858A21C49D374232C16FF9A /* Pods-iOS-FinanceApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -102,6 +103,7 @@
 			children = (
 				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
 				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
+				3F002F5C24201F19002C73F4 /* DataModel.swift */,
 				3FBFDE38241ED1D9006DAC7A /* Controllers */,
 				3FBFDE18241ECEE1006DAC7A /* Main.storyboard */,
 				3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */,
@@ -288,6 +290,7 @@
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,
 				3FBFDE35241ED1A7006DAC7A /* ExpensesDetailsViewController.swift in Sources */,
 				3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */,
+				3F002F5D24201F19002C73F4 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

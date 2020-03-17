@@ -15,6 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let transactionsTest = Transaction()
+        
+        transactionsTest.addIncome(name: "Salary", amount: 1000, date: Date(timeIntervalSinceNow: 388))
+        transactionsTest.addIncome(name: "Returned Loan", amount: 1500, date: Date(timeIntervalSinceNow: 1666))
+        transactionsTest.addIncome(name: "Found Money", amount: 50, date: Date(timeIntervalSinceNow: 565))
+        
+        transactionsTest.addExpense(name: "Cat", amount: 10, date: Date(timeIntervalSinceNow: 54))
+        transactionsTest.addExpense(name: "Dog", amount: 15, date: Date(timeIntervalSinceNow: 524))
+        transactionsTest.addExpense(name: "Fish", amount: 5, date: Date(timeIntervalSinceNow: 123))
+        
+        let balance = transactionsTest.balance
+        
         return true
     }
 

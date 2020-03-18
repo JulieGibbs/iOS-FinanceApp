@@ -20,86 +20,46 @@ import RealmSwift
  посмотите на AppDelegate - там созданы базовые тесты, по ним видно, что вроде как работает. брейкпоинт на строчке 30 - баланс = 2520, что вроде правильно
  */
 
-
-/**
- Класс, который хранит данные о затрате:
- - наименование
- - сумма
- - дата
- */
-class Expense: Object {
-    @objc dynamic var expenseName: String = ""
-    @objc dynamic var expenseAmount: Int = 0
-    @objc dynamic var expenseDate: Date?
+class Entry: Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var amount: Int = 0
+    @objc dynamic var date: Date?
+    var isExpense: Bool = false
     
     // использован convenience init, потому что ругался компилятор - задумка в том, чтобы инициализировать новый объект для добавления его в массив
-    convenience init(name: String, amount: Int, date: Date) {
+    convenience init(name: String, amount: Int, date: Date, isExpense: Bool) {
         self.init()
-        self.expenseName = name
-        self.expenseAmount = amount
-        self.expenseDate = date
+        self.name = name
+        self.amount = amount
+        self.date = date
+        self.isExpense = isExpense
     }
 }
 
-/**
- Такой же класс, но с доходом
- */
-class Income: Object {
-    @objc dynamic var incomeName = ""
-    @objc dynamic var incomeAmount = 0
-    @objc dynamic var incomeDate: Date?
+class EntriesManager: Object {
+    @objc dynamic var debit: Int = 0
+    @objc dynamic var credit: Int = 0
+    @objc dynamic var balance: Int = 0
+    let entries = List<Entry>()
     
-    convenience init(name: String, amount: Int, date: Date) {
-        self.init()
-        self.incomeName = name
-        self.incomeAmount = amount
-        self.incomeDate = date
-    }
-}
-
-/**
- Класс, объединяющий в себе:
- - перечни доходов и затрат
- - методы добавления доходов и затрат
- - методы подсчета тотальных дохода, затрат и вывода баланса
- */
-class Transaction {
-    let expenses = List<Expense>()
-    let incomes = List<Income>()
-    var balance: Int {
-        get { return calculateDebit() + calculateCredit()}
+    func addTransaction(name: String, amount: Int, date: Date, isExpense: Bool) {
+        let transaction = Entry(name: name, amount: amount, date: date, isExpense: isExpense)
+        
+        if transaction.isExpense == true {
+            transaction.amount = transaction.amount * -1
+            entries.append(transaction)
+        } else {
+            entries.append(transaction)
+        }
     }
     
-    func addIncome(name: String, amount: Int, date: Date) {
-        let newIncome = Income(name: name, amount: amount, date: date)
-        incomes.append(newIncome)
-    }
-    
-    func addExpense(name: String, amount: Int, date: Date) {
-        let newExpense = Expense(name: name, amount: amount, date: date)
-        expenses.append(newExpense)
-    }
-    
-    func calculateDebit() -> Int {
-        var total = 0
-        for item in incomes where item.incomeAmount > 0 {
-            total += item.incomeAmount
+    func calculateTotals() {
+        for item in entries {
+            if item.isExpense == false {
+                debit += item.amount
+            } else { credit += item.amount }
         }
         
-        return total
-    }
-    
-    func calculateCredit() -> Int {
-        var total = 0
-        for item in expenses where item.expenseAmount > 0 {
-            total += item.expenseAmount
-        }
-        
-        return -total 
+        balance = debit + credit
     }
 }
-
-/**
- какие есть идеи по развитию:
- - избавиться от циклов - заменить на замыкания
- */

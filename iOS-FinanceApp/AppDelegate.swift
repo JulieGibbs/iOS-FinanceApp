@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,17 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let transactionsTest = Transaction()
+        let transactionsTest = EntriesManager()
         
-        transactionsTest.addIncome(name: "Salary", amount: 1000, date: Date(timeIntervalSinceNow: 388))
-        transactionsTest.addIncome(name: "Returned Loan", amount: 1500, date: Date(timeIntervalSinceNow: 1666))
-        transactionsTest.addIncome(name: "Found Money", amount: 50, date: Date(timeIntervalSinceNow: 565))
+        transactionsTest.addTransaction(name: "Salary", amount: 1000, date: Date(timeIntervalSinceNow: 388), isExpense: false)
+        transactionsTest.addTransaction(name: "Returned Loan", amount: 1500, date: Date(timeIntervalSinceNow: 1666), isExpense: false)
+        transactionsTest.addTransaction(name: "Found Money", amount: 50, date: Date(timeIntervalSinceNow: 565), isExpense: false)
         
-        transactionsTest.addExpense(name: "Cat", amount: 10, date: Date(timeIntervalSinceNow: 54))
-        transactionsTest.addExpense(name: "Dog", amount: 15, date: Date(timeIntervalSinceNow: 524))
-        transactionsTest.addExpense(name: "Fish", amount: 5, date: Date(timeIntervalSinceNow: 123))
+        transactionsTest.addTransaction(name: "Cat", amount: 10, date: Date(timeIntervalSinceNow: 54), isExpense: true)
+        transactionsTest.addTransaction(name: "Dog", amount: 15, date: Date(timeIntervalSinceNow: 524), isExpense: true)
+        transactionsTest.addTransaction(name: "Fish", amount: 5, date: Date(timeIntervalSinceNow: 123), isExpense: true)
         
-        let balance = transactionsTest.balance
+        transactionsTest.calculateTotals()
+        
+        let realm = try! Realm()
+        realm.beginWrite()
+        realm.add(transactionsTest)
+        try! realm.commitWrite()
         
         return true
     }

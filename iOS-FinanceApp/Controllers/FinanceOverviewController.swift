@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FinanceOverviewController.swift
 //  iOS-FinanceApp
 //
 //  Created by Dmitry Aksyonov on 16.03.2020.

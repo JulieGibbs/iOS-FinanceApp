@@ -194,30 +194,30 @@
             </objects>
             <point key="canvasLocation" x="1709" y="865"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Finance Overview Table View Controller-->
         <scene sceneID="XwB-EH-7Fs">
             <objects>
-                <tableViewController id="5nq-zm-LMd" sceneMemberID="viewController">
+                <tableViewController id="5nq-zm-LMd" customClass="FinanceOverviewTableViewController" customModule="iOS_FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gf6-ty-5F5">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="71" id="bXw-2e-coW">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="71" id="bXw-2e-coW" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="374" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bXw-2e-coW" id="kCd-hE-Egq">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dummy Expense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88Y-tf-uav">
-                                            <rect key="frame" x="20" y="25" width="129" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Amnt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88Y-tf-uav">
+                                            <rect key="frame" x="20" y="25" width="86" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dummy Expense" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-pY-vAT">
-                                            <rect key="frame" x="225" y="25" width="129" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlE-pY-vAT">
+                                            <rect key="frame" x="264" y="25" width="90" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -233,6 +233,10 @@
                                         <constraint firstItem="DlE-pY-vAT" firstAttribute="top" secondItem="kCd-hE-Egq" secondAttribute="topMargin" constant="14" id="j5U-fL-fpG"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="entryAmountLabel" destination="88Y-tf-uav" id="q6u-wW-RYD"/>
+                                    <outlet property="entryNameLabel" destination="DlE-pY-vAT" id="CNZ-e2-VAW"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

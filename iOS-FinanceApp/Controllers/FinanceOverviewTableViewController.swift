@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FinanceOverviewTableViewController: UITableViewController {
-
+    
+    let realm = try! Realm()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

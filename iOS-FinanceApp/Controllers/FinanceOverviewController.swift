@@ -21,7 +21,6 @@ class FinanceOverviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.financeOverviewTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableEntries = realm.objects(Entry.self)
         financeOverviewTableView.delegate = self
         financeOverviewTableView.dataSource = self
@@ -34,6 +33,7 @@ class FinanceOverviewController: UIViewController {
         entry.name = entryTag
         writeToRealm(write: entry)
         entryTag += "!"
+        financeOverviewTableView.reloadData()
     }
     
     @IBAction func addExpense(_ sender: UIButton) {
@@ -59,12 +59,14 @@ extension FinanceOverviewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
+        var cell: FinanceOverviewCell?
+        cell = tableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as? FinanceOverviewCell
+        
+        if cell == nil { cell = FinanceOverviewCell(style: .default, reuseIdentifier: "FinanceOverviewCell") }
         let entryData = tableEntries[indexPath.row]
         
-        cell.entryAmountLabel.text = String(entryData.amount)
-        cell.entryNameLabel.text = entryData.name
+        cell?.updateCell(name: entryData.name, amount: String(entryData.amount))
         
-        return cell
+        return cell!
     }
 }

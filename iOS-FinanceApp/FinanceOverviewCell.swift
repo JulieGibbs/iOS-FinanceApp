@@ -24,8 +24,8 @@ class FinanceOverviewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateCell(name: String, amount: String) {
-        entryNameLabel.text = name
-        entryAmountLabel.text = amount
+    func updateData(name: String, amount: String) {
+        entryNameLabel?.text = name
+        entryAmountLabel?.text = amount
     }
 }

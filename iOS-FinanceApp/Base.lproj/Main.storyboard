@@ -57,33 +57,45 @@
                                 <rect key="frame" x="20" y="371" width="374" height="337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" id="9H8-4V-Ifc">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="70" id="9H8-4V-Ifc" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9H8-4V-Ifc" id="bdF-jr-Ix3" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
-                                                    <rect key="frame" x="249" y="10" width="105" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-rt-WfC">
-                                                    <rect key="frame" x="20" y="11" width="90" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6OB-tg-g7Y">
+                                                    <rect key="frame" x="20" y="11" width="334" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-rt-WfC">
+                                                            <rect key="frame" x="8" y="13" width="90" height="22"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
+                                                            <rect key="frame" x="221" y="14" width="105" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="ydU-rt-WfC" firstAttribute="leading" secondItem="6OB-tg-g7Y" secondAttribute="leading" constant="8" id="7up-5X-ZDo"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ydU-rt-WfC" secondAttribute="bottom" constant="13" id="CJk-az-n7V"/>
+                                                        <constraint firstAttribute="trailing" secondItem="TTm-dg-t39" secondAttribute="trailing" constant="8" id="Pdl-fr-VQ7"/>
+                                                        <constraint firstItem="ydU-rt-WfC" firstAttribute="top" secondItem="6OB-tg-g7Y" secondAttribute="top" constant="13" id="TcX-hH-ZWb"/>
+                                                        <constraint firstAttribute="bottom" secondItem="TTm-dg-t39" secondAttribute="bottom" constant="12.5" id="a8A-sj-7DF"/>
+                                                        <constraint firstItem="TTm-dg-t39" firstAttribute="top" secondItem="6OB-tg-g7Y" secondAttribute="top" constant="14" id="wWw-tY-Iln"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ydU-rt-WfC" secondAttribute="bottom" constant="0.5" id="SS3-jk-pIT"/>
-                                                <constraint firstItem="TTm-dg-t39" firstAttribute="top" secondItem="bdF-jr-Ix3" secondAttribute="top" constant="10" id="Wj7-Ex-LcS"/>
-                                                <constraint firstItem="ydU-rt-WfC" firstAttribute="leading" secondItem="bdF-jr-Ix3" secondAttribute="leadingMargin" id="Yxc-hl-hq7"/>
-                                                <constraint firstAttribute="trailing" secondItem="TTm-dg-t39" secondAttribute="trailing" constant="20" id="a5h-gp-cpg"/>
-                                                <constraint firstAttribute="bottom" secondItem="TTm-dg-t39" secondAttribute="bottom" constant="13" id="sgf-5p-ajq"/>
-                                                <constraint firstItem="ydU-rt-WfC" firstAttribute="top" secondItem="bdF-jr-Ix3" secondAttribute="topMargin" id="tEp-pL-cJJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6OB-tg-g7Y" secondAttribute="bottom" id="5zu-HD-TGj"/>
+                                                <constraint firstItem="6OB-tg-g7Y" firstAttribute="top" secondItem="bdF-jr-Ix3" secondAttribute="topMargin" id="F0R-4X-y5q"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6OB-tg-g7Y" secondAttribute="trailing" id="ILP-yl-Maa"/>
+                                                <constraint firstItem="6OB-tg-g7Y" firstAttribute="leading" secondItem="bdF-jr-Ix3" secondAttribute="leadingMargin" id="kvF-Xd-uWl"/>
                                             </constraints>
                                             <connections>
                                                 <outlet property="entryAmountLabel" destination="TTm-dg-t39" id="Xwt-k5-NYE"/>

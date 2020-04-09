@@ -14,14 +14,17 @@ class FinanceOverviewController: UIViewController {
     @IBOutlet weak var financeOverviewTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
-    var tableEntries: Results<Entry>!
-    let entriesManager = EntriesManager()
+    //    var tableEntries: Results<Entry>!
     var realm = try! Realm()
+    let tableEntries = try! Realm().objects(Entry.self)
+    let entriesManager = EntriesManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(tableEntries)
         
-        tableEntries = realm.objects(Entry.self)
+        self.financeOverviewTableView.reloadData()
         financeOverviewTableView.delegate = self
         financeOverviewTableView.dataSource = self
     }
@@ -32,7 +35,7 @@ class FinanceOverviewController: UIViewController {
         entry.amount = Int.random(in: 1000...5000)
         entry.name = entryTag
         writeToRealm(write: entry)
-        entryTag += "!"
+        entryTag += "'!"
         financeOverviewTableView.reloadData()
     }
     
@@ -51,6 +54,10 @@ extension FinanceOverviewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension FinanceOverviewController: UITableViewDataSource {
@@ -59,14 +66,11 @@ extension FinanceOverviewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: FinanceOverviewCell?
-        cell = tableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as? FinanceOverviewCell
+        let cell = financeOverviewTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
+        let tableData = tableEntries[indexPath.row]
         
-        if cell == nil { cell = FinanceOverviewCell(style: .default, reuseIdentifier: "FinanceOverviewCell") }
-        let entryData = tableEntries[indexPath.row]
+        cell.updateData(name: tableData.name, amount: String(tableData.amount))
         
-        cell?.updateCell(name: entryData.name, amount: String(entryData.amount))
-        
-        return cell!
+        return cell
     }
 }

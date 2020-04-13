@@ -25,21 +25,21 @@
                                     <action selector="addIncome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lY1-ds-9PR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your Current Balance Is" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-WB-yfh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your Current Balance Is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-WB-yfh">
                                 <rect key="frame" x="91" y="97" width="232" height="23.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 000 RUB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-8g-bk1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 000 RUB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX2-8g-bk1">
                                 <rect key="frame" x="130" y="176.5" width="155" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent entries:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6S-hB-Xvm">
-                                <rect key="frame" x="20" y="339.5" width="134.5" height="23.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <rect key="frame" x="20" y="339.5" width="144.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ujW-ms-4RJ">
-                                <rect key="frame" x="20" y="371" width="374" height="337"/>
+                                <rect key="frame" x="20" y="371.5" width="374" height="336.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="70" id="9H8-4V-Ifc" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
@@ -68,12 +68,12 @@
                                                     <rect key="frame" x="20" y="11" width="334" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydU-rt-WfC">
-                                                            <rect key="frame" x="8" y="13" width="90" height="22"/>
+                                                            <rect key="frame" x="8" y="13" width="163" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Entry Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
                                                             <rect key="frame" x="221" y="14" width="105" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -87,6 +87,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="TTm-dg-t39" secondAttribute="trailing" constant="8" id="Pdl-fr-VQ7"/>
                                                         <constraint firstItem="ydU-rt-WfC" firstAttribute="top" secondItem="6OB-tg-g7Y" secondAttribute="top" constant="13" id="TcX-hH-ZWb"/>
                                                         <constraint firstAttribute="bottom" secondItem="TTm-dg-t39" secondAttribute="bottom" constant="12.5" id="a8A-sj-7DF"/>
+                                                        <constraint firstItem="TTm-dg-t39" firstAttribute="leading" secondItem="ydU-rt-WfC" secondAttribute="trailing" constant="50" id="usu-8P-2hP"/>
                                                         <constraint firstItem="TTm-dg-t39" firstAttribute="top" secondItem="6OB-tg-g7Y" secondAttribute="top" constant="14" id="wWw-tY-Iln"/>
                                                     </constraints>
                                                 </view>
@@ -102,6 +103,10 @@
                                                 <outlet property="entryNameLabel" destination="ydU-rt-WfC" id="NOf-p1-JTP"/>
                                             </connections>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="entryAmountLabel" destination="TTm-dg-t39" id="MM7-0h-jBH"/>
+                                            <outlet property="entryNameLabel" destination="ydU-rt-WfC" id="Ody-wd-pnP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

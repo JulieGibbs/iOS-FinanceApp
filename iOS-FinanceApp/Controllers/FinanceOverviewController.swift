@@ -21,7 +21,6 @@ class FinanceOverviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tableEntries)
         
         self.financeOverviewTableView.reloadData()
         financeOverviewTableView.delegate = self
@@ -83,9 +82,8 @@ extension FinanceOverviewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = financeOverviewTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
-        let tableData = tableEntries[indexPath.row]
         
-        cell.updateData(name: tableData.name, amount: String(tableData.amount))
+        cell.updateData(item: tableEntries[indexPath.row])
         
         return cell
     }

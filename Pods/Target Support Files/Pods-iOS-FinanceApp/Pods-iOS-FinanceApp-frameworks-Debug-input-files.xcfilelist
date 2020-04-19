@@ -1,3 +1,11 @@
 ${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework
+${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework
+${BUILT_PRODUCTS_DIR}/FontAwesomeKit/FontAwesomeKit.framework
+${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
+${BUILT_PRODUCTS_DIR}/ScrollableGraphView/ScrollableGraphView.framework
+${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework
+${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework
+${BUILT_PRODUCTS_DIR}/ViewAnimator/ViewAnimator.framework

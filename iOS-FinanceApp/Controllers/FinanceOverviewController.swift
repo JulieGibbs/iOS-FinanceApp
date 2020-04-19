@@ -9,18 +9,33 @@
 import UIKit
 import RealmSwift
 
+@IBDesignable
 class FinanceOverviewController: UIViewController {
-    
+    // MARK: - Properties and Outlets
     @IBOutlet weak var financeOverviewTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
     var realm = try! Realm()
-    let tableEntries = try! Realm().objects(Entry.self)
+    let tableEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: true)
+    let categoriesSum = try! Realm().objects(Entry.self).map({ $0.category })
     let entriesManager = EntriesManager()
     var notificationToken: NotificationToken?
     
+    // MARK: - Lifecycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let balance: Int = tableEntries.sum(ofProperty: "amount")
+        currentBalanceLabel.text = "\(balance)"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(tableEntries)
         
         self.financeOverviewTableView.reloadData()
         financeOverviewTableView.delegate = self
@@ -42,7 +57,24 @@ class FinanceOverviewController: UIViewController {
         })
     }
     
+    // MARK: - Actions
     @IBAction func addIncome(_ sender: UIButton) {
+        performSegue(withIdentifier: "Add Transaction Segue", sender: UIButton())
+    }
+    
+    @IBAction func tranferToReport(_ sender: Any) {
+        performSegue(withIdentifier: "Expenses Details Segue", sender: UIButton())
+    }
+    
+    @IBAction func transferToGraph(_ sender: Any) {
+        performSegue(withIdentifier: "Graph View Segue", sender: UIButton())
+    }
+    
+    // MARK: - Methods to Add Dummy Income and Expense
+    
+    
+    // not used in code but suitable for tests!
+    private func addDummyIncome() {
         let entry = Entry()
         let entryTag = "A"
         entry.amount = Int.random(in: 1000...5000)
@@ -50,7 +82,7 @@ class FinanceOverviewController: UIViewController {
         writeToRealm(write: entry)
     }
     
-    @IBAction func addExpense(_ sender: UIButton) {
+    private func addDummyExpense() {
         let entry = Entry()
         let entryTag = "B"
         entry.amount = Int.random(in: 1000...5000) * -1
@@ -83,7 +115,7 @@ extension FinanceOverviewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = financeOverviewTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
         
-        cell.updateData(item: tableEntries[indexPath.row])
+        cell.entryNameLabel.text = categoriesSum[indexPath.row]
         
         return cell
     }

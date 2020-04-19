@@ -7,24 +7,39 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExpensesDetailsViewController: UIViewController {
-
+    
+    @IBOutlet weak var detailsTableView: UITableView!
+    
+    let realm = try! Realm()
+    let allEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: true)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        detailsTableView.delegate = self
+        detailsTableView.dataSource = self
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension ExpensesDetailsViewController: UITableViewDelegate {
+    
+}
+
+extension ExpensesDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allEntries.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailsTableView.dequeueReusableCell(withIdentifier: "ExpensesDetailsCell", for: indexPath) as! ExpensesDetailsCell
+        
+        cell.updateData(item: allEntries[indexPath.row])
+        
+        return cell
     }
-    */
-
+    
+    
 }

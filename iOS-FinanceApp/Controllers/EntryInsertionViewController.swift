@@ -9,7 +9,11 @@
 import UIKit
 import RealmSwift
 
-class EntryInsertionViewController: UIViewController {
+protocol EntryInsertionDelegate {
+    func dataDidSendOnInsertion(_ data: Int)
+}
+
+class EntryInsertionViewController: UIViewController{
     // MARK: - Realm
     var realm = try! Realm()
     let allEntries = try! Realm().objects(Entry.self)
@@ -27,6 +31,7 @@ class EntryInsertionViewController: UIViewController {
     var datePicker = UIDatePicker()
     let categoryPicker = UIPickerView() // needed for categories picking
     var toolBar = UIToolbar()
+    var delegate: EntryInsertionDelegate?
     
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
@@ -50,20 +55,31 @@ class EntryInsertionViewController: UIViewController {
     
     // MARK: - Add Entry Logic
     @IBAction func addEntryButton(_ sender: UIButton) {
+        
         let entry = Entry(name: nameInputTextField.text!, amount: Int(amntInputTextField.text!)!, date: createDateFormatter(dateStyle: .short, timeStyle: .none).date(from: dateInputTextField.text!)!, category: categoryInputTextField.text!, entryType: isExpenseTextField.text!)
         
         if isExpenseTextField.text! == "Expense" {
             entry.amount *= -1
+            
+            delegate?.dataDidSendOnInsertion(entry.amount)
+            
+            writeToRealm(write: entry) // DRY 1
+            
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            delegate?.dataDidSendOnInsertion(entry.amount)
+            
+            writeToRealm(write: entry)
+            
+            self.dismiss(animated: true, completion: nil) // DRY 1
         }
-        
-        writeToRealm(write: entry)
-        
-        self.dismiss(animated: true, completion: nil)
-        
     }
     
-    //MARK: - Date Picker and Toolbar Stuff
+    @IBAction func dismissButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil) // add text fields clearance mb or not?
+    }
     
+    // MARK: - Date Picker and Toolbar Stuff
     func createDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(for:)), for: .valueChanged)
@@ -94,7 +110,7 @@ class EntryInsertionViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Keyboard Dismiss
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -107,6 +123,7 @@ extension UIViewController {
     }
 }
 
+// MARK: - Text Field Return Key Switch
 extension EntryInsertionViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -117,6 +134,7 @@ extension EntryInsertionViewController: UITextFieldDelegate {
     }
 }
 
+// MARK: - Date Picker Controls and Helpers
 extension EntryInsertionViewController {
     @objc func datePickerValueChanged(for datePicker: UIDatePicker) {
         dateInputTextField.text = createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: datePicker.date)

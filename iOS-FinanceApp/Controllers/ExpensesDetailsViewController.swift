@@ -16,11 +16,17 @@ class ExpensesDetailsViewController: UIViewController {
     let realm = try! Realm()
     let allEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: true)
     
+    private var financeOverviewVC: FinanceOverviewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
 }
 

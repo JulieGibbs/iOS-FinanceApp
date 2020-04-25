@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/user168750/Documents/GitHub/iOS-FinanceApp/iOS-FinanceApp/ExpensesDetailsCell.swift">
-   </FileRef>
-   <FileRef
       location = "group:iOS-FinanceApp.xcodeproj">
    </FileRef>
    <FileRef

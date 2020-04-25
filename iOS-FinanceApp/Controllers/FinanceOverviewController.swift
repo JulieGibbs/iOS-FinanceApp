@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 @IBDesignable
-class FinanceOverviewController: UIViewController {
+class FinanceOverviewController: UIViewController, EntryInsertionDelegate {
     // MARK: - Properties and Outlets
     @IBOutlet weak var financeOverviewTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
@@ -20,24 +20,20 @@ class FinanceOverviewController: UIViewController {
     let categoriesSum = try! Realm().objects(Entry.self).map({ $0.category })
     let entriesManager = EntriesManager()
     var notificationToken: NotificationToken?
-    
+        
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let balance: Int = tableEntries.sum(ofProperty: "amount")
-        currentBalanceLabel.text = "\(balance)"
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        updateBalance()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(tableEntries)
-        
-        self.financeOverviewTableView.reloadData()
         financeOverviewTableView.delegate = self
         financeOverviewTableView.dataSource = self
         
@@ -55,6 +51,22 @@ class FinanceOverviewController: UIViewController {
                 fatalError("\(err)")
             }
         })
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Add Transaction Segue" {
+            if let vc = segue.destination as? EntryInsertionViewController {
+                vc.delegate = self
+            }
+        }
+    }
+    
+    func dataDidSendOnInsertion(_ data: Int) {
+        currentBalanceLabel.text = "\((currentBalanceLabel.text! as NSString).integerValue + data)"
     }
     
     // MARK: - Actions
@@ -95,8 +107,14 @@ class FinanceOverviewController: UIViewController {
         realm.add(item)
         try! realm.commitWrite()
     }
+    
+    func updateBalance() {
+        let balance: Int = tableEntries.sum(ofProperty: "amount")
+        currentBalanceLabel.text = "\(balance)"
+    }
 }
 
+// MARK: - Table View Delegate
 extension FinanceOverviewController: UITableViewDelegate {    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -107,6 +125,7 @@ extension FinanceOverviewController: UITableViewDelegate {
     }
 }
 
+// MARK: - Table View Data Source
 extension FinanceOverviewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableEntries.count

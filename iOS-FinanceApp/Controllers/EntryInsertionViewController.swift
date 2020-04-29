@@ -55,28 +55,34 @@ class EntryInsertionViewController: UIViewController{
     
     // MARK: - Add Entry Logic
     @IBAction func addEntryButton(_ sender: UIButton) {
+        let validator = TextValidation()
         
-        let entry = Entry(name: nameInputTextField.text!, amount: Int(amntInputTextField.text!)!, date: createDateFormatter(dateStyle: .short, timeStyle: .none).date(from: dateInputTextField.text!)!, category: categoryInputTextField.text!, entryType: isExpenseTextField.text!)
-        
-        if isExpenseTextField.text! == "Expense" {
-            entry.amount *= -1
+        if validator.inputIsValidated(input: nameInputTextField.text!, pattern: validator.regExes["alphaNumericRegEx"]!) == true &&
+            validator.inputIsValidated(input: amntInputTextField.text!, pattern: validator.regExes["numericRegEx"]!) == true &&
+            isExpenseTextField.text == "Expense" || isExpenseTextField.text == "Income" {
             
-            delegate?.dataDidSendOnInsertion(entry.amount)
+            let entry = Entry(name: nameInputTextField.text!, amount: Int(amntInputTextField.text!)!, date: createDateFormatter(dateStyle: .short, timeStyle: .none).date(from: dateInputTextField.text!)!, category: categoryInputTextField.text!, entryType: isExpenseTextField.text!)
             
-            writeToRealm(write: entry) // DRY 1
-            
-            self.dismiss(animated: true, completion: nil)
+            if isExpenseTextField.text! == "Expense" {
+                entry.amount *= -1
+                delegate?.dataDidSendOnInsertion(entry.amount)
+                writeToRealm(write: entry) // DRY 1
+                self.dismiss(animated: true, completion: nil) // DRY 2
+            } else {
+                delegate?.dataDidSendOnInsertion(entry.amount)
+                writeToRealm(write: entry) // DRY 1
+                self.dismiss(animated: true, completion: nil) // DRY 2
+            }
         } else {
-            delegate?.dataDidSendOnInsertion(entry.amount)
-            
-            writeToRealm(write: entry)
-            
-            self.dismiss(animated: true, completion: nil) // DRY 1
+            let alert = UIAlertController(title: "invalid input", message: "some of the patterns did not match the input", preferredStyle: .alert)
+            self.present(alert, animated: true, completion:  {
+                alert.dismissOnTapOutside()
+            })
         }
     }
     
     @IBAction func dismissButton(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil) // add text fields clearance mb or not?
+        self.dismiss(animated: true, completion: nil) // DRY 2
     }
     
     // MARK: - Date Picker and Toolbar Stuff
@@ -120,6 +126,10 @@ extension UIViewController {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc func dismissOnTapOutside() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

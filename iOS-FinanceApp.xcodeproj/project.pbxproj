@@ -21,6 +21,7 @@
 		4C62FD04D41A19FFF56A5BD6 /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D33046D10F3C7B6F8AAD027 /* Pods_iOS_FinanceApp.framework */; };
 		B746C6E52445E0CC0004BD75 /* EntryInsertionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746C6E42445E0CC0004BD75 /* EntryInsertionViewController.swift */; };
 		B79C1DDF244C3E38002B657E /* ExpensesDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79C1DDE244C3E37002B657E /* ExpensesDetailsCell.swift */; };
+		B7B50201245956430008BADE /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B50200245956430008BADE /* DataValidation.swift */; };
 		B7BA9FB1244C318D00923A60 /* Misc and Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA9FB0244C318D00923A60 /* Misc and Helpers.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		5E496E4FD60BA64AAD139CD5 /* Pods-iOS-FinanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.debug.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B746C6E42445E0CC0004BD75 /* EntryInsertionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryInsertionViewController.swift; sourceTree = "<group>"; };
 		B79C1DDE244C3E37002B657E /* ExpensesDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExpensesDetailsCell.swift; path = "/Users/user168750/Documents/GitHub/iOS-FinanceApp/iOS-FinanceApp/ExpensesDetailsCell.swift"; sourceTree = "<absolute>"; };
+		B7B50200245956430008BADE /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		B7BA9FB0244C318D00923A60 /* Misc and Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Misc and Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +115,7 @@
 				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
 				3F002F5C24201F19002C73F4 /* DataModel.swift */,
 				B7BA9FB0244C318D00923A60 /* Misc and Helpers.swift */,
+				B7B50200245956430008BADE /* DataValidation.swift */,
 				3F1B00A024241C390070E0FF /* FinanceOverviewCell.swift */,
 				B79C1DDE244C3E37002B657E /* ExpensesDetailsCell.swift */,
 				3FBFDE38241ED1D9006DAC7A /* Controllers */,
@@ -297,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7B50201245956430008BADE /* DataValidation.swift in Sources */,
 				3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */,
 				3FBFDE37241ED1CC006DAC7A /* GraphViewController.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,

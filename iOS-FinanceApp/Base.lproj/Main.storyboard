@@ -193,7 +193,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="70" id="9H8-4V-Ifc" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9H8-4V-Ifc" id="bdF-jr-Ix3" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9H8-4V-Ifc" id="bdF-jr-Ix3" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>

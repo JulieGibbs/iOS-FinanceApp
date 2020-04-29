@@ -36,6 +36,7 @@ class FinanceOverviewController: UIViewController, EntryInsertionDelegate {
         
         financeOverviewTableView.delegate = self
         financeOverviewTableView.dataSource = self
+        financeOverviewTableView.allowsSelection = false	
         
         self.notificationToken = tableEntries.observe({ (changes: RealmCollectionChange) in
             switch changes {

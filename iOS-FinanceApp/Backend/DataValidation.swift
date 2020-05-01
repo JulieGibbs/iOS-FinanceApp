@@ -24,7 +24,7 @@ class TextValidation {
     }
     
     private func whitespacesDidTrim(input: String) -> String {
-        if input.doesContainWhitespacesAndNewLines == true {
+        if input.doesContainWhitespacesAndNewLines {
             return input.filter { !$0.isNewline && !$0.isWhitespace }
         } else {
             return input

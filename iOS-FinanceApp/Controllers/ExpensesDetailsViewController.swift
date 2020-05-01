@@ -12,26 +12,26 @@ import RealmSwift
 class ExpensesDetailsViewController: UIViewController {
     
     @IBOutlet weak var detailsTableView: UITableView!
-    
-    let realm = try! Realm()
-    let allEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: true)
-    
-    private var financeOverviewVC: FinanceOverviewController?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
     }
 }
 
 extension ExpensesDetailsViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
+            realm.beginWrite()
+            realm.delete(allEntries[indexPath.row])
+            try! realm.commitWrite()
+            
+            self.detailsTableView.deleteRows(at: [indexPath], with: .automatic)
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
 }
 
 extension ExpensesDetailsViewController: UITableViewDataSource {
@@ -41,11 +41,7 @@ extension ExpensesDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = detailsTableView.dequeueReusableCell(withIdentifier: "ExpensesDetailsCell", for: indexPath) as! ExpensesDetailsCell
-        
         cell.updateData(item: allEntries[indexPath.row])
-        
         return cell
     }
-    
-    
 }

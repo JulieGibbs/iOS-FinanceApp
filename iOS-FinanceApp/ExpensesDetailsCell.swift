@@ -20,10 +20,10 @@ class ExpensesDetailsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -33,5 +33,5 @@ class ExpensesDetailsCell: UITableViewCell {
         categoryLabel.text = item.category
         dateLabel.text = "\(String(describing: item.date!))"
     }
-
+    
 }

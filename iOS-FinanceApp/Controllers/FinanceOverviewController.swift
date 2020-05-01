@@ -15,6 +15,14 @@ class FinanceOverviewController: UIViewController {
     @IBOutlet weak var financeOverviewTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
+    var data = EntriesManager.mapCategories(from: allEntries)
+    
+    struct Objects {
+        var categoryName: String?
+        var balance: String?
+    }
+    
+    var objectArray = [Objects]()
     
     
     // MARK: - Lifecycle Methods
@@ -25,6 +33,13 @@ class FinanceOverviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for (key, value) in data {
+            print("\(key) -> \(value)")
+            
+            objectArray.append(Objects(categoryName: key, balance: String(value)))
+        }
+        
         financeOverviewTableView.delegate = self
         financeOverviewTableView.dataSource = self
         financeOverviewTableView.allowsSelection = false
@@ -66,25 +81,20 @@ class FinanceOverviewController: UIViewController {
 
 // MARK: - Table View Delegate - move to EntryInsertion
 extension FinanceOverviewController: UITableViewDelegate {    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            realm.beginWrite()
-            realm.delete(tableEntries[indexPath.row])
-            try! realm.commitWrite()
-        }
-    }
 }
 
 // MARK: - Table View Data Source - rewrite
 extension FinanceOverviewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableEntries.count
+        
+        return objectArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = financeOverviewTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
         
-        cell.entryNameLabel.text = categoriesSum[indexPath.row]
+        cell.entryNameLabel.text = objectArray[indexPath.row].categoryName
+        cell.entryAmountLabel.text = objectArray[indexPath.row].balance
         
         return cell
     }

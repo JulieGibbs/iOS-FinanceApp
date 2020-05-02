@@ -230,15 +230,11 @@
                                                 <constraint firstItem="6OB-tg-g7Y" firstAttribute="bottom" secondItem="bdF-jr-Ix3" secondAttribute="bottomMargin" id="KzG-MV-EmF"/>
                                                 <constraint firstItem="6OB-tg-g7Y" firstAttribute="leading" secondItem="bdF-jr-Ix3" secondAttribute="leadingMargin" id="lI2-zQ-LBM"/>
                                             </constraints>
-                                            <connections>
-                                                <outlet property="entryAmountLabel" destination="TTm-dg-t39" id="Xwt-k5-NYE"/>
-                                                <outlet property="entryNameLabel" destination="ydU-rt-WfC" id="NOf-p1-JTP"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="entryAmountLabel" destination="TTm-dg-t39" id="MM7-0h-jBH"/>
-                                            <outlet property="entryNameLabel" destination="ydU-rt-WfC" id="Ody-wd-pnP"/>
+                                            <outlet property="categoryAmountLabel" destination="TTm-dg-t39" id="8Lh-dn-nb9"/>
+                                            <outlet property="categoryNameLabel" destination="ydU-rt-WfC" id="Tl1-uJ-Rc3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -568,7 +564,7 @@
     </scenes>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
-        <image name="2.circle" catalog="system" width="128" height="121"/>
+        <image name="2.circle" catalog="system" width="32" height="32"/>
         <image name="3.circle" catalog="system" width="128" height="121"/>
         <image name="Dummy Heart" width="820" height="792"/>
     </resources>

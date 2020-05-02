@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Text Validation
 class TextValidation {
     
     let regExes: [String : String] = [
@@ -23,6 +24,10 @@ class TextValidation {
         }
     }
     
+    private func createPredicate(pattern regEx: String) -> NSPredicate {
+        return NSPredicate(format: "SELF MATCHES %@", regEx)
+    }
+    
     private func whitespacesDidTrim(input: String) -> String {
         if input.doesContainWhitespacesAndNewLines {
             return input.filter { !$0.isNewline && !$0.isWhitespace }
@@ -30,15 +35,11 @@ class TextValidation {
             return input
         }
     }
-    
-    private func createPredicate(pattern regEx: String) -> NSPredicate {
-        return NSPredicate(format: "SELF MATCHES %@", regEx)
-    }
 }
 
+// MARK: - Extensions
 extension String {
     var doesContainWhitespacesAndNewLines: Bool {
         return (self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
     }
 }
-

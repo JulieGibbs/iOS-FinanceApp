@@ -11,10 +11,9 @@ import RealmSwift
 
 // MARK: - Realm Global Variables
 var realm = try! Realm()
-let tableEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: true) // ??
-let categoriesSum = try! Realm().objects(Entry.self).map({ $0.category })
-let allEntries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: false) // ??
+let entries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: false) // ??
 
+// MARK: - Class for Entries
 class Entry: Object {
     @objc dynamic var name: String?
     @objc dynamic var amount: Int = 0
@@ -32,6 +31,7 @@ class Entry: Object {
     }
 }
 
+// MARK: - Class for Entries Management
 class EntriesManager {
     class func mapCategories(from data: Results<Entry>) -> [Dictionary<String, Int>.Element] {
         let categories = Array(data)
@@ -44,6 +44,6 @@ class EntriesManager {
                 dict[$0.category!] = $0.amount
             }
         }
-        return dict.sorted { $0 < $1 }
+        return dict.sorted { $0.value < $1.value }
     }
 }

@@ -9,22 +9,6 @@
 import UIKit
 
 class FinanceOverviewCell: UITableViewCell {
-    
-    @IBOutlet weak var entryNameLabel: UILabel!
-    @IBOutlet weak var entryAmountLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-    
-    func updateData(item: Entry) {
-        entryNameLabel?.text = item.name
-        entryAmountLabel?.text = "\(item.amount)"
-    }
+    @IBOutlet weak var categoryNameLabel: UILabel!
+    @IBOutlet weak var categoryAmountLabel: UILabel!
 }

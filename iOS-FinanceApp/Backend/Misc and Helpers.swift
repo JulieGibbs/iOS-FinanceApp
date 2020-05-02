@@ -30,7 +30,10 @@ class Butler {
 // MARK: - Keyboard Dismiss
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        let tap = UITapGestureRecognizer(
+            target: self,
+            action: #selector(UIViewController.dismissKeyboard))
+        
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
@@ -38,4 +41,9 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+}
+
+// MARK: - Notifications
+extension Notification.Name {
+    static let reload = Notification.Name("reload")
 }

@@ -11,7 +11,7 @@ import RealmSwift
 
 // MARK: - Realm Global Variables
 var realm = try! Realm()
-let entries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: false) // ??
+let entries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
 
 // MARK: - Class for Entries
 class Entry: Object {
@@ -45,5 +45,19 @@ class EntriesManager {
             }
         }
         return dict.sorted { $0.value < $1.value }
+    }
+    
+    // <ARK: - Add Here Realm Write / Delete logic
+    // search func draft - not used yet
+    class func search(searchTerm: String? = nil) -> Results<Entry> {
+        return realm.objects(Entry.self)
+        .filter("category contains [c] %@", searchTerm ?? "")
+        .sorted(byKeyPath: "amount", ascending: false)
+    }
+    
+    class func writeToRealm(_ input: Entry) {
+    }
+    
+    class func deleteFromRealm(_ input: Entry) {
     }
 }

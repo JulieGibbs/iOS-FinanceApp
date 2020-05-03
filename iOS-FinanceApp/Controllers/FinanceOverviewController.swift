@@ -60,6 +60,16 @@ class FinanceOverviewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToFinanceOverview(_ segue: UIStoryboardSegue) {
+        for (key, value) in data {
+            objectArray.append(Objects(categoryName: key, balance: String(value)))
+        }
+        financeOverviewTableView.reloadData()
+        
+        print("categories were updated")
+        print("the actual state is \(objectArray)")
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Add Transaction Segue" {
             if let vc = segue.destination as? EntryInsertionViewController {

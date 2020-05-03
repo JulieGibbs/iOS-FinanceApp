@@ -112,6 +112,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addEntryButton:" destination="blO-ZY-ASZ" eventType="touchUpInside" id="52u-iE-m0I"/>
+                                    <segue destination="8AB-sD-BYv" kind="unwind" unwindAction="unwindToFinanceOverview:" id="bX1-qz-jvC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -150,6 +151,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFx-q3-EqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="8AB-sD-BYv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1292.753623188406" y="1580.3571428571429"/>
         </scene>
@@ -564,7 +566,7 @@
     </scenes>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
-        <image name="2.circle" catalog="system" width="32" height="32"/>
+        <image name="2.circle" catalog="system" width="128" height="121"/>
         <image name="3.circle" catalog="system" width="128" height="121"/>
         <image name="Dummy Heart" width="820" height="792"/>
     </resources>

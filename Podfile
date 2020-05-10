@@ -6,7 +6,7 @@ target 'iOS-FinanceApp' do
 
 	# These pods are used already
 	pod 'RealmSwift'
-	pod 'PMSuperButton'
+	pod 'PMSuperButton'	
 	
 	# These pods are to be implemented
 	pod 'DZNEmptyDataSet'

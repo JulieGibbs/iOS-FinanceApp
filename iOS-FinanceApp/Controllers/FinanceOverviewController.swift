@@ -10,34 +10,38 @@ import UIKit
 import RealmSwift
 import PMSuperButton
 
+// MARK: - Struct for Categories Table
 struct Objects {
     var categoryName: String?
-    var balance: String?
+    var balance: Int?
 }
 
 class FinanceOverviewController: UIViewController {
     // MARK: - Properties and Outlets
-    @IBOutlet weak var financeOverviewTableView: UITableView!
+    @IBOutlet weak var pivotTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
-    var data = EntriesManager.mapCategories(from: entries)
+    var data = DataManager.mapCategories(from: entries)
     var objectArray = [Objects]()
     
     // MARK: - Lifecycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refreshOverviewData()
+        observe()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateBalance()
-        
-        financeOverviewTableView.delegate = self
-        financeOverviewTableView.dataSource = self
-        financeOverviewTableView.allowsSelection = false
-        
-        for (key, value) in data {
-            objectArray.append(Objects(categoryName: key, balance: String(value)))
-        }
-        
-        financeOverviewTableView.reloadData()
+        pivotTableView.delegate = self // DRY
+        pivotTableView.dataSource = self // DRY
+        pivotTableView.allowsSelection = false // DRY
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: - Actions and Methods
@@ -60,31 +64,66 @@ class FinanceOverviewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToFinanceOverview(_ segue: UIStoryboardSegue) {
-        for (key, value) in data {
-            objectArray.append(Objects(categoryName: key, balance: String(value)))
-        }
-        financeOverviewTableView.reloadData()
-        
-        print("categories were updated")
-        print("the actual state is \(objectArray)")
+    // MARK: - Helpers - ADD TO HELPER CLASS
+    @objc func refreshOverviewData() {
+        updateBalance()
+        gatherCategories()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Add Transaction Segue" {
-            if let vc = segue.destination as? EntryInsertionViewController {
-                vc.delegate = self
-            }
-        }
-    }
-    // MARK: - Helpers - ADD TO HELPER CLASS
     func updateBalance() {
         let balance: Int = entries.sum(ofProperty: "amount")
-        currentBalanceLabel.text = "\(balance)"
+        currentBalanceLabel.text = "\(Butler.createNumberFormatter(input: balance))"
+        self.currentBalanceLabel.layoutIfNeeded()
+    }
+    
+    func gatherCategories() {
+        for (key, value) in self.data {
+            self.objectArray.append(Objects(categoryName: key, balance: value))
+        }
+        
+        self.pivotTableView.reloadData()
+    }
+    
+    func observe() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .balanceDidChanged,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .entryDidAdded,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .entryDidAmended,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .entryDidRemoved,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .categoryNameDidChanged,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .categoryDidAdded,
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(refreshOverviewData),
+            name: .categoryDidRemoved,
+            object: nil)
     }
 }
 
-// MARK: - Table View Delegate - move to EntryInsertion
+// MARK: - Table View Delegate
 extension FinanceOverviewController: UITableViewDelegate {    
 }
 
@@ -95,18 +134,11 @@ extension FinanceOverviewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = financeOverviewTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
+        let cell = pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
         
         cell.categoryNameLabel.text = objectArray[indexPath.row].categoryName
-        cell.categoryAmountLabel.text = objectArray[indexPath.row].balance
+        cell.categoryAmountLabel.text = Butler.createNumberFormatter(input: objectArray[indexPath.row].balance!)
         
         return cell
-    }
-}
-
-// MARK: - Entry Insertion Delegate
-extension FinanceOverviewController: EntryInsertionDelegate {
-    func dataDidSendOnInsertion(_ data: Int) {
-        currentBalanceLabel.text = "\((currentBalanceLabel.text! as NSString).integerValue + data)"
     }
 }

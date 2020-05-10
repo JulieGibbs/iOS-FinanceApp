@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0FA-Qw-DCS">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Hey, add something of VALUE!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jv-2D-eej">
-                                <rect key="frame" x="20.000000000000014" y="46" width="248.33333333333337" height="20.333333333333329"/>
+                                <rect key="frame" x="20" y="46" width="248.5" height="20.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.333333333333329" id="X6b-eR-2jh"/>
                                 </constraints>
@@ -25,10 +25,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="owv-aB-7pS">
-                                <rect key="frame" x="20" y="74" width="180.66666666666666" height="202"/>
+                                <rect key="frame" x="20" y="74" width="180.5" height="202"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Short Entry Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T4T-qe-rDe">
-                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="next"/>
                                         <connections>
@@ -36,7 +36,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Entry Amount" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Jpq-5L-eCx">
-                                        <rect key="frame" x="0.0" y="42" width="180.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="42" width="180.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" textContentType="cc-number"/>
                                         <connections>
@@ -44,7 +44,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Entry Date" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jos-RA-rBg">
-                                        <rect key="frame" x="0.0" y="84" width="180.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="84" width="180.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                         <connections>
@@ -52,7 +52,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose Entry Category" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bME-04-RTi">
-                                        <rect key="frame" x="0.0" y="126" width="180.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="126" width="180.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -60,7 +60,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Income or expense?" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5KO-7A-d3M">
-                                        <rect key="frame" x="0.0" y="168" width="180.66666666666666" height="34"/>
+                                        <rect key="frame" x="0.0" y="168" width="180.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
@@ -112,7 +112,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addEntryButton:" destination="blO-ZY-ASZ" eventType="touchUpInside" id="52u-iE-m0I"/>
-                                    <segue destination="8AB-sD-BYv" kind="unwind" unwindAction="unwindToFinanceOverview:" id="bX1-qz-jvC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -146,12 +145,11 @@
                         <outlet property="categoryInputTextField" destination="bME-04-RTi" id="afE-8J-WvA"/>
                         <outlet property="dateInputTextField" destination="jos-RA-rBg" id="oKE-cK-S4m"/>
                         <outlet property="imageForCategory" destination="4wG-j6-0cd" id="Rpl-i2-FR4"/>
-                        <outlet property="isExpenseTextField" destination="5KO-7A-d3M" id="e7I-As-Ufo"/>
                         <outlet property="nameInputTextField" destination="T4T-qe-rDe" id="iN1-m9-2Zs"/>
+                        <outlet property="typeTextField" destination="5KO-7A-d3M" id="e7I-As-Ufo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TFx-q3-EqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="8AB-sD-BYv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1292.753623188406" y="1580.3571428571429"/>
         </scene>
@@ -164,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your Current Balance Is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ehM-WB-yfh">
-                                <rect key="frame" x="91" y="193" width="232" height="23.666666666666657"/>
+                                <rect key="frame" x="91" y="193" width="232" height="23.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -176,7 +174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last 10 entries:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6S-hB-Xvm">
-                                <rect key="frame" x="20" y="378" width="137.33333333333334" height="24"/>
+                                <rect key="frame" x="20" y="378" width="137.5" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -349,7 +347,7 @@
                     <navigationItem key="navigationItem" title="Finance Overview" id="PQe-Ft-fkh"/>
                     <connections>
                         <outlet property="currentBalanceLabel" destination="ZX2-8g-bk1" id="g22-ED-62h"/>
-                        <outlet property="financeOverviewTableView" destination="ujW-ms-4RJ" id="hy2-ba-u67"/>
+                        <outlet property="pivotTableView" destination="ujW-ms-4RJ" id="hy2-ba-u67"/>
                         <segue destination="blO-ZY-ASZ" kind="popoverPresentation" identifier="Add Transaction Segue" popoverAnchorView="8bC-Xf-vdC" id="Jbo-YL-gWT">
                             <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                             <popoverPassthroughViews>
@@ -377,7 +375,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nP-LJ-oSw">
-                                <rect key="frame" x="73.666666666666686" y="164" width="267" height="32"/>
+                                <rect key="frame" x="73.5" y="164" width="267" height="32"/>
                                 <segments>
                                     <segment title="Week"/>
                                     <segment title="Month"/>
@@ -537,6 +535,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="detailsTableView" destination="qNE-fe-qww" id="onQ-XJ-P9q"/>
+                        <segue destination="blO-ZY-ASZ" kind="popoverPresentation" identifier="Amend Entry Segue" popoverAnchorView="qNE-fe-qww" id="Zq2-kj-oBE">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdb-9Q-5tv" sceneMemberID="firstResponder"/>
@@ -564,6 +565,9 @@
             <point key="canvasLocation" x="382.60869565217394" y="864.50892857142856"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zq2-kj-oBE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>
         <image name="2.circle" catalog="system" width="128" height="121"/>

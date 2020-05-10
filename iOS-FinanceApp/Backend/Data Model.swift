@@ -7,32 +7,100 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 
 // MARK: - Realm Global Variables
 var realm = try! Realm()
-let entries = try! Realm().objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
+var entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
+var currentBalance: Int = realm.objects(Entry.self).sum(ofProperty: "amount")
 
 // MARK: - Class for Entries
 class Entry: Object {
+    // MARK: - Persisted Properties
+    @objc dynamic var id: String?
     @objc dynamic var name: String?
     @objc dynamic var amount: Int = 0
     @objc dynamic var date: Date?
     @objc dynamic var category: String?
     @objc dynamic var entryType: String?
     
-    convenience init(name: String, amount: Int, date: Date, category: String, entryType: String?) {
+    // MARK: - Custom Init to Add an Entry
+    convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?) {
         self.init()
+        self.id = id
         self.name = name
         self.amount = amount
         self.date = date
         self.category = category
         self.entryType = entryType
     }
+    
+    // MARK: - Description
+    override var description: String {
+        get {
+            return """
+            id: \(id ?? "");
+            name: \(name ?? "");
+            amount: \(amount);
+            created: \(date ?? Date());
+            type: \(entryType ?? "");
+            category: \(category ?? "").
+            """
+        }
+    }
 }
 
-// MARK: - Class for Entries Management
-class EntriesManager {
+// MARK: - Class for Data & Realm Management
+final class DataManager {
+    // MARK: - Singleton
+    static let shared = DataManager()
+    
+    // MARK: - Realm Administration
+    class func search(searchTerm: String? = nil) -> Results<Entry> {
+        return realm.objects(Entry.self)
+            .filter("category contains [c] %@", searchTerm ?? "")
+            .sorted(byKeyPath: "amount", ascending: false)
+    }
+    
+    class func writeToRealm(_ input: Entry) {
+        realm.beginWrite()
+        realm.add(input)
+        
+        do { try realm.commitWrite() }
+        catch { print(error) }
+    }
+    
+    class func deleteFromRealm(_ input: Entry) {
+        realm.beginWrite()
+        realm.delete(input)
+        
+        do { try realm.commitWrite() }
+        catch { print(error) }
+    }
+    
+    // MARK: - Migration Tools
+    class func showSchemaVersion() -> UInt64 {
+        let schemaVersionCheck = Realm.Configuration()
+        var version: UInt64 = 0
+        
+        do {
+            version = try schemaVersionAtURL(schemaVersionCheck.fileURL!) as UInt64
+            print("Schema version: \(version).")
+        } catch {
+            print(error)
+        }
+        return version
+    }
+    
+    func migratePersistentStorage(schema version: @escaping () -> UInt64 = showSchemaVersion) {
+        let config = Realm.Configuration(schemaVersion: version(), migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion < version() {  }
+        })
+        Realm.Configuration.defaultConfiguration = config
+    }
+    
+    // MARK: - Helpers for View and Data
     class func mapCategories(from data: Results<Entry>) -> [Dictionary<String, Int>.Element] {
         let categories = Array(data)
         var dict: [String:Int] = [:]
@@ -47,17 +115,7 @@ class EntriesManager {
         return dict.sorted { $0.value < $1.value }
     }
     
-    // <ARK: - Add Here Realm Write / Delete logic
-    // search func draft - not used yet
-    class func search(searchTerm: String? = nil) -> Results<Entry> {
-        return realm.objects(Entry.self)
-        .filter("category contains [c] %@", searchTerm ?? "")
-        .sorted(byKeyPath: "amount", ascending: false)
-    }
-    
-    class func writeToRealm(_ input: Entry) {
-    }
-    
-    class func deleteFromRealm(_ input: Entry) {
+    class func generateId() -> String {
+        return UUID().uuidString
     }
 }

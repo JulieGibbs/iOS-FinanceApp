@@ -11,12 +11,10 @@ import RealmSwift
 
 // MARK: - Class for Repeated Methods
 class Butler {
-    class func writeToRealm(new item: Entry) {
-        realm.beginWrite()
-        realm.add(item)
-        try! realm.commitWrite()
-    }
+    // MARK: - Singleton - consider usage
+    static let shared = Butler()
     
+    // MARK: - Formatters
     class func createDateFormatter(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> DateFormatter {
         let dateFormatter = DateFormatter()
         
@@ -24,6 +22,15 @@ class Butler {
         dateFormatter.timeStyle = timeStyle
         
         return dateFormatter
+    }
+    
+    class func createNumberFormatter(input number: Int) -> String {
+        let numberFormatter = NumberFormatter()
+        
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.locale = Locale(identifier: "ru_RU")
+        
+        return numberFormatter.string(from: NSNumber(integerLiteral: number))!
     }
 }
 
@@ -35,6 +42,7 @@ extension UIViewController {
             action: #selector(UIViewController.dismissKeyboard))
         
         tap.cancelsTouchesInView = false
+        
         view.addGestureRecognizer(tap)
     }
     
@@ -45,5 +53,19 @@ extension UIViewController {
 
 // MARK: - Notifications
 extension Notification.Name {
-    static let reload = Notification.Name("reload")
+    static let balanceDidChanged = Notification.Name("balanceDidChanged")
+    
+    static let entryDidAdded = Notification.Name("entryDidAdded")
+    static let entryDidAmended = Notification.Name("entryDidAmended")
+    static let entryDidRemoved = Notification.Name("entryDidRemoved")
+    
+    static let categoryNameDidChanged = Notification.Name("categoryNameDidChanged")
+    static let categoryDidAdded = Notification.Name("categoryDidAdded")
+    static let categoryDidRemoved = Notification.Name("categoryDidRemoved")
+    
+    static let nameValidationDidFailed = Notification.Name("nameValidationDidFailed")
+    static let amntValidationDidFailed = Notification.Name("amntValidationDidFailed")
+    static let dateValidationDidFailed = Notification.Name("dateValidationDidFailed")
+    static let categoryValidationDidFailed = Notification.Name("categoryValidationDidFailed")
+    static let typeValidationDidFailed = Notification.Name("typeValidationDidFailed")
 }

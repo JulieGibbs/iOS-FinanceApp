@@ -15,7 +15,7 @@ class ExpensesDetailsCell: UITableViewCell {
     
     func updateData(item: Entry) {
         nameLabel.text = item.name
-        amountLabel.text = "\(item.amount)"
+        amountLabel.text = "\(Butler.createNumberFormatter(input: item.amount))"
         categoryLabel.text = item.category
         dateLabel.text = "\(String(describing: item.date!))"
     }

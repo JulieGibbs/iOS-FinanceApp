@@ -17,28 +17,44 @@ class ExpensesDetailsViewController: UIViewController {
         detailsTableView.dataSource = self
     }
     
-    // MARK: - Outlets
+    // MARK: - Outlets and Properties
     @IBOutlet weak var detailsTableView: UITableView!
+    var entryDidSendToReview: Entry?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Amend Entry Segue" {
+            let destinationController = segue.destination as! EntryInsertionViewController
+            destinationController.incomingData = entryDidSendToReview
+        }
+    }
 }
 
-// MARK: - Extensions
+// MARK: - Table View Delegate
 extension ExpensesDetailsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(
             style: .destructive,
             title: "Delete") {
                 (action, view, completionHandler) in
-                realm.beginWrite()
-                realm.delete(entries[indexPath.row])
-                try! realm.commitWrite()
                 
-                self.detailsTableView.deleteRows(at: [indexPath], with: .automatic)
+                DataManager.deleteFromRealm(entries[indexPath.row])
+                
+                self.detailsTableView.deleteRows(
+                    at: [indexPath],
+                    with: .automatic)
+                
                 completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        entryDidSendToReview = entries[indexPath.row]
+        performSegue(withIdentifier: "Amend Entry Segue", sender: indexPath)
+    }
 }
 
+// MARK: - Table View Data Source
 extension ExpensesDetailsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
@@ -50,6 +66,7 @@ extension ExpensesDetailsViewController: UITableViewDataSource {
             for: indexPath) as! ExpensesDetailsCell
         
         cell.updateData(item: entries[indexPath.row])
+        
         return cell
     }
 }

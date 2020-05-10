@@ -10,16 +10,16 @@ import Foundation
 
 // MARK: - Text Validation
 class TextValidation {
-    
-    let regExes: [String : String] = [
-        "alphaNumericRegEx" : "[A-Z0-9a-z .,]{2,70}",
+    let regExes: [String:String] = [
+        "alphaNumericRegEx" : "[A-Z0-9a-z .,-]{2,70}",
         "numericRegEx" : "\\d+",
         "dateRegEx" : "[A-Z]?[a-z]{2} [0-9]{2}, [0-9]{4}",
-        "pwdRegEx" : "([1-zA-Z0-1@.\\S\\s]{1,255})"
+        "pwdRegEx" : "([1-zA-Z0-1@.\\S\\s]{1,255})",
+        "typeRegEx" : "[I,E]{1}[n,x,c,p,s,o,m,e]*"
     ]
     
     public func inputIsValidated(input text: String, pattern regEx: String) -> Bool {
-        if text == "" { return false } else {
+        if text.isEmpty { return false } else {
             return createPredicate(pattern: regEx).evaluate(with: whitespacesDidTrim(input: text))
         }
     }
@@ -29,17 +29,37 @@ class TextValidation {
     }
     
     private func whitespacesDidTrim(input: String) -> String {
-        if input.doesContainWhitespacesAndNewLines {
-            return input.filter { !$0.isNewline && !$0.isWhitespace }
-        } else {
-            return input
-        }
+        return input.doesContainWhitespacesAndNewLines ? input.filter { !$0.isNewline && !$0.isWhitespace } : input
     }
 }
 
-// MARK: - Extensions
+// MARK: - Global Extensions
 extension String {
     var doesContainWhitespacesAndNewLines: Bool {
         return (self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
     }
+}
+
+// MARK: - Errors
+enum ValidationErrors: Error {
+    /**
+     NOTE - structured by generality / all possible variants listed:
+     - empty fields errors
+     - regEx mismatch errors
+     */
+    
+    case nameIsEmpty
+    case nameMismatch
+    
+    case amntIsEmpty
+    case amntMismatch
+    
+    case dateIsEmtpy
+    case dateMismatch
+    
+    case categoryIsEmpty
+    case categoryMismatch
+    
+    case typeIsEmpty
+    case typeMismatch
 }

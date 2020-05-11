@@ -15,10 +15,11 @@ class FinanceOverviewController: UIViewController {
     @IBOutlet weak var pivotTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
-    var data = DataManager.mapCategories(from: entries)
+    var data: [Dictionary<String, Int>.Element] {
+        get { return DataManager.mapCategories(from: entries) }
+    }
+    
     var objectArray = [CategoryTotal]()
-    var diffableDataSource: UITableViewDiffableDataSource<Section, CategoryTotal>!
-    var diffableDataSourceSnapshot: NSDiffableDataSourceSnapshot<Section, CategoryTotal>!
     
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
@@ -29,39 +30,15 @@ class FinanceOverviewController: UIViewController {
         super.viewDidLoad()
         
         refreshOverviewData()
-        configureDataSource()
-        updateCategoriesTableView()
         observe()
         
         pivotTableView.delegate = self // DRY
+        pivotTableView.dataSource = self // DRY
         pivotTableView.allowsSelection = false // DRY
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-    }
-    
-    func configureDataSource() {
-        diffableDataSource = UITableViewDiffableDataSource(
-            tableView: pivotTableView,
-            cellProvider: {
-                (tableView, indexPath, category) -> UITableViewCell?
-                in
-                let cell = self.pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath)
-                
-                cell.textLabel?.text = category.name
-                cell.detailTextLabel?.text = "\(category.balance)"
-                
-                return cell
-        })
-        diffableDataSource!.defaultRowAnimation = .fade
-    }
-    
-    func updateCategoriesTableView(animated: Bool = true) {
-        diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot()
-        diffableDataSourceSnapshot.appendSections([.main])
-        diffableDataSourceSnapshot.appendItems(objectArray)
-        diffableDataSource.apply(diffableDataSourceSnapshot)
     }
     
     deinit {
@@ -107,6 +84,7 @@ class FinanceOverviewController: UIViewController {
             self.objectArray.append(CategoryTotal(name: key, balance: value))
         }
         print(objectArray)
+        self.pivotTableView.reloadData()
     }
     
     func observe() {
@@ -131,4 +109,19 @@ class FinanceOverviewController: UIViewController {
 // MARK: - Extensions
 extension FinanceOverviewController: UITableViewDelegate {
     
+}
+
+extension FinanceOverviewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return objectArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
+        
+        cell.categoryNameLabel.text = objectArray[indexPath.row].name
+        cell.categoryAmountLabel.text = "\(objectArray[indexPath.row].balance)"
+        
+        return cell
+    }
 }

@@ -10,38 +10,62 @@ import UIKit
 import RealmSwift
 import PMSuperButton
 
-// MARK: - Struct for Categories Table
-struct Objects {
-    var categoryName: String?
-    var balance: Int?
-}
-
 class FinanceOverviewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var pivotTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
     var data = DataManager.mapCategories(from: entries)
-    var objectArray = [Objects]()
+    var objectArray = [CategoryTotal]()
+    var diffableDataSource: UITableViewDiffableDataSource<Section, CategoryTotal>!
+    var diffableDataSourceSnapshot: NSDiffableDataSourceSnapshot<Section, CategoryTotal>!
     
     // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        refreshOverviewData()
-        observe()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        refreshOverviewData()
+        configureDataSource()
+        updateCategoriesTableView()
+        observe()
+        
         pivotTableView.delegate = self // DRY
-        pivotTableView.dataSource = self // DRY
         pivotTableView.allowsSelection = false // DRY
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func configureDataSource() {
+        diffableDataSource = UITableViewDiffableDataSource(
+            tableView: pivotTableView,
+            cellProvider: {
+                (tableView, indexPath, category) -> UITableViewCell?
+                in
+                let cell = self.pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath)
+                
+                cell.textLabel?.text = category.name
+                cell.detailTextLabel?.text = "\(category.balance)"
+                
+                return cell
+        })
+        diffableDataSource!.defaultRowAnimation = .fade
+    }
+    
+    func updateCategoriesTableView(animated: Bool = true) {
+        diffableDataSourceSnapshot = NSDiffableDataSourceSnapshot()
+        diffableDataSourceSnapshot.appendSections([.main])
+        diffableDataSourceSnapshot.appendItems(objectArray)
+        diffableDataSource.apply(diffableDataSourceSnapshot)
+    }
+    
+    deinit {
+        notificationCenter.removeObserver(self)
     }
     
     // MARK: - Actions and Methods
@@ -73,72 +97,38 @@ class FinanceOverviewController: UIViewController {
     func updateBalance() {
         let balance: Int = entries.sum(ofProperty: "amount")
         currentBalanceLabel.text = "\(Butler.createNumberFormatter(input: balance))"
-        self.currentBalanceLabel.layoutIfNeeded()
+        self.view.layoutIfNeeded()
     }
     
     func gatherCategories() {
-        for (key, value) in self.data {
-            self.objectArray.append(Objects(categoryName: key, balance: value))
-        }
+        self.objectArray.removeAll()
         
-        self.pivotTableView.reloadData()
+        for (key, value) in self.data {
+            self.objectArray.append(CategoryTotal(name: key, balance: value))
+        }
+        print(objectArray)
     }
     
     func observe() {
-        NotificationCenter.default.addObserver(
+        notificationCenter.addObserver(
             self,
             selector: #selector(refreshOverviewData),
-            name: .balanceDidChanged,
+            name: .entryAddSuccess,
             object: nil)
-        NotificationCenter.default.addObserver(
+        notificationCenter.addObserver(
             self,
             selector: #selector(refreshOverviewData),
-            name: .entryDidAdded,
+            name: .entryRemoveSuccess,
             object: nil)
-        NotificationCenter.default.addObserver(
+        notificationCenter.addObserver(
             self,
             selector: #selector(refreshOverviewData),
-            name: .entryDidAmended,
-            object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(refreshOverviewData),
-            name: .entryDidRemoved,
-            object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(refreshOverviewData),
-            name: .categoryNameDidChanged,
-            object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(refreshOverviewData),
-            name: .categoryDidAdded,
-            object: nil)
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(refreshOverviewData),
-            name: .categoryDidRemoved,
+            name: .entryAmendSuccess,
             object: nil)
     }
 }
 
-// MARK: - Table View Delegate
-extension FinanceOverviewController: UITableViewDelegate {    
-}
-
-// MARK: - Table View Data Source - rewrite
-extension FinanceOverviewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectArray.count
-    }
+// MARK: - Extensions
+extension FinanceOverviewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
-        
-        cell.categoryNameLabel.text = objectArray[indexPath.row].categoryName
-        cell.categoryAmountLabel.text = Butler.createNumberFormatter(input: objectArray[indexPath.row].balance!)
-        
-        return cell
-    }
 }

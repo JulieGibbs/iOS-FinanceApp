@@ -53,15 +53,21 @@ extension UIViewController {
 
 // MARK: - Notifications
 extension Notification.Name {
-    static let balanceDidChanged = Notification.Name("balanceDidChanged")
+
+    static var entryAddSuccess: Notification.Name {
+        return .init("com.entry.add.success")
+    }
     
-    static let entryDidAdded = Notification.Name("entryDidAdded")
+    static var entryRemoveSuccess: Notification.Name {
+        return.init("com.entry.remove.success")
+    }
+    
+    static var entryAmendSuccess: Notification.Name {
+        return .init("com.entry.amend.success")
+    }
+    
     static let entryDidAmended = Notification.Name("entryDidAmended")
     static let entryDidRemoved = Notification.Name("entryDidRemoved")
-    
-    static let categoryNameDidChanged = Notification.Name("categoryNameDidChanged")
-    static let categoryDidAdded = Notification.Name("categoryDidAdded")
-    static let categoryDidRemoved = Notification.Name("categoryDidRemoved")
     
     static let nameValidationDidFailed = Notification.Name("nameValidationDidFailed")
     static let amntValidationDidFailed = Notification.Name("amntValidationDidFailed")

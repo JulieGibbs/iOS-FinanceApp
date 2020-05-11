@@ -10,10 +10,13 @@ import Foundation
 import Realm
 import RealmSwift
 
-// MARK: - Realm Global Variables
+typealias Section = SectionType
+
+// MARK: - Global Variables
 var realm = try! Realm()
 var entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
 var currentBalance: Int = realm.objects(Entry.self).sum(ofProperty: "amount")
+let notificationCenter = NotificationCenter.default
 
 // MARK: - Class for Entries
 class Entry: Object {
@@ -52,9 +55,11 @@ class Entry: Object {
 }
 
 // MARK: - Class for Data & Realm Management
-final class DataManager {
+class DataManager {
     // MARK: - Singleton
     static let shared = DataManager()
+    
+    
     
     // MARK: - Realm Administration
     class func search(searchTerm: String? = nil) -> Results<Entry> {
@@ -69,6 +74,8 @@ final class DataManager {
         
         do { try realm.commitWrite() }
         catch { print(error) }
+        
+        notificationCenter.post(name: .entryAddSuccess, object: nil)
     }
     
     class func deleteFromRealm(_ input: Entry) {
@@ -77,6 +84,8 @@ final class DataManager {
         
         do { try realm.commitWrite() }
         catch { print(error) }
+        
+        notificationCenter.post(name: .entryRemoveSuccess, object: nil)
     }
     
     // MARK: - Migration Tools
@@ -118,4 +127,29 @@ final class DataManager {
     class func generateId() -> String {
         return UUID().uuidString
     }
+}
+
+// MARK: - Categories Data Source
+struct CategoryTotal: Hashable, Equatable {
+    let name: String
+    let balance: Int
+    let uuid = UUID()
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(uuid)
+    }
+    
+    static func ==(lhs: CategoryTotal, rhs: CategoryTotal) -> Bool {
+        return lhs.uuid == rhs.uuid
+    }
+    
+    func contains(query: String) -> Bool {
+        guard !query.isEmpty else { return true }
+        
+        return name.lowercased().contains(query.lowercased())
+    }
+}
+
+enum SectionType: Hashable, CaseIterable {
+    case main
 }

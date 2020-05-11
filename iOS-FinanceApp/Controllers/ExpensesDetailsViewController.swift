@@ -13,8 +13,17 @@ class ExpensesDetailsViewController: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
+        detailsTableView.rowHeight = UITableView.automaticDimension
+        
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: .entryAddSuccess, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: .entryAmendSuccess, object: nil)
+    }
+    
+    deinit {
+        notificationCenter.removeObserver(self)
     }
     
     // MARK: - Outlets and Properties
@@ -26,6 +35,10 @@ class ExpensesDetailsViewController: UIViewController {
             let destinationController = segue.destination as! EntryInsertionViewController
             destinationController.incomingData = entryDidSendToReview
         }
+    }
+    
+    @objc func reloadData() {
+        detailsTableView.reloadData()
     }
 }
 
@@ -45,6 +58,7 @@ extension ExpensesDetailsViewController: UITableViewDelegate {
                 
                 completionHandler(true)
         }
+
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     

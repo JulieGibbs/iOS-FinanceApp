@@ -50,10 +50,13 @@ class EntryInsertionViewController: UIViewController {
     let categoryPicker = UIPickerView() // needed for categories picking - not started
     var toolBar = UIToolbar()
     var incomingData: Entry? = nil
+    let notificationCenter = NotificationCenter.default
     
     // MARK: - Add Entry Logic
     @IBAction func addEntryButton(_ sender: UIButton) {
         do {
+            print("Now starting validation of user input")
+            
             try validateUserInput()
             
             print("Validation success! Now writing data to Realm...")
@@ -65,6 +68,7 @@ class EntryInsertionViewController: UIViewController {
                     entryToWrite.name = nameInputTextField.text
                     
                     if typeTextField.text == "Expense" {
+                        print("System is about to write expense. Now adjusting entry amount...")
                         entryToWrite.amount = Int(amntInputTextField.text!)! * -1
                     } else {
                         entryToWrite.amount = Int(amntInputTextField.text!)!
@@ -76,12 +80,15 @@ class EntryInsertionViewController: UIViewController {
                         .date(from: dateInputTextField.text!)!
                     entryToWrite.category = categoryInputTextField.text!
                     entryToWrite.entryType = typeTextField.text!
+                    
+                    notificationCenter.post(name: .entryAmendSuccess, object: nil)
+
+                    print("Entry data updated.")
                 }
-                NotificationCenter.default.post(name: .entryDidAmended, object: nil)
                 
                 self.dismiss(animated: true, completion: flushTextFields)
                 
-                print("Done!")
+                print("Now finished amending process.")
             } else {
                 print("New entry created! Now saving...")
                 
@@ -90,19 +97,21 @@ class EntryInsertionViewController: UIViewController {
                     name: nameInputTextField.text!,
                     amount: Int(amntInputTextField.text!)!,
                     date: Butler.createDateFormatter(
-                        dateStyle: .short, timeStyle: .none)
+                        dateStyle: .short,
+                        timeStyle: .none)
                         .date(from: dateInputTextField.text!)!,
                     category: categoryInputTextField.text!,
                     entryType: typeTextField.text!)
                 
                 switch typeTextField.text {
                 case "Expense":
-                    print("Expense detected! Now correcting amount...")
+                    print("Expense detected! Now adjusting amount...")
                     entry.amount *= -1
                     controllerDidWriteAndDismiss(input: entry)
                 default:
                     controllerDidWriteAndDismiss(input: entry)
                 }
+                print("Now finished writing new entry.")
             }
         } catch {
             print("Error: \(error)")
@@ -199,7 +208,6 @@ extension EntryInsertionViewController {
     
     private func controllerDidWriteAndDismiss(input: Entry) {
         DataManager.writeToRealm(input)
-        NotificationCenter.default.post(name: .entryDidAdded, object: nil)
         self.dismiss(animated: true, completion: flushTextFields)
     }
 }

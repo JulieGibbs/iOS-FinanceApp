@@ -15,7 +15,7 @@ class TextValidation {
         "numericRegEx" : "\\d+",
         "dateRegEx" : "[A-Z]?[a-z]{2} [0-9]{2}, [0-9]{4}",
         "pwdRegEx" : "([1-zA-Z0-1@.\\S\\s]{1,255})",
-        "typeRegEx" : "[I,E]{1}[n,x,c,p,s,o,m,e]*"
+        "typeRegEx" : "(Income)|(Expense)"
     ]
     
     public func inputIsValidated(input text: String, pattern regEx: String) -> Bool {

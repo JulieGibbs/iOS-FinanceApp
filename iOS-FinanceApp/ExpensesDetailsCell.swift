@@ -13,10 +13,13 @@ class ExpensesDetailsCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func updateData(item: Entry) {
-        nameLabel.text = item.name
-        amountLabel.text = "\(Butler.createNumberFormatter(input: item.amount))"
-        categoryLabel.text = item.category
-        dateLabel.text = "\(String(describing: item.date!))"
+    func updateDetailsCell(with data: Entry) {
+        nameLabel.text = data.name
+        amountLabel.text = "\(Butler.createNumberFormatter(input: data.amount))"
+        categoryLabel.text = data.category
+        dateLabel.text = Butler.createDateFormatter(
+            dateStyle: .medium,
+            timeStyle: .none)
+            .string(from: data.date!)
     }
 }

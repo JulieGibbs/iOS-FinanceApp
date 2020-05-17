@@ -11,10 +11,6 @@ import RealmSwift
 
 class EntryInsertionViewController: UIViewController {
     // MARK: - Lifecycle Methods
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -74,15 +70,16 @@ class EntryInsertionViewController: UIViewController {
                         entryToWrite.amount = Int(amntInputTextField.text!)!
                     }
                     
-                    entryToWrite.date = Butler.createDateFormatter(dateStyle:
-                        .short, timeStyle:
+                    entryToWrite.date = Butler.createDateFormatter(
+                        dateStyle:
+                        .medium, timeStyle:
                         .none)
                         .date(from: dateInputTextField.text!)!
                     entryToWrite.category = categoryInputTextField.text!
                     entryToWrite.entryType = typeTextField.text!
                     
                     notificationCenter.post(name: .entryAmendSuccess, object: nil)
-
+                    
                     print("Entry data updated.")
                 }
                 
@@ -96,12 +93,13 @@ class EntryInsertionViewController: UIViewController {
                     id: DataManager.generateId(),
                     name: nameInputTextField.text!,
                     amount: Int(amntInputTextField.text!)!,
-                    date: Butler.createDateFormatter(
-                        dateStyle: .short,
+                    date: (Butler.createDateFormatter(
+                        dateStyle: .medium,
                         timeStyle: .none)
-                        .date(from: dateInputTextField.text!)!,
+                        .date(from: dateInputTextField.text!))!,
                     category: categoryInputTextField.text!,
-                    entryType: typeTextField.text!)
+                    entryType: typeTextField.text!,
+                    ToC: "\(NSDate().timeIntervalSince1970)")
                 
                 switch typeTextField.text {
                 case "Expense":
@@ -115,8 +113,10 @@ class EntryInsertionViewController: UIViewController {
             }
         } catch {
             print("Error: \(error)")
+            
         }
     }
+    
     
     // MARK: - Date Picker and Toolbar Stuff
     func createDatePicker() {
@@ -217,39 +217,94 @@ extension EntryInsertionViewController {
     func validateUserInput() throws {
         let validator = TextValidation()
         
-        guard !nameInputTextField.text!.isEmpty else { throw ValidationErrors.nameIsEmpty }
+        guard !nameInputTextField.text!.isEmpty else {
+            self.present(Butler.createAlertController(
+                with: Butler.alertData[0][0],
+                message: Butler.alertData[0][1],
+                and: .alert)
+                , animated: true, completion: nil)
+            throw ValidationErrors.nameIsEmpty }
+        
         guard validator.inputIsValidated(
             input: nameInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                throw ValidationErrors.nameMismatch
-        }
+                self.present(Butler.createAlertController(
+                    with: Butler.alertData[1][0],
+                    message: Butler.alertData[1][1],
+                    and: .alert)
+                    , animated: true, completion: nil)
+                throw ValidationErrors.nameMismatch }
         
-        guard !amntInputTextField.text!.isEmpty else { throw ValidationErrors.amntIsEmpty }
+        guard !amntInputTextField.text!.isEmpty else {
+            self.present(Butler.createAlertController(
+                with: Butler.alertData[2][0],
+                message: Butler.alertData[2][1],
+                and: .alert)
+                , animated: true, completion: nil)
+            throw ValidationErrors.amntIsEmpty }
+        
         guard validator.inputIsValidated(
             input: amntInputTextField.text!,
-            pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                throw ValidationErrors.amntMismatch
-        }
+            pattern: validator.regExes["numericRegEx"]!) else {
+                self.present(Butler.createAlertController(
+                    with: Butler.alertData[3][0],
+                    message: Butler.alertData[3][1],
+                    and: .alert)
+                    , animated: true, completion: nil)
+                throw ValidationErrors.amntMismatch }
         
-        guard !dateInputTextField.text!.isEmpty else { throw ValidationErrors.dateIsEmtpy }
+        guard !dateInputTextField.text!.isEmpty else {
+            self.present(Butler.createAlertController(
+                with: Butler.alertData[4][0],
+                message: Butler.alertData[4][1],
+                and: .alert)
+                , animated: true, completion: nil)
+            throw ValidationErrors.dateIsEmtpy }
+        
         guard validator.inputIsValidated(
             input: dateInputTextField.text!,
-            pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                throw ValidationErrors.dateMismatch
-        }
+            pattern: validator.regExes["dateRegEx"]!) else {
+                self.present(Butler.createAlertController(
+                    with: Butler.alertData[5][0],
+                    message: Butler.alertData[5][1],
+                    and: .alert)
+                    , animated: true, completion: nil)
+                throw ValidationErrors.dateMismatch }
         
-        guard !categoryInputTextField.text!.isEmpty else { throw ValidationErrors.categoryIsEmpty }
+        guard !categoryInputTextField.text!.isEmpty else {
+            self.present(Butler.createAlertController(
+                with: Butler.alertData[6][0],
+                message: Butler.alertData[6][1],
+                and: .alert)
+                , animated: true, completion: nil)
+            throw ValidationErrors.categoryIsEmpty }
+        
         guard validator.inputIsValidated(
             input: categoryInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                throw ValidationErrors.categoryMismatch
-        }
+                self.present(Butler.createAlertController(
+                    with: Butler.alertData[7][0],
+                    message: Butler.alertData[7][1],
+                    and: .alert)
+                    , animated: true, completion: nil)
+                throw ValidationErrors.categoryMismatch }
         
-        guard !typeTextField.text!.isEmpty else { throw ValidationErrors.typeIsEmpty }
+        guard !typeTextField.text!.isEmpty else {
+            self.present(Butler.createAlertController(
+                with: Butler.alertData[8][0],
+                message: Butler.alertData[8][1],
+                and: .alert)
+                , animated: true, completion: nil)
+            throw ValidationErrors.typeIsEmpty }
+        
         guard validator.inputIsValidated(
             input: typeTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                throw ValidationErrors.typeMismatch
-        }
+                self.present(Butler.createAlertController(
+                    with: Butler.alertData[9][0],
+                    message: Butler.alertData[9][1],
+                    and: .alert)
+                    , animated: true, completion: nil)
+                throw ValidationErrors.typeMismatch }
     }
 }

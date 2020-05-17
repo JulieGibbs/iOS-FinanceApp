@@ -35,6 +35,7 @@ class FinanceOverviewController: UIViewController {
         pivotTableView.delegate = self // DRY
         pivotTableView.dataSource = self // DRY
         pivotTableView.allowsSelection = false // DRY
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,8 +120,7 @@ extension FinanceOverviewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
         
-        cell.categoryNameLabel.text = objectArray[indexPath.row].name
-        cell.categoryAmountLabel.text = "\(objectArray[indexPath.row].balance)"
+        cell.updateOverviewCell(with: objectArray, at: indexPath)
         
         return cell
     }

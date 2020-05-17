@@ -11,9 +11,9 @@ import Foundation
 // MARK: - Text Validation
 class TextValidation {
     let regExes: [String:String] = [
-        "alphaNumericRegEx" : "[A-Z0-9a-z .,-]{2,70}",
+        "alphaNumericRegEx" : "[A-Za-z0-9\\D]{2,70}",
         "numericRegEx" : "\\d+",
-        "dateRegEx" : "[A-Z]?[a-z]{2} [0-9]{2}, [0-9]{4}",
+        "dateRegEx" : "[A-Z]?[a-z]{2}[0-9]{2},[0-9]{4}",
         "pwdRegEx" : "([1-zA-Z0-1@.\\S\\s]{1,255})",
         "typeRegEx" : "(Income)|(Expense)"
     ]

@@ -79,7 +79,7 @@ extension ExpensesDetailsViewController: UITableViewDataSource {
             withIdentifier: "ExpensesDetailsCell",
             for: indexPath) as! ExpensesDetailsCell
         
-        cell.updateData(item: entries[indexPath.row])
+        cell.updateDetailsCell(with: entries[indexPath.row])
         
         return cell
     }

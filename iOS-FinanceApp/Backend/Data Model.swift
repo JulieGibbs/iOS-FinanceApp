@@ -10,26 +10,25 @@ import Foundation
 import Realm
 import RealmSwift
 
-typealias Section = SectionType
-
 // MARK: - Global Variables
 var realm = try! Realm()
-var entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
+var entries = realm.objects(Entry.self).sorted(byKeyPath: "creationStamp", ascending: false)
 var currentBalance: Int = realm.objects(Entry.self).sum(ofProperty: "amount")
 let notificationCenter = NotificationCenter.default
 
 // MARK: - Class for Entries
 class Entry: Object {
     // MARK: - Persisted Properties
-    @objc dynamic var id: String?
-    @objc dynamic var name: String?
-    @objc dynamic var amount: Int = 0
-    @objc dynamic var date: Date?
-    @objc dynamic var category: String?
-    @objc dynamic var entryType: String?
+    dynamic var id: String?
+    dynamic var name: String?
+    dynamic var amount: Int = 0
+    dynamic var date: Date?
+    dynamic var category: String?
+    dynamic var entryType: String?
+    dynamic var creationStamp: String?
     
     // MARK: - Custom Init to Add an Entry
-    convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?) {
+    convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?, ToC: String) {
         self.init()
         self.id = id
         self.name = name
@@ -37,6 +36,7 @@ class Entry: Object {
         self.date = date
         self.category = category
         self.entryType = entryType
+        self.creationStamp = ToC
     }
     
     // MARK: - Description
@@ -46,9 +46,10 @@ class Entry: Object {
             id: \(id ?? "");
             name: \(name ?? "");
             amount: \(amount);
-            created: \(date ?? Date());
+            date: \(date ?? Date());
             type: \(entryType ?? "");
-            category: \(category ?? "").
+            category: \(category ?? "");
+            ToC: \(creationStamp ?? "")
             """
         }
     }
@@ -58,8 +59,6 @@ class Entry: Object {
 class DataManager {
     // MARK: - Singleton
     static let shared = DataManager()
-    
-    
     
     // MARK: - Realm Administration
     class func search(searchTerm: String? = nil) -> Results<Entry> {
@@ -148,8 +147,4 @@ struct CategoryTotal: Hashable, Equatable {
         
         return name.lowercased().contains(query.lowercased())
     }
-}
-
-enum SectionType: Hashable, CaseIterable {
-    case main
 }

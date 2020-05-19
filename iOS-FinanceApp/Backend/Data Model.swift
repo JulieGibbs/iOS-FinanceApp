@@ -19,13 +19,13 @@ let notificationCenter = NotificationCenter.default
 // MARK: - Class for Entries
 class Entry: Object {
     // MARK: - Persisted Properties
-    dynamic var id: String?
-    dynamic var name: String?
-    dynamic var amount: Int = 0
-    dynamic var date: Date?
-    dynamic var category: String?
-    dynamic var entryType: String?
-    dynamic var creationStamp: String?
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
+    @objc dynamic var amount: Int = 0
+    @objc dynamic var date: Date?
+    @objc dynamic var category: String?
+    @objc dynamic var entryType: String?
+    @objc dynamic var creationStamp: String?
     
     // MARK: - Custom Init to Add an Entry
     convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?, ToC: String) {

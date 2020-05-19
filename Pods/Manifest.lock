@@ -25,11 +25,11 @@ PODS:
   - FontAwesomeKit/Zocial (2.2.1):
     - FontAwesomeKit/Core
   - PMSuperButton (3.0.2)
-  - Realm (4.4.1):
-    - Realm/Headers (= 4.4.1)
-  - Realm/Headers (4.4.1)
-  - RealmSwift (4.4.1):
-    - Realm (= 4.4.1)
+  - Realm (5.0.0):
+    - Realm/Headers (= 5.0.0)
+  - Realm/Headers (5.0.0)
+  - RealmSwift (5.0.0):
+    - Realm (= 5.0.0)
   - ScrollableGraphView (4.0.6)
   - SwiftyGif (5.2.0)
   - TextFieldEffects (1.6.0)
@@ -64,8 +64,8 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FontAwesomeKit: 3614979b3dbb0ec3f7fac1bd760b91f66c31db67
   PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
-  Realm: 4eb04d7487bd43c0581256f40b424eafb711deff
-  RealmSwift: 3eb8924ff7100df5928c7602f71d0fec51e7c9c5
+  Realm: 76066d333de26f97e9caedaa85ee3ff4a62ca265
+  RealmSwift: c1bdff09b422569dc6881410d9ccf712bcdb79b0
   ScrollableGraphView: 4af35d4ea9ecdec665d34a74da51da161ddff8ac
   SwiftyGif: b85c6b33a9411859d9e1db998b6a8214aea942df
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796

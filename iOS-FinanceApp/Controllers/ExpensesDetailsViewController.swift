@@ -62,7 +62,7 @@ extension ExpensesDetailsViewController: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
         entryDidSendToReview = entries[indexPath.row]
         performSegue(withIdentifier: "Amend Entry Segue", sender: indexPath)
     }
@@ -80,6 +80,8 @@ extension ExpensesDetailsViewController: UITableViewDataSource {
             for: indexPath) as! ExpensesDetailsCell
         
         cell.updateDetailsCell(with: entries[indexPath.row])
+        cell.accessoryType = .detailDisclosureButton
+        
         
         return cell
     }

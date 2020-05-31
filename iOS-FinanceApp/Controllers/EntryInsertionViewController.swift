@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import PMSuperButton
 
 class EntryInsertionViewController: UIViewController {
     // MARK: - Lifecycle Methods

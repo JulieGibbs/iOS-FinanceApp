@@ -28,8 +28,8 @@ class FinanceOverviewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        refreshOverviewData()
+       
+         refreshOverviewData()
         observe()
         
         pivotTableView.delegate = self // DRY
@@ -109,7 +109,6 @@ class FinanceOverviewController: UIViewController {
 
 // MARK: - Extensions
 extension FinanceOverviewController: UITableViewDelegate {
-    
 }
 
 extension FinanceOverviewController: UITableViewDataSource {

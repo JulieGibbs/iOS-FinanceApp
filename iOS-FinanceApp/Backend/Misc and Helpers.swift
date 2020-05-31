@@ -80,19 +80,74 @@ class Butler {
         [
             "Invalid Type",
             "Sorry, the type is missing. Please retry. \nTip: just type 'Income' or 'Expense', you do not need to put a negative sign."
+        ],
+        
+        [
+            "Enter category name",
+            "Please input some meaningful and descriptive name for your fresh category"
+        ],
+        
+        [
+            "Category name cannot be empty!",
+            "Please consider adding some meaningful and descriptive name"
+            
         ]
     ]
     
     class func createAlertController(with title: String, message: String, and style: UIAlertController.Style) -> UIAlertController {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
-        let alertAction = UIAlertAction(title: "OK", style: .cancel, handler: { _ in
-            alertController.dismiss(animated: true, completion: nil)
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: style)
+        let alertAction = UIAlertAction(
+            title: "OK",
+            style: .cancel,
+            handler: { _ in
+                alertController.dismiss(
+                    animated: true,
+                    completion: nil)
         })
         
         alertController.addAction(alertAction)
         
         return alertController
     }
+    
+    class func createInputAlertController(with title: String, message: String, and style: UIAlertController.Style) -> UIAlertController {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: style)
+        let submitAction = UIAlertAction(
+            title: "Submit",
+            style: .default,
+            handler: { _ in
+                let category = Category(
+                    id: DataManager.generateId(),
+                    name: alertController.textFields![0].text!
+                )
+                DataManager.writeToRealm(category)
+        })
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil)
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(submitAction)
+        
+        alertController.addTextField {
+            $0.placeholder = "Category name here..."
+            $0.addTarget(
+                alertController,
+                action: #selector(
+                    alertController.submitButtonDidEnabled),
+                for: .editingChanged)
+        }
+        
+        return alertController
+    }
+    
 }
 
 // MARK: - Keyboard Dismiss
@@ -127,12 +182,32 @@ extension Notification.Name {
         return .init("com.entry.amend.success")
     }
     
-    static let entryDidAmended = Notification.Name("entryDidAmended")
-    static let entryDidRemoved = Notification.Name("entryDidRemoved")
+    static var categoryAddSuccess: Notification.Name {
+        return.init("com.category.add.success")
+    }
+    static var categoryRemoveSuccess: Notification.Name {
+        return.init("com.category.remove.success")
+    }
+    static var categoryAmendSuccess: Notification.Name {
+        return.init("com.category.amend.success")
+    }
+}
+
+extension UIAlertController {
+    func categoryDidValidated(_ category: String) -> Bool {
+        return category.count > 0
+    }
     
-    static let nameValidationDidFailed = Notification.Name("nameValidationDidFailed")
-    static let amntValidationDidFailed = Notification.Name("amntValidationDidFailed")
-    static let dateValidationDidFailed = Notification.Name("dateValidationDidFailed")
-    static let categoryValidationDidFailed = Notification.Name("categoryValidationDidFailed")
-    static let typeValidationDidFailed = Notification.Name("typeValidationDidFailed")
+    @objc func submitButtonDidEnabled() {
+        if let categoryName = textFields?[0].text,
+            let action = actions.last {
+            action.isEnabled = categoryDidValidated(categoryName)
+        }
+    }
+}
+
+extension NSExceptionName {
+    static var shouldNeverHappenException: NSExceptionName {
+        return.init("com.exc.this.should.never.happen")
+    }
 }

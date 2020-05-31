@@ -4,18 +4,21 @@ target 'iOS-FinanceApp' do
 	use_frameworks!
 
 
-	# These pods are used already
+	# Database
 	pod 'RealmSwift'
-	pod 'PMSuperButton'	
-	
-	# These pods are to be implemented
-	pod 'DZNEmptyDataSet'
-	pod 'ChameleonFramework'
-	pod 'TextFieldEffects'
-	pod 'FontAwesomeKit'
-	pod 'ViewAnimator'
-	pod 'SwiftyGif'
-	pod 'ScrollableGraphView'
+
+	# Shinies
+	pod 'PMSuperButton'
+
+	# These pods are to be considered and implemented
+	# 
+	# pod 'DZNEmptyDataSet'
+	# pod 'ChameleonFramework'
+	# pod 'TextFieldEffects'
+	# pod 'FontAwesomeKit'
+	# pod 'ViewAnimator'
+	# pod 'SwiftyGif'
+	# pod 'ScrollableGraphView'
 
 
 	##

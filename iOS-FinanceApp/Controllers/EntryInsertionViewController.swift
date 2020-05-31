@@ -15,7 +15,8 @@ class EntryInsertionViewController: UIViewController {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         createDatePicker()
-        createToolbar()
+        createDatePickerToolbar()
+        createCategoryPicker()
         dateInputTextField.inputView = datePicker
         dateInputTextField.inputAccessoryView = toolBar
         
@@ -43,10 +44,16 @@ class EntryInsertionViewController: UIViewController {
     
     // MARK: - Programmatic Properties
     var datePicker = UIDatePicker()
-    let categoryPicker = UIPickerView() // needed for categories picking - not started
+    var categoryPicker  = UIPickerView()
     var toolBar = UIToolbar()
     var incomingData: Entry? = nil
     let notificationCenter = NotificationCenter.default
+    var pickerData: [String] {
+        get {
+            let uniques = Array(Set(realm.objects(Category.self).value(forKeyPath: "name") as! Array<String>))
+            return uniques.sorted(by: <)
+        }
+    }
     
     // MARK: - Add Entry Logic
     @IBAction func addEntryButton(_ sender: UIButton) {
@@ -117,24 +124,25 @@ class EntryInsertionViewController: UIViewController {
         }
     }
     
+    // MARK: - Add Category Logic
+    @IBAction func addCategory(_ sender: Any) {
+        let alert = Butler.createInputAlertController(with: Butler.alertData[10][0], message: Butler.alertData[10][1], and: .alert)
+        self.present(alert, animated: true, completion: nil)
+        alert.actions[1].isEnabled = false
+    }
     
-    // MARK: - Date Picker and Toolbar Stuff
+    // MARK: - Date Picker & Toolbar Stuff
     func createDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.addTarget(
             self,
             action: #selector(datePickerValueChanged(for:)),
             for: .valueChanged)
+        datePicker.backgroundColor = .white
     }
     
-    func createToolbar() {
-        toolBar = UIToolbar(
-            frame:
-            CGRect(
-                x: 0,
-                y: 0,
-                width: view.frame.width,
-                height: 40))
+    func createDatePickerToolbar() {
+        toolBar = UIToolbar()
         
         let todayButton = UIBarButtonItem(
             title: "Today",
@@ -147,23 +155,51 @@ class EntryInsertionViewController: UIViewController {
             target: self,
             action: #selector(doneButtonPressed(sender:)))
         
-        let label = UILabel(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: view.frame.width / 5,
-                height: 40))
-        
-        let labelButton = UIBarButtonItem(customView: label)
-        
         let flexibleSpace = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
             action: nil)
         
-        label.text = "Pick a date"
+        toolBar.setItems([todayButton, flexibleSpace, doneButton], animated: true)
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+    }
+}
+
+// MARK: - Category Picker & Toolbar Stuff
+extension EntryInsertionViewController {
+    func createCategoryPicker() {
+        categoryPicker = UIPickerView(
+            frame: CGRect(
+                x: 0,
+                y: 200,
+                width: view.frame.width,
+                height: 216)
+        )
         
-        toolBar.setItems([todayButton, flexibleSpace, labelButton, flexibleSpace, doneButton], animated: true)
+        categoryPicker.backgroundColor = .none
+        categoryPicker.delegate = self
+        categoryPicker.dataSource = self
+        
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(categoryPickerDoneButtonHit))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(categoryPickerDoneButtonHit))
+        
+        toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        categoryInputTextField.inputView = categoryPicker
+        categoryInputTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func categoryPickerDoneButtonHit() {
+        categoryInputTextField.resignFirstResponder()
     }
 }
 
@@ -183,6 +219,13 @@ extension EntryInsertionViewController: UITextFieldDelegate {
                 textField.text = ""
             }
         }
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 3 {
+            categoryPicker.isHidden = false
+        }
+        return true
     }
 }
 
@@ -306,5 +349,27 @@ extension EntryInsertionViewController {
                     and: .alert)
                     , animated: true, completion: nil)
                 throw ValidationErrors.typeMismatch }
+    }
+}
+
+// MARK: - Picker View Data Source
+extension EntryInsertionViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+}
+
+// MARK: - Picker View Delegate
+extension EntryInsertionViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        categoryInputTextField.text = pickerData[row]
     }
 }

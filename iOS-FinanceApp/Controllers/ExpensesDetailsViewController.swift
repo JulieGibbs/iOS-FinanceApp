@@ -40,6 +40,13 @@ class ExpensesDetailsViewController: UIViewController {
     @objc func reloadData() {
         detailsTableView.reloadData()
     }
+    
+    // MARK: - Actions
+    @IBAction func addCategory(_ sender: Any) {
+        let alert = Butler.createInputAlertController(with: Butler.alertData[10][0], message: Butler.alertData[10][1], and: .alert)
+        self.present(alert, animated: true, completion: nil)
+        alert.actions[1].isEnabled = false
+    }
 }
 
 // MARK: - Table View Delegate
@@ -58,7 +65,7 @@ extension ExpensesDetailsViewController: UITableViewDelegate {
                 
                 completionHandler(true)
         }
-
+        
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     

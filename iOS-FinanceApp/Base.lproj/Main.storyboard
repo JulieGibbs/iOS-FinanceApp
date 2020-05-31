@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0FA-Qw-DCS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0FA-Qw-DCS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -117,12 +117,20 @@
                                     <action selector="addEntryButton:" destination="blO-ZY-ASZ" eventType="touchUpInside" id="52u-iE-m0I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In0-b5-Moi">
+                                <rect key="frame" x="217" y="202" width="25" height="30"/>
+                                <connections>
+                                    <action selector="addCategory:" destination="blO-ZY-ASZ" eventType="touchUpInside" id="EVw-b2-BzA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95679012345679015" green="1" blue="0.91358024691358031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="In0-b5-Moi" firstAttribute="top" secondItem="2jv-2D-eej" secondAttribute="bottom" constant="135.5" id="4ab-sV-LWq"/>
                             <constraint firstItem="TA4-Ko-qWo" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Xfy-1Y-umu" secondAttribute="leading" constant="167" id="4cl-TH-RLY"/>
                             <constraint firstItem="owv-aB-7pS" firstAttribute="top" secondItem="2jv-2D-eej" secondAttribute="bottom" constant="7.6699999999999999" id="8IA-Uy-3QX"/>
                             <constraint firstItem="owv-aB-7pS" firstAttribute="leading" secondItem="Xfy-1Y-umu" secondAttribute="leading" constant="20" id="8Mm-Le-BCw"/>
+                            <constraint firstItem="In0-b5-Moi" firstAttribute="leading" secondItem="owv-aB-7pS" secondAttribute="trailing" constant="16" id="8lS-0w-o4Y"/>
                             <constraint firstItem="Xfy-1Y-umu" firstAttribute="bottom" secondItem="TA4-Ko-qWo" secondAttribute="bottom" constant="369" id="CMC-pO-Dgf"/>
                             <constraint firstItem="Xfy-1Y-umu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2jv-2D-eej" secondAttribute="trailing" id="G1B-SR-I6s"/>
                             <constraint firstItem="Xfy-1Y-umu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TA4-Ko-qWo" secondAttribute="trailing" constant="167" id="OSQ-Lg-yh3"/>
@@ -138,6 +146,7 @@
                             <constraint firstItem="2jv-2D-eej" firstAttribute="leading" secondItem="Xfy-1Y-umu" secondAttribute="leading" constant="20" id="tGb-DC-a2Q"/>
                             <constraint firstItem="Xfy-1Y-umu" firstAttribute="bottom" secondItem="Jxg-dc-QgU" secondAttribute="bottom" constant="540" id="un2-Gs-kgX"/>
                             <constraint firstItem="Jxg-dc-QgU" firstAttribute="top" secondItem="4wG-j6-0cd" secondAttribute="bottom" constant="27" id="vax-pJ-yxl"/>
+                            <constraint firstItem="In0-b5-Moi" firstAttribute="height" secondItem="bME-04-RTi" secondAttribute="height" multiplier="0.882353" id="xFq-Im-83Q"/>
                             <constraint firstItem="2jv-2D-eej" firstAttribute="top" secondItem="Xfy-1Y-umu" secondAttribute="top" constant="46" id="xeZ-iY-MPq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xfy-1Y-umu"/>
@@ -179,15 +188,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ujW-ms-4RJ">
-                                <rect key="frame" x="20" y="410.5" width="374" height="396.5"/>
+                                <rect key="frame" x="8" y="410.5" width="398" height="396.5"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="70" id="9H8-4V-Ifc" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="398" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9H8-4V-Ifc" id="bdF-jr-Ix3" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6OB-tg-g7Y">
@@ -203,7 +212,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Entry Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Entry Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
                                                             <rect key="frame" x="221" y="14" width="105" height="20"/>
                                                             <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -213,7 +222,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="TTm-dg-t39" firstAttribute="leading" secondItem="ydU-rt-WfC" secondAttribute="trailing" constant="50" id="0Ie-YP-LeS"/>
+                                                        <constraint firstItem="TTm-dg-t39" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ydU-rt-WfC" secondAttribute="trailing" constant="50" id="0Ie-YP-LeS"/>
                                                         <constraint firstItem="TTm-dg-t39" firstAttribute="top" secondItem="6OB-tg-g7Y" secondAttribute="top" constant="14" id="XmQ-O6-0IP"/>
                                                         <constraint firstItem="ydU-rt-WfC" firstAttribute="leading" secondItem="6OB-tg-g7Y" secondAttribute="leadingMargin" id="dS2-df-sPg"/>
                                                         <constraint firstItem="TTm-dg-t39" firstAttribute="trailing" secondItem="6OB-tg-g7Y" secondAttribute="trailingMargin" id="gDv-5o-9cI"/>
@@ -227,6 +236,7 @@
                                             <constraints>
                                                 <constraint firstItem="6OB-tg-g7Y" firstAttribute="top" secondItem="bdF-jr-Ix3" secondAttribute="topMargin" id="I0H-Sv-cgd"/>
                                                 <constraint firstItem="6OB-tg-g7Y" firstAttribute="bottom" secondItem="bdF-jr-Ix3" secondAttribute="bottomMargin" id="KzG-MV-EmF"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6OB-tg-g7Y" secondAttribute="trailing" constant="24" id="kFS-iO-mzW"/>
                                                 <constraint firstItem="6OB-tg-g7Y" firstAttribute="leading" secondItem="bdF-jr-Ix3" secondAttribute="leadingMargin" id="lI2-zQ-LBM"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -318,7 +328,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breakdown by categories:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6S-hB-Xvm">
-                                <rect key="frame" x="28" y="378.5" width="234" height="24"/>
+                                <rect key="frame" x="16" y="378.5" width="234" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -332,17 +342,17 @@
                             <constraint firstItem="4CB-z4-3TN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="Ehv-97-lSD"/>
                             <constraint firstItem="ehM-WB-yfh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="F6r-F8-u4U"/>
                             <constraint firstItem="ujW-ms-4RJ" firstAttribute="top" secondItem="u6S-hB-Xvm" secondAttribute="bottom" constant="8" symbolic="YES" id="GHQ-YP-qql"/>
-                            <constraint firstItem="u6S-hB-Xvm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="Gwg-F6-Ti1"/>
                             <constraint firstItem="ZX2-8g-bk1" firstAttribute="top" secondItem="ehM-WB-yfh" secondAttribute="bottom" constant="23.333333333333343" id="JAc-lp-ccO"/>
+                            <constraint firstItem="ujW-ms-4RJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="KNp-uP-zy0"/>
                             <constraint firstItem="ZX2-8g-bk1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="130" id="KvV-h3-Vry"/>
                             <constraint firstItem="1Gc-fa-1Zy" firstAttribute="top" secondItem="ZX2-8g-bk1" secondAttribute="bottom" constant="33" id="MCs-Hx-lTO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ujW-ms-4RJ" secondAttribute="trailing" constant="8" id="QZZ-u7-28E"/>
                             <constraint firstItem="4CB-z4-3TN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qrp-qE-i5b"/>
                             <constraint firstItem="u6S-hB-Xvm" firstAttribute="leading" secondItem="ujW-ms-4RJ" secondAttribute="leading" constant="8" id="Tub-zw-Xx7"/>
                             <constraint firstItem="ZX2-8g-bk1" firstAttribute="centerX" secondItem="ujW-ms-4RJ" secondAttribute="centerX" id="WBU-WS-vOh"/>
                             <constraint firstItem="4CB-z4-3TN" firstAttribute="top" secondItem="ujW-ms-4RJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Y3D-cK-MFC"/>
                             <constraint firstItem="u6S-hB-Xvm" firstAttribute="top" secondItem="1Gc-fa-1Zy" secondAttribute="bottom" constant="41" id="dLR-7I-QjU"/>
                             <constraint firstItem="1Gc-fa-1Zy" firstAttribute="baseline" secondItem="Uai-Ti-YAG" secondAttribute="baseline" id="gQ0-30-Ywd"/>
-                            <constraint firstItem="ujW-ms-4RJ" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lpG-cD-OEP"/>
                             <constraint firstItem="ehM-WB-yfh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="nV1-sm-p8j"/>
                             <constraint firstItem="ujW-ms-4RJ" firstAttribute="centerX" secondItem="4CB-z4-3TN" secondAttribute="centerX" id="oPL-g9-n7p"/>
                             <constraint firstItem="Uai-Ti-YAG" firstAttribute="leading" secondItem="1Gc-fa-1Zy" secondAttribute="trailing" constant="39" id="uGP-xl-HFR"/>
@@ -418,7 +428,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNE-fe-qww">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNE-fe-qww">
                                 <rect key="frame" x="0.0" y="140" width="414" height="678"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

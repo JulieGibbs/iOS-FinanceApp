@@ -17,15 +17,19 @@ var currentBalance: Int = realm.objects(Entry.self).sum(ofProperty: "amount")
 let notificationCenter = NotificationCenter.default
 
 // MARK: - Class for Entries
-class Entry: Object {
-    // MARK: - Persisted Properties
-    @objc dynamic var id: String?
-    @objc dynamic var name: String?
-    @objc dynamic var amount: Int = 0
-    @objc dynamic var date: Date?
-    @objc dynamic var category: String?
-    @objc dynamic var entryType: String?
-    @objc dynamic var creationStamp: String?
+@objcMembers class Entry: Object {
+    // MARK: - Entry Persisted Properties
+    enum Property: String {
+        case id, name, amount, date, category, entryType, creationStamp
+    }
+    
+    dynamic var id: String?
+    dynamic var name: String?
+    dynamic var amount: Int = 0
+    dynamic var date: Date?
+    dynamic var category: String?
+    dynamic var entryType: String?
+    dynamic var creationStamp: String?
     
     // MARK: - Custom Init to Add an Entry
     convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?, ToC: String) {
@@ -39,42 +43,85 @@ class Entry: Object {
         self.creationStamp = ToC
     }
     
-    // MARK: - Description
+    // MARK: - Entry Description
     override var description: String {
         get {
             return """
-            id: \(id ?? "");
+            \nid: \(id ?? "");
             name: \(name ?? "");
             amount: \(amount);
             date: \(date ?? Date());
             type: \(entryType ?? "");
             category: \(category ?? "");
-            ToC: \(creationStamp ?? "")
+            ToC: \(creationStamp ?? "").
             """
         }
+    }
+    
+    // MARK: - Entry Primary Key
+    override static func primaryKey() -> String {
+        return Entry.Property.id.rawValue
+    }
+}
+
+// MARK: - Class for Categories
+@objcMembers class Category: Object {
+    // MARK: - Category Persistent Properties
+    enum Property: String {
+        case id, name
+    }
+    
+    dynamic var id = UUID().uuidString
+    dynamic var name: String?
+    
+    // MARK: - Custom init to Add Category
+    convenience init(id: String, name: String) {
+        self.init()
+        self.id = id
+        self.name = name
+    }
+    
+    // MARK: - Category Description
+    override var description: String {
+        get {
+            return """
+            \nid: \(id)
+            name: \(name ?? "")
+            """
+        }
+    }
+    
+    // MARK: - Category Primary Key
+    override class func primaryKey() -> String? {
+        return Category.Property.name.rawValue
     }
 }
 
 // MARK: - Class for Data & Realm Management
 class DataManager {
-    // MARK: - Singleton
-    static let shared = DataManager()
-    
-    // MARK: - Realm Administration
+    // MARK: - Realm Administration (+ CRUD Methods)
     class func search(searchTerm: String? = nil) -> Results<Entry> {
         return realm.objects(Entry.self)
             .filter("category contains [c] %@", searchTerm ?? "")
             .sorted(byKeyPath: "amount", ascending: false)
     }
     
-    class func writeToRealm(_ input: Entry) {
+    class func writeToRealm(_ input: Object) {
         realm.beginWrite()
         realm.add(input)
         
         do { try realm.commitWrite() }
         catch { print(error) }
         
-        notificationCenter.post(name: .entryAddSuccess, object: nil)
+        switch input {
+        case is Entry:
+            notificationCenter.post(name: .entryAddSuccess, object: nil)
+        case is Category:
+            notificationCenter.post(name: .categoryAddSuccess, object: nil)
+        default:
+            print("Somehow you managed to break it, congrats!")
+        }
+        
     }
     
     class func deleteFromRealm(_ input: Entry) {
@@ -110,10 +157,10 @@ class DataManager {
     
     // MARK: - Helpers for View and Data
     class func mapCategories(from data: Results<Entry>) -> [Dictionary<String, Int>.Element] {
-        let categories = Array(data)
+        let rawData = Array(data)
         var dict: [String:Int] = [:]
         
-        categories.forEach {
+        rawData.forEach {
             if let current = dict[$0.category!] {
                 dict[$0.category!] = current + $0.amount
             } else {

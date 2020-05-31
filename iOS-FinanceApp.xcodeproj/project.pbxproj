@@ -10,6 +10,8 @@
 		2F78EC2F24710EA90067C1E2 /* ExpensesDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78EC2E24710EA90067C1E2 /* ExpensesDetailsCell.swift */; };
 		3F002F5D24201F19002C73F4 /* Data Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* Data Model.swift */; };
 		3F1B00A124241C390070E0FF /* FinanceOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00A024241C390070E0FF /* FinanceOverviewCell.swift */; };
+		3F822FE6248447A000337513 /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F822FE5248447A000337513 /* LineGraphView.swift */; };
+		3F822FE8248447B200337513 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F822FE7248447B200337513 /* PieChartView.swift */; };
 		3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */; };
 		3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */; };
 		3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE16241ECEE1006DAC7A /* FinanceOverviewController.swift */; };
@@ -41,6 +43,8 @@
 		2F78EC2E24710EA90067C1E2 /* ExpensesDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpensesDetailsCell.swift; sourceTree = "<group>"; };
 		3F002F5C24201F19002C73F4 /* Data Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data Model.swift"; sourceTree = "<group>"; };
 		3F1B00A024241C390070E0FF /* FinanceOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinanceOverviewCell.swift; sourceTree = "<group>"; };
+		3F822FE5248447A000337513 /* LineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LineGraphView.swift; path = "iOS-FinanceApp/Graph Views/LineGraphView.swift"; sourceTree = "<group>"; };
+		3F822FE7248447B200337513 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PieChartView.swift; path = "iOS-FinanceApp/Graph Views/PieChartView.swift"; sourceTree = "<group>"; };
 		3FBFDE0F241ECEE0006DAC7A /* iOS-FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-FinanceApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3F822FE42484478600337513 /* Graph Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F822FE5248447A000337513 /* LineGraphView.swift */,
+				3F822FE7248447B200337513 /* PieChartView.swift */,
+			);
+			name = "Graph Views";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		3FBFDE06241ECEE0006DAC7A = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +128,7 @@
 				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
 				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
 				B7CE14B9245AC63400B07DA1 /* Backend */,
+				3F822FE42484478600337513 /* Graph Views */,
 				B7CE14B8245AC62400B07DA1 /* Cells & Table Views */,
 				3FBFDE38241ED1D9006DAC7A /* Controllers */,
 				3FBFDE18241ECEE1006DAC7A /* Main.storyboard */,
@@ -318,6 +333,7 @@
 			files = (
 				B7B50201245956430008BADE /* Data Validation.swift in Sources */,
 				3FBFDE17241ECEE1006DAC7A /* FinanceOverviewController.swift in Sources */,
+				3F822FE8248447B200337513 /* PieChartView.swift in Sources */,
 				3FBFDE37241ED1CC006DAC7A /* GraphViewController.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,
 				3FBFDE35241ED1A7006DAC7A /* ExpensesDetailsViewController.swift in Sources */,
@@ -327,6 +343,7 @@
 				2F78EC2F24710EA90067C1E2 /* ExpensesDetailsCell.swift in Sources */,
 				3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */,
 				3F002F5D24201F19002C73F4 /* Data Model.swift in Sources */,
+				3F822FE6248447A000337513 /* LineGraphView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

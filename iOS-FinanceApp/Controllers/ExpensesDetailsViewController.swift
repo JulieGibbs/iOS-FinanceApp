@@ -7,24 +7,89 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ExpensesDetailsViewController: UIViewController {
-
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        detailsTableView.delegate = self
+        detailsTableView.dataSource = self
+        detailsTableView.rowHeight = UITableView.automaticDimension
+        
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: .entryAddSuccess, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(reloadData), name: .entryAmendSuccess, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    deinit {
+        notificationCenter.removeObserver(self)
     }
-    */
+    
+    // MARK: - Outlets and Properties
+    @IBOutlet weak var detailsTableView: UITableView!
+    var entryDidSendToReview: Entry?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Amend Entry Segue" {
+            let destinationController = segue.destination as! EntryInsertionViewController
+            destinationController.incomingData = entryDidSendToReview
+        }
+    }
+    
+    @objc func reloadData() {
+        detailsTableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    @IBAction func addCategory(_ sender: Any) {
+        let alert = Butler.createInputAlertController(with: Butler.alertData[10][0], message: Butler.alertData[10][1], and: .alert)
+        self.present(alert, animated: true, completion: nil)
+        alert.actions[1].isEnabled = false
+    }
+}
 
+// MARK: - Table View Delegate
+extension ExpensesDetailsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: "Delete") {
+                (action, view, completionHandler) in
+                
+                DataManager.deleteFromRealm(entries[indexPath.row])
+                
+                self.detailsTableView.deleteRows(
+                    at: [indexPath],
+                    with: .automatic)
+                
+                completionHandler(true)
+        }
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        entryDidSendToReview = entries[indexPath.row]
+        performSegue(withIdentifier: "Amend Entry Segue", sender: indexPath)
+    }
+}
+
+// MARK: - Table View Data Source
+extension ExpensesDetailsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return entries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = detailsTableView.dequeueReusableCell(
+            withIdentifier: "ExpensesDetailsCell",
+            for: indexPath) as! ExpensesDetailsCell
+        
+        cell.updateDetailsCell(with: entries[indexPath.row])
+        cell.accessoryType = .detailDisclosureButton
+        
+        
+        return cell
+    }
 }

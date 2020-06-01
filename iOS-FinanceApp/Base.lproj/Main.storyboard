@@ -384,31 +384,13 @@
                     <view key="view" contentMode="scaleToFill" id="01w-UC-Pwd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="3nP-LJ-oSw">
-                                <rect key="frame" x="73.5" y="164" width="267" height="32"/>
-                                <segments>
-                                    <segment title="Week"/>
-                                    <segment title="Month"/>
-                                    <segment title="Quarter"/>
-                                    <segment title="All"/>
-                                </segments>
-                            </segmentedControl>
-                        </subviews>
                         <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="3nP-LJ-oSw" firstAttribute="top" secondItem="f3j-Fb-uZZ" secondAttribute="top" constant="24" id="PBU-IG-nT8"/>
-                            <constraint firstItem="3nP-LJ-oSw" firstAttribute="centerX" secondItem="01w-UC-Pwd" secondAttribute="centerX" id="ZaO-Sj-Cod"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="f3j-Fb-uZZ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Graph" image="2.circle" catalog="system" selectedImage="2.circle" id="kPC-ZI-NtD"/>
                     <navigationItem key="navigationItem" title="Graph View" id="ljV-Nj-QQW">
                         <barButtonItem key="backBarButtonItem" title="Overview" id="fTY-GA-C2z"/>
                     </navigationItem>
-                    <connections>
-                        <outlet property="segmentedControl" destination="3nP-LJ-oSw" id="wcp-he-UHt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wHf-3K-oEZ" sceneMemberID="firstResponder"/>
             </objects>
@@ -567,7 +549,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zq2-kj-oBE"/>
+        <segue reference="Jbo-YL-gWT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>

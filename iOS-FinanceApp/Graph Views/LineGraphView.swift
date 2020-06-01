@@ -15,6 +15,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let width = rect.width
         let height = rect.height
+        let graphHeight = height - Constants.topBorder - Constants.bottomBorder
         
         let path = UIBezierPath(roundedRect: rect,
                                 byRoundingCorners: .allCorners,
@@ -35,6 +36,26 @@ import UIKit
                                     start: startPoint,
                                     end: endPoint,
                                     options: .init(rawValue: 0))
+        
+        let linesPath = UIBezierPath()
+        
+        linesPath.move(to: CGPoint(x: Constants.margin + 10, y: Constants.topBorder))
+        linesPath.addLine(to: CGPoint(x: width - Constants.margin + 10, y: Constants.topBorder))
+        
+        linesPath.move(to: CGPoint(x: Constants.margin + 10, y: Constants.topBorder + graphHeight / 2))
+        linesPath.addLine(to: CGPoint(x: width - Constants.margin + 10, y: Constants.topBorder + graphHeight / 2))
+        
+        linesPath.move(to: CGPoint(x: Constants.margin + 10, y: height - Constants.bottomBorder))
+        linesPath.addLine(to: CGPoint(x: width - Constants.margin + 10, y: height - Constants.bottomBorder))
+        
+        let lineColor = UIColor(white: 1.0, alpha: 0.5)
+        lineColor.setStroke()
+        
+        linesPath.lineWidth = 1.0
+        linesPath.stroke()
+        
+        let incomesPath = UIBezierPath()
+        let expensesPath = UIBezierPath()
     }
 }
 
@@ -43,5 +64,8 @@ extension LineGraphView {
         static let viewWidth: CGFloat = 300.0
         static let viewHeight: CGFloat = 250.0
         static let cornerRadius = CGSize(width: 8.0, height: 8.0)
+        static let margin: CGFloat = 30.0
+        static let topBorder: CGFloat = 60.0
+        static let bottomBorder: CGFloat = 60.0
     }
 }

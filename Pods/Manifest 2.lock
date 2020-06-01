@@ -1,10 +1,10 @@
 PODS:
   - PMSuperButton (3.0.2)
-  - Realm (5.0.1):
-    - Realm/Headers (= 5.0.1)
-  - Realm/Headers (5.0.1)
-  - RealmSwift (5.0.1):
-    - Realm (= 5.0.1)
+  - Realm (5.0.0):
+    - Realm/Headers (= 5.0.0)
+  - Realm/Headers (5.0.0)
+  - RealmSwift (5.0.0):
+    - Realm (= 5.0.0)
 
 DEPENDENCIES:
   - PMSuperButton
@@ -18,8 +18,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
-  Realm: d36cfc336d76d2e15b13651beb6050f49354de4b
-  RealmSwift: f29ae0ceaf4fbaf4803c40bbebd838ea2beb903a
+  Realm: 76066d333de26f97e9caedaa85ee3ff4a62ca265
+  RealmSwift: c1bdff09b422569dc6881410d9ccf712bcdb79b0
 
 PODFILE CHECKSUM: c87eaf422615a88f088230aa6ede92d8b2056dea
 

@@ -13,12 +13,13 @@ class GraphViewController: UIViewController {
     let segmentedControl = UISegmentedControl()
     let lineGraphView = LineGraphView()
     let pieChartView = PieChartView()
-    let bottomStackView = UIStackView()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSegmentedControl()
         setupLineGraphView()
+        setupStackView()
     }
     
     func setupSegmentedControl() {
@@ -73,17 +74,17 @@ class GraphViewController: UIViewController {
             constraint.isActive = true
         }
         
-        let labels = (1...11).map { _ in UILabel() }
+        let graphLabels = (1...4).map { _ in UILabel() }
         
         
-        labels[0].frame = CGRect(x: 15, y: 10, width: 40, height: 40)
-        labels[0].text = "Profit and Loss Breakdown"
-        labels[0].font = UIFont.init(name: "Avenir Next Bold", size: 12)
-        lineGraphView.addSubview(labels[0])
+        graphLabels[0].frame = CGRect(x: 15, y: 10, width: 40, height: 40)
+        graphLabels[0].text = "Profit and Loss Breakdown"
+        graphLabels[0].font = UIFont.init(name: "Avenir Next Bold", size: 12)
+        lineGraphView.addSubview(graphLabels[0])
         
         var labelYPoint: CGFloat = 52.25
         
-        labels[1...3].forEach { label in
+        graphLabels[1...3].forEach { label in
             label.frame = CGRect(x: 15, y: labelYPoint, width: 40, height: 40)
             label.text = "XX"
             labelYPoint += 65
@@ -91,25 +92,56 @@ class GraphViewController: UIViewController {
             lineGraphView.addSubview(label)
         }
         
-        labels.forEach { label in
+        graphLabels.forEach { label in
             label.textColor = .white
             label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
             label.textAlignment = .natural
             label.sizeToFit()
         }
+    }
+    
+    func setupStackView() {
         
-        labels[4...10].forEach { label in
-            label.frame = CGRect(x: 15, y: labelYPoint, width: 40, height: 40)
-            label.text = "XX"
-            label.font = UIFont.init(name: "Avenir Next", size: 12)
-            bottomStackView.addSubview(label)
+        let margins = lineGraphView.layoutMarginsGuide
+        
+        
+        let stackView = UIStackView()
+        lineGraphView.addSubview(stackView)
+        stackView.frame = CGRect(x: 15, y: 100, width: 100, height: 100)
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.sizeToFit()
+        
+        let label = UILabel(frame: CGRect.zero)
+        var stackViewLabels: [UILabel] = (1...7).map { _ in UILabel()}
+        let labelTexts = [
+            ["00:00", "03:00", "06:00", "09:00"],
+            ["S", "M", "T", "W", "T", "F", "S"],
+            ["W1", "W2", "W3", "W4"],
+            ["", "", "", ""],
+            [],
+        
+        ]
+        
+        label.text = "M"
+        
+        
+        stackView.addArrangedSubview(label)
+        
+        let constraints = [
+            stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
+        ]
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        constraints.forEach { constraint in
+            constraint.isActive = true
         }
         
-        bottomStackView.frame(forAlignmentRect: CGRect(x: 0.0, y: 0.0, width: 300, height: 40))
-        bottomStackView.alignment = .fill
-        bottomStackView.axis = .horizontal
-        bottomStackView.distribution = .fillEqually
         
-        lineGraphView.addSubview(bottomStackView)
+        
     }
 }

@@ -92,6 +92,8 @@ class GraphViewController: UIViewController {
             lineGraphView.addSubview(label)
         }
         
+        let lineMargins = lineGraphView.layoutMarginsGuide
+        
         graphLabels.forEach { label in
             label.textColor = .white
             label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
@@ -108,9 +110,10 @@ class GraphViewController: UIViewController {
         let stackView = UIStackView()
         lineGraphView.addSubview(stackView)
         stackView.frame = CGRect(x: 15, y: 100, width: 100, height: 100)
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 25
         stackView.sizeToFit()
         
         let label = UILabel(frame: CGRect.zero)
@@ -119,20 +122,25 @@ class GraphViewController: UIViewController {
             ["00:00", "03:00", "06:00", "09:00"],
             ["S", "M", "T", "W", "T", "F", "S"],
             ["W1", "W2", "W3", "W4"],
-            ["", "", "", ""],
-            [],
-        
+            ["Q1", "Q2", "Q3", "Q4"],
+            ["MIN", "MID", "MAX"]
         ]
         
-        label.text = "M"
-        
-        
-        stackView.addArrangedSubview(label)
+        for label in stackViewLabels {
+            var i = 0
+            let weekTexts = labelTexts[1]
+            label.text = weekTexts[i]
+            label.font = UIFont.init(name: "Avenir Next Medium", size: 12)
+            label.textColor = .white
+            stackView.addArrangedSubview(label)
+            i += 1
+            print(label.text)
+        }
         
         let constraints = [
-            stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor),
+            stackView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 34),
             stackView.trailingAnchor.constraint(equalTo: margins.trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor)
+            stackView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant:  -15)
         ]
         
         stackView.translatesAutoresizingMaskIntoConstraints = false

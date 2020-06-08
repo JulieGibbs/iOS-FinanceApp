@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import PMSuperButton
 
 class EntryInsertionViewController: UIViewController {
@@ -225,6 +224,10 @@ extension EntryInsertionViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 3 {
             categoryPicker.isHidden = false
+        }
+        
+        if textField.tag == 2 {
+            datePickerValueChanged(for: datePicker)
         }
         return true
     }

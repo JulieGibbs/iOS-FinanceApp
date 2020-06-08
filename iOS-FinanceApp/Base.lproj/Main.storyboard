@@ -479,35 +479,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUA-pY-0gn" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="84" y="826" width="247" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Add Expense Category">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientEnabled" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                        <color key="value" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                        <color key="value" red="0.45727488890000001" green="0.90196078430000004" blue="0.59158581909999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientHorizontal" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="GUA-pY-0gn" firstAttribute="bottom" secondItem="jLP-Qd-4c9" secondAttribute="bottom" id="TWc-Yd-Hji"/>
                             <constraint firstAttribute="trailing" secondItem="qNE-fe-qww" secondAttribute="trailing" id="VGQ-lQ-Ejg"/>
                             <constraint firstItem="qNE-fe-qww" firstAttribute="top" secondItem="jLP-Qd-4c9" secondAttribute="top" id="gLi-1f-Ry0"/>
-                            <constraint firstItem="qNE-fe-qww" firstAttribute="centerX" secondItem="GUA-pY-0gn" secondAttribute="centerX" id="lZV-Cs-WfU"/>
-                            <constraint firstItem="GUA-pY-0gn" firstAttribute="leading" secondItem="jLP-Qd-4c9" secondAttribute="leading" constant="84" id="nQG-4e-iWg"/>
-                            <constraint firstItem="GUA-pY-0gn" firstAttribute="top" secondItem="qNE-fe-qww" secondAttribute="bottom" constant="8" symbolic="YES" id="o7u-G4-6t6"/>
+                            <constraint firstItem="jLP-Qd-4c9" firstAttribute="bottom" secondItem="qNE-fe-qww" secondAttribute="bottom" constant="44" id="j7H-8W-3DI"/>
                             <constraint firstItem="qNE-fe-qww" firstAttribute="leading" secondItem="MA3-ME-iM8" secondAttribute="leading" id="t8I-re-kZY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jLP-Qd-4c9"/>
@@ -549,7 +526,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Jbo-YL-gWT"/>
+        <segue reference="Zq2-kj-oBE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1.circle" catalog="system" width="128" height="121"/>

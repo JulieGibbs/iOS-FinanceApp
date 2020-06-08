@@ -25,7 +25,14 @@ class EntryInsertionViewController: UIViewController {
             amntInputTextField.text = "\(abs(newData.amount))"
             dateInputTextField.text = "\(Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: newData.date!))"
             categoryInputTextField.text = newData.category
-            typeTextField.text = newData.entryType
+            
+            switch newData.entryType {
+            case "Income":
+                typeControl.selectedSegmentIndex = 0
+            case "Expense":
+                typeControl.selectedSegmentIndex = 1
+            default: break
+            }
         }
     }
     
@@ -40,7 +47,7 @@ class EntryInsertionViewController: UIViewController {
     @IBOutlet weak var amntInputTextField: UITextField!
     @IBOutlet weak var dateInputTextField: UITextField!
     @IBOutlet weak var categoryInputTextField: UITextField!
-    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var typeControl: UISegmentedControl!
     
     // MARK: - Programmatic Properties
     var datePicker = UIDatePicker()
@@ -70,7 +77,7 @@ class EntryInsertionViewController: UIViewController {
                 try! realm.write {
                     entryToWrite.name = nameInputTextField.text
                     
-                    if typeTextField.text == "Expense" {
+                    if typeControl.selectedSegmentIndex == 1 {
                         print("System is about to write expense. Now adjusting entry amount...")
                         entryToWrite.amount = Int(amntInputTextField.text!)! * -1
                     } else {
@@ -83,8 +90,14 @@ class EntryInsertionViewController: UIViewController {
                         .none)
                         .date(from: dateInputTextField.text!)!
                     entryToWrite.category = categoryInputTextField.text!
-                    entryToWrite.entryType = typeTextField.text!
-                    
+                    switch typeControl.selectedSegmentIndex {
+                    case 0:
+                        entryToWrite.entryType = "Income"
+                    case 1:
+                        entryToWrite.entryType = "Expense"
+                    default: break
+                    }
+                                        
                     notificationCenter.post(name: .entryAmendSuccess, object: nil)
                     
                     print("Entry data updated.")
@@ -96,6 +109,20 @@ class EntryInsertionViewController: UIViewController {
             } else {
                 print("New entry created! Now saving...")
                 
+                var type: String {
+                    // make separate func
+                    var result: String = ""
+                    switch typeControl.selectedSegmentIndex {
+                    case 0:
+                        result = "Income"
+                    case 1:
+                        result = "Expense"
+                    default:
+                        break
+                    }
+                    return result
+                }
+                
                 let entry = Entry(
                     id: DataManager.generateId(),
                     name: nameInputTextField.text!,
@@ -105,11 +132,11 @@ class EntryInsertionViewController: UIViewController {
                         timeStyle: .none)
                         .date(from: dateInputTextField.text!))!,
                     category: categoryInputTextField.text!,
-                    entryType: typeTextField.text!,
+                    entryType: type,
                     ToC: "\(NSDate().timeIntervalSince1970)")
                 
-                switch typeTextField.text {
-                case "Expense":
+                switch typeControl.selectedSegmentIndex {
+                case 1:
                     print("Expense detected! Now adjusting amount...")
                     entry.amount *= -1
                     controllerDidWriteAndDismiss(input: entry)
@@ -336,23 +363,23 @@ extension EntryInsertionViewController {
                     , animated: true, completion: nil)
                 throw ValidationErrors.categoryMismatch }
         
-        guard !typeTextField.text!.isEmpty else {
-            self.present(Butler.createAlertController(
-                with: Butler.alertData[8][0],
-                message: Butler.alertData[8][1],
-                and: .alert)
-                , animated: true, completion: nil)
-            throw ValidationErrors.typeIsEmpty }
-        
-        guard validator.inputIsValidated(
-            input: typeTextField.text!,
-            pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                self.present(Butler.createAlertController(
-                    with: Butler.alertData[9][0],
-                    message: Butler.alertData[9][1],
-                    and: .alert)
-                    , animated: true, completion: nil)
-                throw ValidationErrors.typeMismatch }
+//        guard !typeTextField.text!.isEmpty else {
+//            self.present(Butler.createAlertController(
+//                with: Butler.alertData[8][0],
+//                message: Butler.alertData[8][1],
+//                and: .alert)
+//                , animated: true, completion: nil)
+//            throw ValidationErrors.typeIsEmpty }
+//
+//        guard validator.inputIsValidated(
+//            input: typeTextField.text!,
+//            pattern: validator.regExes["alphaNumericRegEx"]!) else {
+//                self.present(Butler.createAlertController(
+//                    with: Butler.alertData[9][0],
+//                    message: Butler.alertData[9][1],
+//                    and: .alert)
+//                    , animated: true, completion: nil)
+//                throw ValidationErrors.typeMismatch }
     }
 }
 

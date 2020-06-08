@@ -1,5 +1,3 @@
-source 'https://github.com/CocoaPods/specs.git'
-
 target 'iOS-FinanceApp' do
 	use_frameworks!
 

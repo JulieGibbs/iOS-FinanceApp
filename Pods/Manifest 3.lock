@@ -1,0 +1,26 @@
+PODS:
+  - PMSuperButton (3.0.2)
+  - Realm (5.0.1):
+    - Realm/Headers (= 5.0.1)
+  - Realm/Headers (5.0.1)
+  - RealmSwift (5.0.1):
+    - Realm (= 5.0.1)
+
+DEPENDENCIES:
+  - PMSuperButton
+  - RealmSwift
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - PMSuperButton
+    - Realm
+    - RealmSwift
+
+SPEC CHECKSUMS:
+  PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
+  Realm: d36cfc336d76d2e15b13651beb6050f49354de4b
+  RealmSwift: f29ae0ceaf4fbaf4803c40bbebd838ea2beb903a
+
+PODFILE CHECKSUM: eda616908f8e7356f44f59b4afb29238f576cdfc
+
+COCOAPODS: 1.9.3

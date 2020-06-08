@@ -97,7 +97,7 @@ class EntryInsertionViewController: UIViewController {
                         entryToWrite.entryType = "Expense"
                     default: break
                     }
-                                        
+                    
                     notificationCenter.post(name: .entryAmendSuccess, object: nil)
                     
                     print("Entry data updated.")
@@ -251,10 +251,11 @@ extension EntryInsertionViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 3 {
             categoryPicker.isHidden = false
+            textField.text!.isEmpty ? textField.text = "\(pickerData[categoryPicker.selectedRow(inComponent: 0)])" : nil
         }
         
         if textField.tag == 2 {
-            datePickerValueChanged(for: datePicker)
+            textField.text!.isEmpty ? datePickerValueChanged(for: datePicker) : nil
         }
         return true
     }
@@ -363,23 +364,23 @@ extension EntryInsertionViewController {
                     , animated: true, completion: nil)
                 throw ValidationErrors.categoryMismatch }
         
-//        guard !typeTextField.text!.isEmpty else {
-//            self.present(Butler.createAlertController(
-//                with: Butler.alertData[8][0],
-//                message: Butler.alertData[8][1],
-//                and: .alert)
-//                , animated: true, completion: nil)
-//            throw ValidationErrors.typeIsEmpty }
-//
-//        guard validator.inputIsValidated(
-//            input: typeTextField.text!,
-//            pattern: validator.regExes["alphaNumericRegEx"]!) else {
-//                self.present(Butler.createAlertController(
-//                    with: Butler.alertData[9][0],
-//                    message: Butler.alertData[9][1],
-//                    and: .alert)
-//                    , animated: true, completion: nil)
-//                throw ValidationErrors.typeMismatch }
+        //        guard !typeTextField.text!.isEmpty else {
+        //            self.present(Butler.createAlertController(
+        //                with: Butler.alertData[8][0],
+        //                message: Butler.alertData[8][1],
+        //                and: .alert)
+        //                , animated: true, completion: nil)
+        //            throw ValidationErrors.typeIsEmpty }
+        //
+        //        guard validator.inputIsValidated(
+        //            input: typeTextField.text!,
+        //            pattern: validator.regExes["alphaNumericRegEx"]!) else {
+        //                self.present(Butler.createAlertController(
+        //                    with: Butler.alertData[9][0],
+        //                    message: Butler.alertData[9][1],
+        //                    and: .alert)
+        //                    , animated: true, completion: nil)
+        //                throw ValidationErrors.typeMismatch }
     }
 }
 

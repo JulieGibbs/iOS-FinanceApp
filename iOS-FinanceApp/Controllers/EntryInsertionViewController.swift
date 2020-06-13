@@ -300,7 +300,7 @@ extension EntryInsertionViewController {
                 , animated: true, completion: nil)
             throw ValidationErrors.nameIsEmpty }
         
-        guard validator.inputIsValidated(
+        guard TextValidation.inputIsValidated(
             input: nameInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
                 self.present(Butler.createAlertController(
@@ -318,7 +318,7 @@ extension EntryInsertionViewController {
                 , animated: true, completion: nil)
             throw ValidationErrors.amntIsEmpty }
         
-        guard validator.inputIsValidated(
+        guard TextValidation.inputIsValidated(
             input: amntInputTextField.text!,
             pattern: validator.regExes["numericRegEx"]!) else {
                 self.present(Butler.createAlertController(
@@ -328,23 +328,23 @@ extension EntryInsertionViewController {
                     , animated: true, completion: nil)
                 throw ValidationErrors.amntMismatch }
         
-        guard !dateInputTextField.text!.isEmpty else {
-            self.present(Butler.createAlertController(
-                with: Butler.alertData[4][0],
-                message: Butler.alertData[4][1],
-                and: .alert)
-                , animated: true, completion: nil)
-            throw ValidationErrors.dateIsEmtpy }
-        
-        guard validator.inputIsValidated(
-            input: dateInputTextField.text!,
-            pattern: validator.regExes["dateRegEx"]!) else {
-                self.present(Butler.createAlertController(
-                    with: Butler.alertData[5][0],
-                    message: Butler.alertData[5][1],
-                    and: .alert)
-                    , animated: true, completion: nil)
-                throw ValidationErrors.dateMismatch }
+        //        guard !dateInputTextField.text!.isEmpty else {
+        //            self.present(Butler.createAlertController(
+        //                with: Butler.alertData[4][0],
+        //                message: Butler.alertData[4][1],
+        //                and: .alert)
+        //                , animated: true, completion: nil)
+        //            throw ValidationErrors.dateIsEmtpy }
+        //
+        //        guard TextValidation.inputIsValidated(
+        //            input: dateInputTextField.text!,
+        //            pattern: validator.regExes["dateRegEx"]!) else {
+        //                self.present(Butler.createAlertController(
+        //                    with: Butler.alertData[5][0],
+        //                    message: Butler.alertData[5][1],
+        //                    and: .alert)
+        //                    , animated: true, completion: nil)
+        //                throw ValidationErrors.dateMismatch }
         
         guard !categoryInputTextField.text!.isEmpty else {
             self.present(Butler.createAlertController(
@@ -354,7 +354,7 @@ extension EntryInsertionViewController {
                 , animated: true, completion: nil)
             throw ValidationErrors.categoryIsEmpty }
         
-        guard validator.inputIsValidated(
+        guard TextValidation.inputIsValidated(
             input: categoryInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
                 self.present(Butler.createAlertController(

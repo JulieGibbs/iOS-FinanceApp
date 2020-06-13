@@ -188,6 +188,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ujW-ms-4RJ">
                                 <rect key="frame" x="8" y="410.5" width="398" height="396.5"/>
                                 <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.87843137250000003" green="0.74340638010000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FinanceOverviewCell" rowHeight="70" id="9H8-4V-Ifc" customClass="FinanceOverviewCell" customModule="iOS_FinanceApp" customModuleProvider="target">
@@ -206,14 +207,14 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="163" id="BRi-hu-o1y"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Entry Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTm-dg-t39">
-                                                            <rect key="frame" x="221" y="14" width="105" height="20"/>
+                                                            <rect key="frame" x="222" y="14" width="104" height="20"/>
                                                             <color key="backgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -346,6 +347,7 @@
                             <constraint firstItem="1Gc-fa-1Zy" firstAttribute="top" secondItem="ZX2-8g-bk1" secondAttribute="bottom" constant="33" id="MCs-Hx-lTO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ujW-ms-4RJ" secondAttribute="trailing" constant="8" id="QZZ-u7-28E"/>
                             <constraint firstItem="4CB-z4-3TN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Qrp-qE-i5b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u6S-hB-Xvm" secondAttribute="trailing" symbolic="YES" id="SxK-b5-I9u"/>
                             <constraint firstItem="u6S-hB-Xvm" firstAttribute="leading" secondItem="ujW-ms-4RJ" secondAttribute="leading" constant="8" id="Tub-zw-Xx7"/>
                             <constraint firstItem="ZX2-8g-bk1" firstAttribute="centerX" secondItem="ujW-ms-4RJ" secondAttribute="centerX" id="WBU-WS-vOh"/>
                             <constraint firstItem="4CB-z4-3TN" firstAttribute="top" secondItem="ujW-ms-4RJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Y3D-cK-MFC"/>
@@ -405,6 +407,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNE-fe-qww">
                                 <rect key="frame" x="0.0" y="140" width="414" height="678"/>
                                 <color key="backgroundColor" red="0.95686274509803915" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" red="0.87843137250000003" green="0.74340638006027415" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.95686274510000002" green="1" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExpensesDetailsCell" rowHeight="70" id="HHq-Pz-NIh" customClass="ExpensesDetailsCell" customModule="iOS_FinanceApp" customModuleProvider="target">
@@ -418,43 +421,43 @@
                                                     <rect key="frame" x="13" y="0.0" width="401" height="70"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-lk-wg9">
-                                                            <rect key="frame" x="8" y="8" width="380" height="32"/>
+                                                            <rect key="frame" x="8" y="8" width="380" height="16.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-ev-vfg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="32"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-ev-vfg">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="16.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="248" text="Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ca-zp-swZ">
-                                                                    <rect key="frame" x="141.5" y="0.0" width="97" height="32"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="141.5" y="0.0" width="97" height="16.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="248" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdF-Ub-Owb">
-                                                                    <rect key="frame" x="282.5" y="0.0" width="97.5" height="32"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="282.5" y="0.0" width="97.5" height="16.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uA-6r-dHj">
-                                                            <rect key="frame" x="8" y="45" width="36" height="20"/>
+                                                            <rect key="frame" x="8" y="45" width="29.5" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="KCH-0J-mgB"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" red="0.95676380400000005" green="1" blue="0.91371351479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailingMargin" secondItem="sT6-lk-wg9" secondAttribute="trailing" constant="5" id="8mB-BP-lMW"/>
                                                         <constraint firstItem="sT6-lk-wg9" firstAttribute="leading" secondItem="jp5-2e-UgE" secondAttribute="leadingMargin" id="FdR-3f-fUT"/>
-                                                        <constraint firstItem="8uA-6r-dHj" firstAttribute="top" secondItem="sT6-lk-wg9" secondAttribute="bottom" constant="5" id="H7X-n9-VsV"/>
+                                                        <constraint firstItem="8uA-6r-dHj" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sT6-lk-wg9" secondAttribute="bottom" constant="5" id="H7X-n9-VsV"/>
                                                         <constraint firstItem="sT6-lk-wg9" firstAttribute="top" secondItem="jp5-2e-UgE" secondAttribute="topMargin" id="Xsx-8p-VIR"/>
                                                         <constraint firstItem="8uA-6r-dHj" firstAttribute="leading" secondItem="jp5-2e-UgE" secondAttribute="leadingMargin" id="xoW-y9-Wei"/>
                                                         <constraint firstAttribute="bottom" secondItem="8uA-6r-dHj" secondAttribute="bottom" constant="5" id="zji-Xk-qPK"/>
@@ -468,6 +471,7 @@
                                                 <constraint firstItem="jp5-2e-UgE" firstAttribute="top" secondItem="vMo-ZV-tPC" secondAttribute="top" id="tJj-ph-NxI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.95676380400000005" green="1" blue="0.91371351479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="amountLabel" destination="8Ca-zp-swZ" id="71U-SH-41q"/>
                                             <outlet property="categoryLabel" destination="kdF-Ub-Owb" id="x6T-HO-epS"/>
@@ -478,7 +482,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.95676380400000005" green="1" blue="0.91371351479999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qNE-fe-qww" secondAttribute="trailing" id="VGQ-lQ-Ejg"/>
                             <constraint firstItem="qNE-fe-qww" firstAttribute="top" secondItem="jLP-Qd-4c9" secondAttribute="top" id="gLi-1f-Ry0"/>

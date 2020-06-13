@@ -18,17 +18,17 @@ class TextValidation {
         "typeRegEx" : "(Income)|(Expense)"
     ]
     
-    public func inputIsValidated(input text: String, pattern regEx: String) -> Bool {
+    static public func inputIsValidated(input text: String, pattern regEx: String) -> Bool {
         if text.isEmpty { return false } else {
             return createPredicate(pattern: regEx).evaluate(with: whitespacesDidTrim(input: text))
         }
     }
     
-    private func createPredicate(pattern regEx: String) -> NSPredicate {
+    static private func createPredicate(pattern regEx: String) -> NSPredicate {
         return NSPredicate(format: "SELF MATCHES %@", regEx)
     }
     
-    private func whitespacesDidTrim(input: String) -> String {
+    static private func whitespacesDidTrim(input: String) -> String {
         return input.doesContainWhitespacesAndNewLines ? input.filter { !$0.isNewline && !$0.isWhitespace } : input
     }
 }

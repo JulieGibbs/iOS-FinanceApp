@@ -12,8 +12,6 @@ import RealmSwift
 class GraphViewController: UIViewController {
     let segmentedControl = UISegmentedControl()
     let lineGraphView = LineGraphView()
-    let pieChartView = PieChartView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if appHasAlreadyLaunched { appHasAlreadyLaunched = true }
         else { UserDefaults.standard.set(true, forKey: "appHasAlreadyLaunched") }
         
+        let today = NSDate()
+        let sevenDaysAgo = today.add
+        print(today, sevenDaysAgo)
+        
         return true
     }
     

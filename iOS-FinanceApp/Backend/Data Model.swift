@@ -44,6 +44,9 @@ class Entry: Object {
     @objc dynamic var name: String?
     @objc dynamic var amount: Int = 0
     @objc dynamic var date: Date?
+    @objc dynamic var strDate: String {
+        Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date!)
+    }
     @objc dynamic var category: String?
     @objc dynamic var entryType: String?
     @objc dynamic var creationStamp: String?
@@ -224,25 +227,43 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
     static func generateId() -> String {
         return UUID().uuidString
     }
+    
+    // MARK: - Graph View Data Source
+    static func getGraphDataSource(timeFrame: TimeFrame, input data: Results<Entry>) {
+        switch timeFrame {
+        case .day:
+            let today = Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: Date())
+            print(entries.filter({ $0.strDate == today }))
+        case .week:
+            let dayFloor = Date(timeIntervalSinceNow: -7.0)
+        
+        case .month: break
+        case .year: break
+        case .all: break
+        default: break
+        }
+    }
 }
 
 // MARK: - Categories Data Source
-struct CategoryTotal: Hashable, Equatable {
+struct CategoryTotal /*: Hashable, Equatable*/ {
     let name: String
     let balance: Int
     let uuid = UUID()
-    
-    //    func hash(into hasher: inout Hasher) {
-    //        hasher.combine(uuid)
-    //    }
-    //
-    //    static func ==(lhs: CategoryTotal, rhs: CategoryTotal) -> Bool {
-    //        return lhs.uuid == rhs.uuid
-    //    }
-    //
-    //    func contains(query: String) -> Bool {
-    //        guard !query.isEmpty else { return true }
-    //
-    //        return name.lowercased().contains(query.lowercased())
-    //    }
 }
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(uuid)
+//    }
+//
+//    static func ==(lhs: CategoryTotal, rhs: CategoryTotal) -> Bool {
+//        return lhs.uuid == rhs.uuid
+//    }
+//
+//    func contains(query: String) -> Bool {
+//        guard !query.isEmpty else { return true }
+//
+//        return name.lowercased().contains(query.lowercased())
+//    }
+
+enum TimeFrame {
+    case day, week, month, year, all }

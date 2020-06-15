@@ -134,6 +134,7 @@ class EntryInsertionViewController: UIViewController {
                     category: categoryInputTextField.text!,
                     entryType: type,
                     ToC: "\(NSDate().timeIntervalSince1970)")
+                print(entry.strDate)
                 
                 switch typeControl.selectedSegmentIndex {
                 case 1:
@@ -249,13 +250,12 @@ extension EntryInsertionViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 3 {
-            categoryPicker.isHidden = false
-            textField.text!.isEmpty ? textField.text = "\(pickerData[categoryPicker.selectedRow(inComponent: 0)])" : nil
-        }
-        
-        if textField.tag == 2 {
+        switch textField.tag {
+        case 2:
             textField.text!.isEmpty ? datePickerValueChanged(for: datePicker) : nil
+        case 3:
+            !pickerData.isEmpty ? textField.text = "\(pickerData[categoryPicker.selectedRow(inComponent: 0)])" : nil
+        default: break
         }
         return true
     }

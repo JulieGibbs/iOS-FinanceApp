@@ -20,9 +20,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if appHasAlreadyLaunched { appHasAlreadyLaunched = true }
         else { UserDefaults.standard.set(true, forKey: "appHasAlreadyLaunched") }
         
-        let today = NSDate()
-        let sevenDaysAgo = today.add
-        print(today, sevenDaysAgo)
+        // выводим сегодняшние проводки
+        let today = Date()
+        
+        print(entries.filter({ $0.date! == today }))
+        
+        // выводим проводки за неделю
+        let todayMinusSevenDays = Date(timeIntervalSinceNow: (1 * 60 * 60 * 24) * -7)
+        
+        print(Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: Date(timeIntervalSinceNow: (1 * 60 * 60 * 24) * -7)))
+        
+        print(entries.filter({ $0.date! <= todayMinusSevenDays }))
+
+
         
         return true
     }

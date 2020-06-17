@@ -44,9 +44,9 @@ class Entry: Object {
     @objc dynamic var name: String?
     @objc dynamic var amount: Int = 0
     @objc dynamic var date: Date?
-    @objc dynamic var strDate: String {
+    @objc dynamic var strDate: String? /* {
         Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date!)
-    }
+    }*/
     @objc dynamic var category: String?
     @objc dynamic var entryType: String?
     @objc dynamic var creationStamp: String?
@@ -61,6 +61,7 @@ class Entry: Object {
         self.name = name
         self.amount = amount
         self.date = date
+        self.strDate = Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date)
         self.category = category
         self.entryType = entryType
         self.creationStamp = ToC
@@ -266,4 +267,9 @@ struct CategoryTotal /*: Hashable, Equatable*/ {
 //    }
 
 enum TimeFrame {
-    case day, week, month, year, all }
+    case day, week, month, year, all
+}
+
+//extension Date {
+//    func >
+//}

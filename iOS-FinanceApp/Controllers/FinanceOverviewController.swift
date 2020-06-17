@@ -84,7 +84,6 @@ class FinanceOverviewController: UIViewController {
         for (key, value) in self.data {
             self.objectArray.append(CategoryTotal(name: key, balance: value))
         }
-        print(objectArray)
         self.pivotTableView.reloadData()
     }
     

@@ -32,34 +32,34 @@ final class Butler {
     
     // MARK: - Alerts
     static var alertData: [[String]] = [["Name is missing",
-                                         "Sorry, cannot proceed without a name. Please provide one. \nTips: use alphanumerics and (or) specials; length: 2 to 70 symbols."],
+                                         "Sorry, cannot proceed without a name. Please provide one. \n\nTips: use alphanumerics and (or) specials; length: 2 to 70 symbols."],
                                         
                                         ["Invalid entry name",
-                                         "Sorry, the name is invalid. Please retry. \nTips: use alphanumerics and (or) specials; length: 2 to 70 symbols."],
+                                         "Sorry, the name is invalid. Please retry. \n\nTips: use alphanumerics and (or) specials; length: 2 to 70 symbols."],
                                         
                                         ["Amount is missing",
-                                         "Sorry, cannot proceed without knowing the cost of the entry. Please provide one. \nTips: use numerics, arbitrary length."],
+                                         "Sorry, cannot proceed without knowing the cost of the entry. Please provide one. \n\nTips: use numerics, arbitrary length."],
                                         
                                         ["Invalid amount",
-                                         "Sorry, the amount is invalid. Please retry. \nTips: use numerics, arbitrary length."],
+                                         "Sorry, the amount is invalid. Please retry. \n\nTips: use numerics, arbitrary length."],
                                         
                                         ["Date is missing",
-                                         "Sorry, cannot proceed without knowing when your entry was made. \nPlease provide the date."],
+                                         "Sorry, cannot proceed without knowing when your entry was made. \n\nPlease provide the date."],
                                         
                                         ["Invalid date",
-                                         "Sorry, the date is invalid. Please retry. \nTips: use only date picker."],
+                                         "Sorry, the date is invalid. Please retry. \n\nTips: use only date picker."],
                                         
                                         ["Category is missing",
-                                         "Sorry, cannot proceed without knowing the entry category. Please provide one. \nTips: use alphanumerics; arbitrary length."],
+                                         "Sorry, cannot proceed without knowing the entry category. Please provide one. \n\nTips: use alphanumerics; arbitrary length."],
                                         
                                         ["Invalid Category",
-                                         "Sorry, the category is invalid. Please retry. \nTips: use alphanumerics, arbitrary length."],
+                                         "Sorry, the category is invalid. Please select some from picker or add new. \n\nTips: use alphanumerics, arbitrary length. Only picker data is accepted."],
                                         
                                         ["Type is missing",
                                          "Sorry, cannot proceed without knowing whether the entry is an income or an expense. Please specify. \nTip: just type 'Income' or 'Expense', you do not need to put a negative sign."],
                                         
                                         ["Invalid Type",
-                                         "Sorry, the type is missing. Please retry. \nTip: just type 'Income' or 'Expense', you do not need to put a negative sign."],
+                                         "Sorry, the type is missing. Please retry. \n\nTip: just type 'Income' or 'Expense', you do not need to put a negative sign."],
                                         
                                         ["Enter category name",
                                          "Please input some meaningful and descriptive name for your fresh category"],

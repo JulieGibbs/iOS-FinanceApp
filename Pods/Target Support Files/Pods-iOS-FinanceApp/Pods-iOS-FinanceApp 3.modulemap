@@ -1,6 +1,0 @@
-framework module Pods_iOS_FinanceApp {
-  umbrella header "Pods-iOS-FinanceApp-umbrella.h"
-
-  export *
-  module * { export * }
-}

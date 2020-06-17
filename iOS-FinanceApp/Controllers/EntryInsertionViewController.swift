@@ -255,6 +255,9 @@ extension EntryInsertionViewController: UITextFieldDelegate {
             textField.text!.isEmpty ? datePickerValueChanged(for: datePicker) : nil
         case 3:
             !pickerData.isEmpty ? textField.text = "\(pickerData[categoryPicker.selectedRow(inComponent: 0)])" : nil
+            //            if !pickerData.contains(textField.text!) {
+            //                textField.text = "\(pickerData[categoryPicker.selectedRow(inComponent: 0)])"
+        //            }
         default: break
         }
         return true
@@ -356,7 +359,8 @@ extension EntryInsertionViewController {
         
         guard TextValidation.inputIsValidated(
             input: categoryInputTextField.text!,
-            pattern: validator.regExes["alphaNumericRegEx"]!) else {
+            pattern: validator.regExes["alphaNumericRegEx"]!),
+            pickerData.contains(categoryInputTextField.text!) else {
                 self.present(Butler.createAlertController(
                     with: Butler.alertData[7][0],
                     message: Butler.alertData[7][1],

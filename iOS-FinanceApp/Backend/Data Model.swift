@@ -45,8 +45,8 @@ class Entry: Object {
     @objc dynamic var amount: Int = 0
     @objc dynamic var date: Date?
     @objc dynamic var strDate: String? /* {
-        Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date!)
-    }*/
+     Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date!)
+     }*/
     @objc dynamic var category: String?
     @objc dynamic var entryType: String?
     @objc dynamic var creationStamp: String?
@@ -140,7 +140,7 @@ class Category: Object {
 // MARK: - Class for Data & Realm Management
 final /* 'final' increases performance as static diapatch comes in*/ class DataManager {
     // MARK: - Realm Administration (+ CRUD Methods)
-    /*
+    /**
      'static func'prevents overriding thus statc dispatch is engaged and performance is gained
      'keypath' accessor obtains any instance property as a separate value; in this case (see method signature) it provides read-only access to the property "amount" (Entry/ Amount)
      */
@@ -150,7 +150,7 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
             .sorted(byKeyPath: "amount", ascending: false)
     }
     
-    static func writeToRealm(_ input: Object) {
+    static func createEntry(_ input: Object) {
         realm.beginWrite()
         realm.add(input)
         
@@ -167,7 +167,7 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
         }
     }
     
-    static func deleteFromRealm(_ input: Entry) {
+    static func deleteEntry(_ input: Entry) {
         realm.beginWrite()
         realm.delete(input)
         
@@ -233,15 +233,24 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
     static func getGraphDataSource(timeFrame: TimeFrame, input data: Results<Entry>) {
         switch timeFrame {
         case .day:
-            let today = Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: Date())
-            print(entries.filter({ $0.strDate == today }))
+            let today = Date()
+            print(entries.filter({ $0.date! == today }))
+            print("today's entries printed")
         case .week:
-            let dayFloor = Date(timeIntervalSinceNow: -7.0)
-        
-        case .month: break
-        case .year: break
-        case .all: break
-        default: break
+            let weekFloor = Date(timeIntervalSinceNow: -7 * 24 * 60 * 60)
+            print(entries.filter({ $0.date! <= weekFloor }))
+            print("weekly entries printed")
+        case .month:
+            let monthFloor = Date(timeIntervalSinceNow: -30 * 24 * 60 * 60)
+            print(entries.filter({ $0.date! <= monthFloor }))
+            print("monthly entries printed")
+        case .year:
+            let yearFloor = Date(timeIntervalSinceNow: -365 * 24 * 60 * 60)
+            print(entries.filter({ $0.date! <= yearFloor }))
+            print("yearly entries printed")
+        case .all:
+            print(entries)
+            print("all entries printed")
         }
     }
 }

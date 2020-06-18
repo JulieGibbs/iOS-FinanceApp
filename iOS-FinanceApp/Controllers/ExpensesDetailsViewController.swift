@@ -57,7 +57,7 @@ extension ExpensesDetailsViewController: UITableViewDelegate {
             title: "Delete") {
                 (action, view, completionHandler) in
                 
-                DataManager.deleteFromRealm(entries[indexPath.row])
+                DataManager.deleteEntry(entries[indexPath.row])
                 
                 self.detailsTableView.deleteRows(
                     at: [indexPath],

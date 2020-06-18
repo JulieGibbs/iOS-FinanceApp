@@ -134,7 +134,6 @@ class EntryInsertionViewController: UIViewController {
                     category: categoryInputTextField.text!,
                     entryType: type,
                     ToC: "\(NSDate().timeIntervalSince1970)")
-                print(entry.strDate)
                 
                 switch typeControl.selectedSegmentIndex {
                 case 1:
@@ -285,7 +284,7 @@ extension EntryInsertionViewController {
     }
     
     private func controllerDidWriteAndDismiss(input: Entry) {
-        DataManager.writeToRealm(input)
+        DataManager.createEntry(input)
         self.dismiss(animated: true, completion: flushTextFields)
     }
 }

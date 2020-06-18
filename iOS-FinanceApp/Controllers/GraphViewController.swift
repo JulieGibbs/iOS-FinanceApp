@@ -48,6 +48,8 @@ class GraphViewController: UIViewController {
         segmentedViewConstraints.forEach { constraint in
             constraint.isActive = true
         }
+        
+        segmentedControl.addTarget(self, action: #selector(segmentedControlTapped(_:)), for: .valueChanged)
     }
     
     func setupLineGraphView() {
@@ -146,8 +148,22 @@ class GraphViewController: UIViewController {
         constraints.forEach { constraint in
             constraint.isActive = true
         }
-        
-        
-        
+    }
+    
+    @objc func segmentedControlTapped(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            DataManager.getGraphDataSource(timeFrame: .day, input: entries)
+        case 1:
+            DataManager.getGraphDataSource(timeFrame: .week, input: entries)
+        case 2:
+            DataManager.getGraphDataSource(timeFrame: .month, input: entries)
+        case 3:
+            DataManager.getGraphDataSource(timeFrame: .year, input: entries)
+        case 4:
+            DataManager.getGraphDataSource(timeFrame: .all, input: entries)
+        default:
+            break
+        }
     }
 }

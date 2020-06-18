@@ -100,7 +100,7 @@ final class Butler {
                     id: DataManager.generateId(),
                     name: alertController.textFields![0].text!
                 )
-                DataManager.writeToRealm(category)
+                DataManager.createEntry(category)
         })
         
         let cancelAction = UIAlertAction(

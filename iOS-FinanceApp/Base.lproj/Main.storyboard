@@ -420,7 +420,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp5-2e-UgE">
                                                     <rect key="frame" x="13" y="0.0" width="401" height="70"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-lk-wg9">
+                                                        <stackView opaque="NO" contentMode="scaleAspectFit" spacing="44" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-lk-wg9">
                                                             <rect key="frame" x="8" y="8" width="380" height="16.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceb-ev-vfg">
@@ -442,6 +442,9 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="8Ca-zp-swZ" firstAttribute="leading" secondItem="ceb-ev-vfg" secondAttribute="trailing" constant="44" id="3Pf-7T-XJ6"/>
+                                                            </constraints>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uA-6r-dHj">
                                                             <rect key="frame" x="8" y="45" width="29.5" height="20"/>

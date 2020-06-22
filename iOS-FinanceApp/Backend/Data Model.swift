@@ -12,7 +12,7 @@ import RealmSwift
 
 // MARK: - Global Variables
 var realm = try! Realm()
-var entries = realm.objects(Entry.self).sorted(byKeyPath: "creationStamp", ascending: false)
+var entries = realm.objects(Entry.self).sorted(byKeyPath: "date", ascending: false)
 var currentBalance: Int = realm.objects(Entry.self).sum(ofProperty: "amount")
 let notificationCenter = NotificationCenter.default
 
@@ -230,23 +230,73 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
     }
     
     // MARK: - Graph View Data Source
+    // свитч сделать в контроллере и компоненты даты передавать оттуда, здесь слишком много повторяющегося кода
     static func getGraphDataSource(timeFrame: TimeFrame, input data: Results<Entry>) {
+        
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone.autoupdatingCurrent
+        
         switch timeFrame {
         case .day:
+            var todaysEntries: [Entry] = []
+            
             let today = Date()
-            print(entries.filter({ $0.date! == today }))
+            let todayComponents = calendar.dateComponents([.year, .month, .day], from: today)
+            
+            entries.forEach {
+                let entryDateComponents = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+                
+                if entryDateComponents.day == todayComponents.day && entryDateComponents.month == todayComponents.month && entryDateComponents.year == todayComponents.year {
+                    todaysEntries.append($0)
+                }
+            }
+            print(todaysEntries)
             print("today's entries printed")
         case .week:
+            var weeklyEntries: [Entry] = []
+            
             let weekFloor = Date(timeIntervalSinceNow: -7 * 24 * 60 * 60)
-            print(entries.filter({ $0.date! <= weekFloor }))
+            let weekFloorComponents = calendar.dateComponents([.year, .month, .day], from: weekFloor)
+            
+            entries.forEach {
+                let entryDateComponents = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+                
+                if entryDateComponents.day! >= weekFloorComponents.day! && entryDateComponents.month! >= weekFloorComponents.month! && entryDateComponents.year! >= weekFloorComponents.year! {
+                    weeklyEntries.append($0)
+                }
+            }
+            print(weeklyEntries)
             print("weekly entries printed")
         case .month:
+            var monthlyEntries: [Entry] = []
+            
             let monthFloor = Date(timeIntervalSinceNow: -30 * 24 * 60 * 60)
-            print(entries.filter({ $0.date! <= monthFloor }))
+            let monthFloorComponents = calendar.dateComponents([.year, .month, .day], from: monthFloor)
+            
+            entries.forEach {
+                let entryDateComponents = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+                
+                if entryDateComponents.day! >= monthFloorComponents.day! && entryDateComponents.month! >= monthFloorComponents.month! && entryDateComponents.year! >= monthFloorComponents.year! {
+                    monthlyEntries.append($0)
+                }
+            }
+            print(monthlyEntries)
             print("monthly entries printed")
         case .year:
+            var yearlyEntries: [Entry] = []
+            
             let yearFloor = Date(timeIntervalSinceNow: -365 * 24 * 60 * 60)
-            print(entries.filter({ $0.date! <= yearFloor }))
+            let yearFloorComponents = calendar.dateComponents([.year, .month, .day], from: yearFloor)
+            print(yearFloorComponents)
+            
+            entries.forEach {
+                let entryDateComponents = calendar.dateComponents([.year, .month, .day], from: $0.date!)
+                
+                if entryDateComponents.day! >= yearFloorComponents.day! && entryDateComponents.month! >= yearFloorComponents.month! && entryDateComponents.year! >= yearFloorComponents.year! {
+                    yearlyEntries.append($0)
+                }
+            }
+            print(yearlyEntries)
             print("yearly entries printed")
         case .all:
             print(entries)

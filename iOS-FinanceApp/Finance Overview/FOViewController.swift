@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import PMSuperButton
 
-class FinanceOverviewController: UIViewController {
+class FOViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var pivotTableView: UITableView!
     @IBOutlet weak var currentBalanceLabel: UILabel!
@@ -103,23 +103,5 @@ class FinanceOverviewController: UIViewController {
             selector: #selector(refreshOverviewData),
             name: .entryAmendSuccess,
             object: nil)
-    }
-}
-
-// MARK: - Extensions
-extension FinanceOverviewController: UITableViewDelegate {
-}
-
-extension FinanceOverviewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objectArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = pivotTableView.dequeueReusableCell(withIdentifier: "FinanceOverviewCell", for: indexPath) as! FinanceOverviewCell
-        
-        cell.updateOverviewCell(with: objectArray, at: indexPath)
-        
-        return cell
     }
 }

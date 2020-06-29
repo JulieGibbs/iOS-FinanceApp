@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class LineGraphView: UIView {
+class GRLineView: UIView {
     var gradientStartColor: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9490196078, blue: 0.4117647059, alpha: 1)
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
     
@@ -57,9 +57,37 @@ import UIKit
         let incomesPath = UIBezierPath()
         let expensesPath = UIBezierPath()
     }
+    
+    override func didMoveToSuperview() {
+        setup()
+        constrain()
+    }
+    
+    func setup() {
+        backgroundColor = .clear
+    }
+    
+    func constrain() {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        if let superview = superview {
+            let safeArea = superview.safeAreaLayoutGuide
+            
+            let constraints = [
+                centerXAnchor.constraint(equalTo: superview.centerXAnchor),
+                leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+                trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
+                heightAnchor.constraint(equalToConstant: 250)
+            ]
+            
+            constraints.forEach { constraint in
+                constraint.isActive = true
+            }
+        }
+    }
 }
 
-extension LineGraphView {
+extension GRLineView {
     private struct Constants {
         static let viewWidth: CGFloat = 300.0
         static let viewHeight: CGFloat = 250.0

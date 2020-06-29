@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ExpensesDetailsCell: UITableViewCell {
+class EDTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!

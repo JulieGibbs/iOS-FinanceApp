@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FinanceOverviewCell: UITableViewCell {
+class FOTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var categoryAmountLabel: UILabel!
     

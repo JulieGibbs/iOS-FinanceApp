@@ -21,5 +21,10 @@ This is a simple iOS Finance Tracking app implementing finance overview, graph v
 - :camera: [Instagram](https://www.instagram.com/daksyonov)
 - :calling: [Facebook](https://www.facebook.com/daksyonovmsc/)
 - :inbox_tray: [E-Mail](mailto:dmi.aksyonov@gmail.com) 
+## Contribution
+## Demo
+## Features
+## Compability
+
 ## License
 MIT

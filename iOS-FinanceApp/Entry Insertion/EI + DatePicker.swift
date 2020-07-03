@@ -11,13 +11,13 @@ import UIKit
 
 extension EIViewController {
     @objc func datePickerValueChanged(for datePicker: UIDatePicker) {
-        dateInputTextField.text = Butler.createDateFormatter(
+        dateInputTextField.text = Heplers.createDateFormatter(
             dateStyle: .medium,
             timeStyle: .none).string(from: datePicker.date)
     }
     
     @objc func todayButtonPressed(sender: UIBarButtonItem) {
-        dateInputTextField.text = Butler.createDateFormatter(
+        dateInputTextField.text = Heplers.createDateFormatter(
             dateStyle: .medium,
             timeStyle: .none).string(from: Date())
         

@@ -74,7 +74,7 @@ class FOViewController: UIViewController {
     
     func updateBalance() {
         let balance: Int = entries.sum(ofProperty: "amount")
-        currentBalanceLabel.text = "\(Butler.createNumberFormatter(input: balance))"
+        currentBalanceLabel.text = "\(Heplers.createNumberFormatter(input: balance))"
         self.view.layoutIfNeeded()
     }
     

@@ -14,6 +14,6 @@ class FOTableViewCell: UITableViewCell {
     
     func updateOverviewCell(with data: [CategoryTotal], at indexPath: IndexPath) {
         categoryNameLabel.text = data[indexPath.row].name
-        categoryAmountLabel.text = "\(Butler.createNumberFormatter(input: data[indexPath.row].balance))"
+        categoryAmountLabel.text = "\(Heplers.createNumberFormatter(input: data[indexPath.row].balance))"
     }
 }

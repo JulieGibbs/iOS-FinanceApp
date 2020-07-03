@@ -12,9 +12,9 @@ extension EIViewController {
         let validator = TextValidation()
         
         guard !nameInputTextField.text!.isEmpty else {
-            self.present(Butler.createAlertController(
-                with: Butler.alertData[0][0],
-                message: Butler.alertData[0][1],
+            self.present(Heplers.createAlertController(
+                with: Heplers.alertData[0][0],
+                message: Heplers.alertData[0][1],
                 and: .alert)
                 , animated: true, completion: nil)
             throw ValidationErrors.nameIsEmpty
@@ -23,18 +23,18 @@ extension EIViewController {
         guard TextValidation.inputIsValidated(
             input: nameInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!) else {
-                self.present(Butler.createAlertController(
-                    with: Butler.alertData[1][0],
-                    message: Butler.alertData[1][1],
+                self.present(Heplers.createAlertController(
+                    with: Heplers.alertData[1][0],
+                    message: Heplers.alertData[1][1],
                     and: .alert)
                     , animated: true, completion: nil)
                 throw ValidationErrors.nameMismatch
         }
         
         guard !amntInputTextField.text!.isEmpty else {
-            self.present(Butler.createAlertController(
-                with: Butler.alertData[2][0],
-                message: Butler.alertData[2][1],
+            self.present(Heplers.createAlertController(
+                with: Heplers.alertData[2][0],
+                message: Heplers.alertData[2][1],
                 and: .alert)
                 , animated: true, completion: nil)
             throw ValidationErrors.amntIsEmpty
@@ -43,18 +43,18 @@ extension EIViewController {
         guard TextValidation.inputIsValidated(
             input: amntInputTextField.text!,
             pattern: validator.regExes["numericRegEx"]!) else {
-                self.present(Butler.createAlertController(
-                    with: Butler.alertData[3][0],
-                    message: Butler.alertData[3][1],
+                self.present(Heplers.createAlertController(
+                    with: Heplers.alertData[3][0],
+                    message: Heplers.alertData[3][1],
                     and: .alert)
                     , animated: true, completion: nil)
                 throw ValidationErrors.amntMismatch
         }
         
         guard !categoryInputTextField.text!.isEmpty else {
-            self.present(Butler.createAlertController(
-                with: Butler.alertData[6][0],
-                message: Butler.alertData[6][1],
+            self.present(Heplers.createAlertController(
+                with: Heplers.alertData[6][0],
+                message: Heplers.alertData[6][1],
                 and: .alert)
                 , animated: true, completion: nil)
             throw ValidationErrors.categoryIsEmpty
@@ -64,9 +64,9 @@ extension EIViewController {
             input: categoryInputTextField.text!,
             pattern: validator.regExes["alphaNumericRegEx"]!),
             pickerData.contains(categoryInputTextField.text!) else {
-                self.present(Butler.createAlertController(
-                    with: Butler.alertData[7][0],
-                    message: Butler.alertData[7][1],
+                self.present(Heplers.createAlertController(
+                    with: Heplers.alertData[7][0],
+                    message: Heplers.alertData[7][1],
                     and: .alert)
                     , animated: true, completion: nil)
                 throw ValidationErrors.categoryMismatch

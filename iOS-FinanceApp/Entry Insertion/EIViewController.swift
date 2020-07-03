@@ -53,7 +53,7 @@ class EIViewController: UIViewController {
                         entryToWrite.amount = Int(amntInputTextField.text!)!
                     }
                     
-                    entryToWrite.date = Butler.createDateFormatter(
+                    entryToWrite.date = Heplers.createDateFormatter(
                         dateStyle:
                         .medium, timeStyle:
                         .none)
@@ -96,7 +96,7 @@ class EIViewController: UIViewController {
                     id: DataManager.generateId(),
                     name: nameInputTextField.text!,
                     amount: Int(amntInputTextField.text!)!,
-                    date: (Butler.createDateFormatter(
+                    date: (Heplers.createDateFormatter(
                         dateStyle: .medium,
                         timeStyle: .none)
                         .date(from: dateInputTextField.text!))!,
@@ -122,7 +122,7 @@ class EIViewController: UIViewController {
     
     // MARK: - Add Category Logic
     @IBAction func addCategory(_ sender: Any) {
-        let alert = Butler.createInputAlertController(with: Butler.alertData[10][0], message: Butler.alertData[10][1], and: .alert)
+        let alert = Heplers.createInputAlertController(with: Heplers.alertData[10][0], message: Heplers.alertData[10][1], and: .alert)
         self.present(alert, animated: true, completion: nil)
         alert.actions[1].isEnabled = false
     }
@@ -140,7 +140,7 @@ class EIViewController: UIViewController {
         if let newData = incomingData {
             nameInputTextField.text = newData.name
             amntInputTextField.text = "\(abs(newData.amount))"
-            dateInputTextField.text = "\(Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: newData.date!))"
+            dateInputTextField.text = "\(Heplers.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: newData.date!))"
             categoryInputTextField.text = newData.category
             
             switch newData.entryType {

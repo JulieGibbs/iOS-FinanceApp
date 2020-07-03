@@ -15,9 +15,9 @@ class EDTableViewCell: UITableViewCell {
     
     func updateDetailsCell(with data: Entry) {
         nameLabel.text = data.name
-        amountLabel.text = "\(Butler.createNumberFormatter(input: data.amount))"
+        amountLabel.text = "\(Heplers.createNumberFormatter(input: data.amount))"
         categoryLabel.text = data.category
-        dateLabel.text = Butler.createDateFormatter(
+        dateLabel.text = Heplers.createDateFormatter(
             dateStyle: .medium,
             timeStyle: .none)
             .string(from: data.date!)

@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 // MARK: - Class for Repeated Methods
-final class Butler {
+final class Heplers {
     // MARK: - Formatters
     static func createDateFormatter(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> DateFormatter {
         let dateFormatter = DateFormatter()
@@ -119,70 +119,6 @@ final class Butler {
                     alertController.submitButtonDidEnabled),
                 for: .editingChanged)
         }
-        
         return alertController
-    }
-    
-}
-
-// MARK: - Keyboard Dismiss
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(
-            target: self,
-            action: #selector(UIViewController.dismissKeyboard))
-        
-        tap.cancelsTouchesInView = false
-        
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-// MARK: - Notifications
-extension Notification.Name {
-    
-    static var entryAddSuccess: Notification.Name {
-        return .init("com.entry.add.success")
-    }
-    
-    static var entryRemoveSuccess: Notification.Name {
-        return.init("com.entry.remove.success")
-    }
-    
-    static var entryAmendSuccess: Notification.Name {
-        return .init("com.entry.amend.success")
-    }
-    
-    static var categoryAddSuccess: Notification.Name {
-        return.init("com.category.add.success")
-    }
-    static var categoryRemoveSuccess: Notification.Name {
-        return.init("com.category.remove.success")
-    }
-    static var categoryAmendSuccess: Notification.Name {
-        return.init("com.category.amend.success")
-    }
-}
-
-extension UIAlertController {
-    func categoryDidValidated(_ category: String) -> Bool {
-        return category.count > 0
-    }
-    
-    @objc func submitButtonDidEnabled() {
-        if let categoryName = textFields?[0].text,
-            let action = actions.last {
-            action.isEnabled = categoryDidValidated(categoryName)
-        }
-    }
-}
-
-extension NSExceptionName {
-    static var shouldNeverHappenException: NSExceptionName {
-        return.init("com.exc.this.should.never.happen")
     }
 }

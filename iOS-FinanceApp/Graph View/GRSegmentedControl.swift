@@ -17,14 +17,13 @@ class GRSegmentedControl: UISegmentedControl {
             insertSegment(withTitle: item, at: index, animated: true)
             index += 1
         }
-        
         selectedSegmentIndex = 0
     }
     
     func constrain() {
         if let superview = superview {
             let safeArea = superview.safeAreaLayoutGuide
-
+            
             translatesAutoresizingMaskIntoConstraints = false
             
             let constraints = [
@@ -48,19 +47,23 @@ class GRSegmentedControl: UISegmentedControl {
     }
     
     @objc func segmentTapped(_ sender: UISegmentedControl) {
+        let graphDataSource = GraphDataSource()
+        
         switch sender.selectedSegmentIndex {
         case 0:
-            DataManager.getGraphDataSource(timeFrame: .day, input: entries)
+            graphDataSource.matchEntry(timeFrame: .day, cutOff: DateConstants.today)
+            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
         case 1:
-            DataManager.getGraphDataSource(timeFrame: .week, input: entries)
+            graphDataSource.matchEntry(timeFrame: .week, cutOff: DateConstants.weekFloor)
+            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
         case 2:
-            DataManager.getGraphDataSource(timeFrame: .month, input: entries)
+            graphDataSource.matchEntry(timeFrame: .month, cutOff: DateConstants.monthFloor)
+            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
         case 3:
-            DataManager.getGraphDataSource(timeFrame: .year, input: entries)
-        case 4:
-            DataManager.getGraphDataSource(timeFrame: .all, input: entries)
+            graphDataSource.matchEntry(timeFrame: .year, cutOff: DateConstants.yearFloor)
+            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
         default:
-            break
+            print(entries)
         }
     }
 }

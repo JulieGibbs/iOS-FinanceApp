@@ -33,13 +33,6 @@ class TextValidation {
     }
 }
 
-// MARK: - Global Extensions
-extension String {
-    var doesContainWhitespacesAndNewLines: Bool {
-        return (self.rangeOfCharacter(from: .whitespacesAndNewlines) != nil)
-    }
-}
-
 // MARK: - Errors
 enum ValidationErrors: Error {
     /**

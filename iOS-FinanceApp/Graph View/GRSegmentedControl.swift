@@ -44,6 +44,8 @@ class GRSegmentedControl: UISegmentedControl {
         constrain()
         
         addTarget(self, action: #selector(segmentTapped), for: .valueChanged)
+        
+        
     }
     
     @objc func segmentTapped(_ sender: UISegmentedControl) {

@@ -12,6 +12,11 @@ class GRLineView: UIView {
     var gradientStartColor: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9490196078, blue: 0.4117647059, alpha: 1)
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
     
+    let titleLabel = UILabel(frame: CGRect.zero)
+    let maxLabel = UILabel()
+    let medLabel = UILabel()
+    let minLabel = UILabel()
+    
     override func draw(_ rect: CGRect) {
         let width = rect.width
         let height = rect.height
@@ -59,15 +64,17 @@ class GRLineView: UIView {
     }
     
     override func didMoveToSuperview() {
-        setup()
-        constrain()
+        setupSelf()
+        setupLabels()
+        constrainSelf()
+        //        constainLabels()
     }
     
-    func setup() {
+    func setupSelf() {
         backgroundColor = .clear
     }
     
-    func constrain() {
+    func constrainSelf() {
         translatesAutoresizingMaskIntoConstraints = false
         
         if let superview = superview {
@@ -84,6 +91,42 @@ class GRLineView: UIView {
                 constraint.isActive = true
             }
         }
+    }
+    
+    func setupLabels() {
+        self.addSubview(titleLabel)
+        titleLabel.text = "Profit & Loss breakdown"
+        titleLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        
+        self.addSubview(maxLabel)
+        maxLabel.text = "Max"
+        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+    }
+    
+    func constainLabels() {
+        let viewSafeArea = self.safeAreaLayoutGuide
+        
+        let titleLabelconstraints = [
+            titleLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: viewSafeArea.topAnchor),
+            titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.width),
+            titleLabel.heightAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.height)
+        ]
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints = true
+        titleLabelconstraints.forEach { $0.isActive = true }
+        
+        let titleLabelSafeArea = titleLabel.safeAreaLayoutGuide
+        
+        let maxLabelConstrains = [
+            maxLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
+            maxLabel.topAnchor.constraint(equalTo: titleLabelSafeArea.bottomAnchor),
+            maxLabel.widthAnchor.constraint(equalToConstant: maxLabel.intrinsicContentSize.width),
+            maxLabel.heightAnchor.constraint(equalToConstant: maxLabel.intrinsicContentSize.height)
+        ]
+        
+        maxLabel.translatesAutoresizingMaskIntoConstraints = true
+        maxLabelConstrains.forEach { $0.isActive = true }
     }
 }
 

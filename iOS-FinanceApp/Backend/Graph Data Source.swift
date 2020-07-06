@@ -20,19 +20,14 @@ class GraphDataSource {
     
     func splitAmounts(input: [Entry]) {
         input.forEach {
-            $0.amount < 0 ? Expenses.amountSet.append($0.amount) : Incomes.amountSet.append($0.amount)
+            $0.amount < 0 ? Expenses.amountSet.append($0.amount * -1) : Incomes.amountSet.append($0.amount)
         }
         
-        print(matchedEntries)
-        print(Expenses.amountSet)
-        print(Expenses.max)
-        print(Expenses.med)
-        print(Expenses.min)
+        let data = [(Expenses.min, Expenses.med, Expenses.max), (Incomes.min, Incomes.med, Incomes.max)]
         
-        print(Incomes.amountSet)
-        print(Incomes.max)
-        print(Incomes.med)
-        print(Incomes.min)
+        Subject.send(transmission: Transmission(message: data))
+        print(Expenses.min, Expenses.med, Expenses.max)
+        print(Incomes.min, Incomes.med, Incomes.max)
     }
 }
 
@@ -40,13 +35,13 @@ struct Expenses {
     static var amountSet = [Int]()
     
     static var max: Int {
-        get { amountSet.max()! }
+        get { return amountSet.max() ?? 0 }
     }
-    static var med: Double {
-        get { amountSet.median()! }
+    static var med: Int {
+        get { return amountSet.median() ?? 0 }
     }
     static var min: Int {
-        get { amountSet.min()! }
+        get { return amountSet.min() ?? 0 }
     }
 }
 
@@ -54,12 +49,15 @@ struct Incomes {
     static var amountSet = [Int]()
     
     static var max: Int {
-        get { amountSet.isEmpty ? 0 : amountSet.max()! }
+        get { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
+            return amountSet.max() ?? 0 }
+        }
     }
-    static var med: Double {
-        get { amountSet.median()! }
+    static var med: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
+        return amountSet.median() ?? 0 }
     }
-    static var min: Int {
-        get { amountSet.min()! }
+    
+    static var min: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
+        return amountSet.min() ?? 0 }
     }
 }

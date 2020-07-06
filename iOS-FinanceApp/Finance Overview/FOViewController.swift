@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import PMSuperButton
 
 class FOViewController: UIViewController {
     // MARK: - Properties and Outlets
@@ -47,20 +46,20 @@ class FOViewController: UIViewController {
     }
     
     // MARK: - Actions and Methods
-    @IBAction func segueButtons(_ sender: PMSuperButton?) {
+    @IBAction func segueButtons(_ sender: UIButton?) {
         switch sender?.tag {
         case 0:
             performSegue(
                 withIdentifier: "Add Transaction Segue",
-                sender: PMSuperButton()) // DRY 3
+                sender: UIButton()) // DRY 3
         case 1:
             performSegue(
                 withIdentifier: "Expenses Details Segue",
-                sender: PMSuperButton()) // DRY 3
+                sender: UIButton()) // DRY 3
         case 2:
             performSegue(
                 withIdentifier: "Graph View Segue",
-                sender: PMSuperButton()) // DRY 3
+                sender: UIButton()) // DRY 3
         default:
             break
         }

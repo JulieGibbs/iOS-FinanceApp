@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class GRViewController: UIViewController {
+class GRViewController: UIViewController, Observable {
     let segmentedControl = GRSegmentedControl()
     let lineGraphView = GRLineView()
     
@@ -18,9 +18,15 @@ class GRViewController: UIViewController {
         view.addSubview(segmentedControl)
         view.addSubview(lineGraphView)
         lineGraphView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 25).isActive = true
+        
+        Subject.add(observer: self)
+    }
+    
+    func notify(with notification: Transmittable) {
+        print("notification was received: \(notification.data)")
     }
 }
-    
+
 //    func setupLineGraphView() {
 //        view.addSubview(lineGraphView)
 //

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PMSuperButton
 
 class EIViewController: UIViewController {
     // MARK: - Outlets

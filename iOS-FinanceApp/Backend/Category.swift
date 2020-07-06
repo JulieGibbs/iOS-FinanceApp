@@ -37,7 +37,7 @@ class Category: Object {
     }
 }
 
-struct CategoryTotal /*: Hashable, Equatable*/ {
+struct CategoryTotal {
     let name: String
     let balance: Int
     let uuid = UUID()

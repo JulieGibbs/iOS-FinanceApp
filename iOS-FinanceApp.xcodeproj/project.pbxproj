@@ -27,13 +27,13 @@
 		3F6AE09C24AA781C00EB228B /* EI + DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09B24AA781C00EB228B /* EI + DatePicker.swift */; };
 		3F6AE09E24AA78BD00EB228B /* EI + Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09D24AA78BD00EB228B /* EI + Validation.swift */; };
 		3F6AE0A024AA7C9700EB228B /* FO + Table View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09F24AA7C9700EB228B /* FO + Table View.swift */; };
-		3F75561924B2409D0095897F /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561824B2409D0095897F /* Observable.swift */; };
+		3F75561924B2409D0095897F /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561824B2409D0095897F /* Observer.swift */; };
 		3F75561B24B241450095897F /* Transmittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561A24B241450095897F /* Transmittable.swift */; };
 		3F75561D24B2424E0095897F /* Weak Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561C24B2424E0095897F /* Weak Observer.swift */; };
-		3F75561F24B242C20095897F /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561E24B242C20095897F /* Subject.swift */; };
+		3F75561F24B242C20095897F /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561E24B242C20095897F /* Publisher.swift */; };
 		3F75562124B244060095897F /* String + Whitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562024B244060095897F /* String + Whitespaces.swift */; };
-		3F75562324B249170095897F /* Subject + Subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562224B249170095897F /* Subject + Subscripts.swift */; };
-		3F75562524B24C8B0095897F /* Subject + Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562424B24C8B0095897F /* Subject + Operators.swift */; };
+		3F75562324B249170095897F /* Publisher + Subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562224B249170095897F /* Publisher + Subscripts.swift */; };
+		3F75562524B24C8B0095897F /* Publisher + Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562424B24C8B0095897F /* Publisher + Operators.swift */; };
 		3F75562724B25DF80095897F /* Transmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562624B25DF80095897F /* Transmission.swift */; };
 		3F838F6624A9BE7F00EA1CFB /* ED + Table View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F838F6524A9BE7F00EA1CFB /* ED + Table View.swift */; };
 		3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F838F6724A9BF3900EA1CFB /* ED + Observers.swift */; };
@@ -72,13 +72,13 @@
 		3F6AE09B24AA781C00EB228B /* EI + DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + DatePicker.swift"; sourceTree = "<group>"; };
 		3F6AE09D24AA78BD00EB228B /* EI + Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + Validation.swift"; sourceTree = "<group>"; };
 		3F6AE09F24AA7C9700EB228B /* FO + Table View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FO + Table View.swift"; sourceTree = "<group>"; };
-		3F75561824B2409D0095897F /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		3F75561824B2409D0095897F /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		3F75561A24B241450095897F /* Transmittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transmittable.swift; sourceTree = "<group>"; };
 		3F75561C24B2424E0095897F /* Weak Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weak Observer.swift"; sourceTree = "<group>"; };
-		3F75561E24B242C20095897F /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		3F75561E24B242C20095897F /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		3F75562024B244060095897F /* String + Whitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Whitespaces.swift"; sourceTree = "<group>"; };
-		3F75562224B249170095897F /* Subject + Subscripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject + Subscripts.swift"; sourceTree = "<group>"; };
-		3F75562424B24C8B0095897F /* Subject + Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subject + Operators.swift"; sourceTree = "<group>"; };
+		3F75562224B249170095897F /* Publisher + Subscripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher + Subscripts.swift"; sourceTree = "<group>"; };
+		3F75562424B24C8B0095897F /* Publisher + Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher + Operators.swift"; sourceTree = "<group>"; };
 		3F75562624B25DF80095897F /* Transmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transmission.swift; sourceTree = "<group>"; };
 		3F838F6524A9BE7F00EA1CFB /* ED + Table View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ED + Table View.swift"; sourceTree = "<group>"; };
 		3F838F6724A9BF3900EA1CFB /* ED + Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ED + Observers.swift"; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 		3F75561724B2400F0095897F /* Observer */ = {
 			isa = PBXGroup;
 			children = (
-				3F75561824B2409D0095897F /* Observable.swift */,
-				3F75562424B24C8B0095897F /* Subject + Operators.swift */,
-				3F75562224B249170095897F /* Subject + Subscripts.swift */,
-				3F75561E24B242C20095897F /* Subject.swift */,
+				3F75561824B2409D0095897F /* Observer.swift */,
+				3F75562424B24C8B0095897F /* Publisher + Operators.swift */,
+				3F75562224B249170095897F /* Publisher + Subscripts.swift */,
+				3F75561E24B242C20095897F /* Publisher.swift */,
 				3F75562624B25DF80095897F /* Transmission.swift */,
 				3F75561A24B241450095897F /* Transmittable.swift */,
 				3F75561C24B2424E0095897F /* Weak Observer.swift */,
@@ -371,17 +371,17 @@
 				B7B50201245956430008BADE /* Data Validation.swift in Sources */,
 				3F68407724AD2E9900C92611 /* GRSegmentedControl.swift in Sources */,
 				3FBFDE17241ECEE1006DAC7A /* FOViewController.swift in Sources */,
-				3F75562324B249170095897F /* Subject + Subscripts.swift in Sources */,
+				3F75562324B249170095897F /* Publisher + Subscripts.swift in Sources */,
 				3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */,
 				3F15C5C424AE59230026E144 /* Lazy Globals.swift in Sources */,
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
-				3F75562524B24C8B0095897F /* Subject + Operators.swift in Sources */,
+				3F75562524B24C8B0095897F /* Publisher + Operators.swift in Sources */,
 				3F15C5C624AE594B0026E144 /* Entry.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,
-				3F75561924B2409D0095897F /* Observable.swift in Sources */,
+				3F75561924B2409D0095897F /* Observer.swift in Sources */,
 				3F838F6624A9BE7F00EA1CFB /* ED + Table View.swift in Sources */,
 				3FBFDE35241ED1A7006DAC7A /* EDViewController.swift in Sources */,
-				3F75561F24B242C20095897F /* Subject.swift in Sources */,
+				3F75561F24B242C20095897F /* Publisher.swift in Sources */,
 				3F6AE0A024AA7C9700EB228B /* FO + Table View.swift in Sources */,
 				B7BA9FB1244C318D00923A60 /* Helpers.swift in Sources */,
 				3F6AE09E24AA78BD00EB228B /* EI + Validation.swift in Sources */,

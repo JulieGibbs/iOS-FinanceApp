@@ -9,9 +9,9 @@
 import Foundation
 
 final class WeakObserver {
-    weak var value: Observable?
+    weak var value: Observer?
     
-    init(_ value: Observable) {
+    init(_ value: Observer) {
         self.value = value
     }
 }

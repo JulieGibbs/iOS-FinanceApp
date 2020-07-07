@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Subject {
-    public static subscript(index: Int) -> Observable? {
+extension Publisher {
+    public static subscript(index: Int) -> Observer? {
         get {
             guard index > -1, index < observers.count else {
                 return nil
@@ -18,7 +18,7 @@ extension Subject {
         }
     }
     
-    public static subscript(observer: Observable) -> Int? {
+    public static subscript(observer: Observer) -> Int? {
         get {
             guard let index = observers.firstIndex(where: { $0.value === observer }) else {
                 return nil

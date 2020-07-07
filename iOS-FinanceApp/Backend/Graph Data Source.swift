@@ -25,7 +25,7 @@ class GraphDataSource {
         
         let data = [(Expenses.min, Expenses.med, Expenses.max), (Incomes.min, Incomes.med, Incomes.max)]
         
-        Subject.send(transmission: Transmission(message: data))
+        Publisher.send(transmission: Transmission(message: data))
         print(Expenses.min, Expenses.med, Expenses.max)
         print(Incomes.min, Incomes.med, Incomes.max)
     }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Subject {
+class Publisher {
     
     final class WeakObserver {
-        weak var value: Observable?
+        weak var value: Observer?
         
-        init(_ value: Observable) {
+        init(_ value: Observer) {
             self.value = value
         }
     }
@@ -21,13 +21,13 @@ class Subject {
     static var observers = [WeakObserver]()
     static var queue = DispatchQueue(label: "concurrentQueue", attributes:  .concurrent)
     
-    class func add(observer: Observable) {
+    class func add(observer: Observer) {
         queue.sync(flags: .barrier) {
             observers.append(WeakObserver(observer))
         }
     }
     
-    class func remove(observer: Observable) {
+    class func remove(observer: Observer) {
         queue.sync(flags: .barrier) {
             guard let index = self[observer] else {
                 return
@@ -46,7 +46,7 @@ class Subject {
         }
     }
     
-    class func dispose(observer: Observable) {
+    class func dispose(observer: Observer) {
         queue.sync(flags: .barrier) {
             if let index = self[observer] {
                 observers[index].value = nil

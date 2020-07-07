@@ -11,36 +11,36 @@ import Foundation
 infix operator --=
 infix operator -=
 
-extension Subject {
-    static func +=(lhs: Subject, rhs: Observable) {
+extension Publisher {
+    static func +=(lhs: Publisher, rhs: Observer) {
         add(observer: rhs)
     }
     
-    static func +=(lhs: Subject, rhs: [Observable]) {
+    static func +=(lhs: Publisher, rhs: [Observer]) {
         rhs.forEach { add(observer: $0) }
     }
     
-    static func --=(lhs: Subject , rhs: Observable) {
+    static func --=(lhs: Publisher , rhs: Observer) {
         remove(observer: rhs)
     }
     
-    static func --=(lhs: Subject, rhs: [Observable]) {
+    static func --=(lhs: Publisher, rhs: [Observer]) {
         rhs.forEach { remove(observer: $0) }
     }
     
-    static func -=(lhs: Subject, rhs: Observable) {
+    static func -=(lhs: Publisher, rhs: Observer) {
         dispose(observer: rhs)
     }
     
-    static func -=(lhs: Subject, rhs: [Observable]) {
+    static func -=(lhs: Publisher, rhs: [Observer]) {
         rhs.forEach { remove(observer: $0) }
     }
     
-    static func ~>(lhs: Subject, rhs: Transmittable) {
+    static func ~>(lhs: Publisher, rhs: Transmittable) {
         send(transmission: rhs)
     }
     
-    static func ~>(lhs: Subject, rhs: [Transmittable]) {
+    static func ~>(lhs: Publisher, rhs: [Transmittable]) {
         rhs.forEach { send(transmission: $0) }
     }
 }

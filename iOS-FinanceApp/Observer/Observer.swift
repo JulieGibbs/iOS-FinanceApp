@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Observable: class {
+protocol Observer: class {
     func notify(with notification: Transmittable)
 }

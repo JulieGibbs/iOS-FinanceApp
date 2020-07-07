@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol Transmittable: class {
-    var data: Any { get set }
+@objc protocol Transmittable: class {
+    @objc optional var anyData: Any { get set }
+    @objc optional var sideLabelsData: [[Int]] { get set }
 }

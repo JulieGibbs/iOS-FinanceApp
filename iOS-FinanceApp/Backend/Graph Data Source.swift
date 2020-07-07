@@ -23,11 +23,9 @@ class GraphDataSource {
             $0.amount < 0 ? Expenses.amountSet.append($0.amount * -1) : Incomes.amountSet.append($0.amount)
         }
         
-        let data = [(Expenses.min, Expenses.med, Expenses.max), (Incomes.min, Incomes.med, Incomes.max)]
+        let data = [[Expenses.max, Expenses.med, Expenses.min], [Incomes.max, Incomes.med, Incomes.min]]
         
-        Publisher.send(transmission: Transmission(message: data))
-        print(Expenses.min, Expenses.med, Expenses.max)
-        print(Incomes.min, Incomes.med, Incomes.max)
+        Publisher.send(transmission: GRTransmission(sideLabelsData: data))
     }
 }
 

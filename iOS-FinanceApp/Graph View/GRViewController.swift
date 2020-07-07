@@ -23,7 +23,10 @@ class GRViewController: UIViewController, Observer {
     }
     
     func notify(with notification: Transmittable) {
-        print("notification was received: \(notification.data)")
+        print("notification was received: \(notification.sideLabelsData ?? [[]])")
+        
+        lineGraphView.maxLabel.text = "\(notification.sideLabelsData?[0][0])"
+        
     }
 }
 

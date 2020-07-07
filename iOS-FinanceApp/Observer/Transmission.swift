@@ -9,9 +9,9 @@
 import Foundation
 
 final class Transmission: Transmittable {
-    var data: Any
+    var anyData: Any
     
     init(message: Any) {
-        self.data = message
+        self.anyData = message
     }
 }

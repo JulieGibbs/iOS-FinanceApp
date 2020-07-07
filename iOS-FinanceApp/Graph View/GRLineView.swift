@@ -17,6 +17,8 @@ class GRLineView: UIView {
     let medLabel = UILabel()
     let minLabel = UILabel()
     
+    let bottomStackView = GRStackView()
+    
     override func draw(_ rect: CGRect) {
         let width = rect.width
         let height = rect.height
@@ -67,7 +69,7 @@ class GRLineView: UIView {
         setupSelf()
         setupLabels()
         constrainSelf()
-        //        constainLabels()
+        constainLabels()
     }
     
     func setupSelf() {
@@ -87,9 +89,7 @@ class GRLineView: UIView {
                 heightAnchor.constraint(equalToConstant: 250)
             ]
             
-            constraints.forEach { constraint in
-                constraint.isActive = true
-            }
+            constraints.forEach { $0.isActive = true }
         }
     }
     
@@ -101,6 +101,14 @@ class GRLineView: UIView {
         self.addSubview(maxLabel)
         maxLabel.text = "Max"
         maxLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        
+        self.addSubview(medLabel)
+        medLabel.text = "Med"
+        medLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        
+        self.addSubview(minLabel)
+        minLabel.text = "Min"
+        minLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
     }
     
     func constainLabels() {
@@ -118,7 +126,7 @@ class GRLineView: UIView {
         
         let titleLabelSafeArea = titleLabel.safeAreaLayoutGuide
         
-        let maxLabelConstrains = [
+        let maxLabelConstraints = [
             maxLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
             maxLabel.topAnchor.constraint(equalTo: titleLabelSafeArea.bottomAnchor),
             maxLabel.widthAnchor.constraint(equalToConstant: maxLabel.intrinsicContentSize.width),
@@ -126,7 +134,31 @@ class GRLineView: UIView {
         ]
         
         maxLabel.translatesAutoresizingMaskIntoConstraints = true
-        maxLabelConstrains.forEach { $0.isActive = true }
+        maxLabelConstraints.forEach { $0.isActive = true }
+        
+        let maxLabelSafeArea = maxLabel.safeAreaLayoutGuide
+        
+        let medLabelConstraints = [
+            medLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
+            medLabel.topAnchor.constraint(equalTo: maxLabelSafeArea.bottomAnchor),
+            medLabel.widthAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.width),
+            medLabel.heightAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.height)
+        ]
+        
+        medLabel.translatesAutoresizingMaskIntoConstraints = true
+        medLabelConstraints.forEach { $0.isActive = true }
+        
+        let medLabelSafeArea = maxLabel.safeAreaLayoutGuide
+        
+        let minLabelConstraints = [
+            minLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
+            minLabel.topAnchor.constraint(equalTo: medLabelSafeArea.bottomAnchor),
+            minLabel.widthAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.width),
+            minLabel.heightAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.height)
+        ]
+        
+        minLabel.translatesAutoresizingMaskIntoConstraints = true
+        minLabelConstraints.forEach { $0.isActive = true }
     }
 }
 

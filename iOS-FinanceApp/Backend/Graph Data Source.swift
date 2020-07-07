@@ -25,7 +25,7 @@ class GraphDataSource {
         
         let data = [[Expenses.max, Expenses.med, Expenses.min], [Incomes.max, Incomes.med, Incomes.min]]
         
-        Publisher.send(transmission: GRTransmission(sideLabelsData: data))
+        Publisher.send(transmission: GRLabelsTransmission(sideLabelsData: data))
     }
 }
 

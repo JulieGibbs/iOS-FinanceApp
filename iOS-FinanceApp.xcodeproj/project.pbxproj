@@ -10,7 +10,8 @@
 		2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */; };
 		3F002F5D24201F19002C73F4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* Notifications.swift */; };
 		3F07FA2724B4F22F0045D96A /* GRStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2624B4F22F0045D96A /* GRStackView.swift */; };
-		3F07FA2924B4F8570045D96A /* GR Transmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2824B4F8570045D96A /* GR Transmission.swift */; };
+		3F07FA2924B4F8570045D96A /* GRLabelsTransmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2824B4F8570045D96A /* GRLabelsTransmission.swift */; };
+		3F07FA2B24B51CD70045D96A /* GRSegmentedTransmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2A24B51CD70045D96A /* GRSegmentedTransmission.swift */; };
 		3F15C5C424AE59230026E144 /* Lazy Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C324AE59230026E144 /* Lazy Globals.swift */; };
 		3F15C5C624AE594B0026E144 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C524AE594B0026E144 /* Entry.swift */; };
 		3F15C5C824AE59970026E144 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C724AE59970026E144 /* Category.swift */; };
@@ -58,7 +59,8 @@
 		2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDTableViewCell.swift; sourceTree = "<group>"; };
 		3F002F5C24201F19002C73F4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		3F07FA2624B4F22F0045D96A /* GRStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GRStackView.swift; path = "iOS-FinanceApp/Graph View/GRStackView.swift"; sourceTree = "<group>"; };
-		3F07FA2824B4F8570045D96A /* GR Transmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GR Transmission.swift"; sourceTree = "<group>"; };
+		3F07FA2824B4F8570045D96A /* GRLabelsTransmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRLabelsTransmission.swift; sourceTree = "<group>"; };
+		3F07FA2A24B51CD70045D96A /* GRSegmentedTransmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRSegmentedTransmission.swift; sourceTree = "<group>"; };
 		3F15C5C324AE59230026E144 /* Lazy Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lazy Globals.swift"; sourceTree = "<group>"; };
 		3F15C5C524AE594B0026E144 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		3F15C5C724AE59970026E144 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -147,7 +149,6 @@
 				3F75562624B25DF80095897F /* Transmission.swift */,
 				3F75561A24B241450095897F /* Transmittable.swift */,
 				3F75561C24B2424E0095897F /* Weak Observer.swift */,
-				3F07FA2824B4F8570045D96A /* GR Transmission.swift */,
 			);
 			path = Observer;
 			sourceTree = "<group>";
@@ -155,10 +156,12 @@
 		3F822FE42484478600337513 /* Graph Scene */ = {
 			isa = PBXGroup;
 			children = (
+				3F07FA2824B4F8570045D96A /* GRLabelsTransmission.swift */,
 				3F68407324AD2E9900C92611 /* GRLineView.swift */,
 				3F68407424AD2E9900C92611 /* GRSegmentedControl.swift */,
-				3F68407224AD2E9900C92611 /* GRViewController.swift */,
+				3F07FA2A24B51CD70045D96A /* GRSegmentedTransmission.swift */,
 				3F07FA2624B4F22F0045D96A /* GRStackView.swift */,
+				3F68407224AD2E9900C92611 /* GRViewController.swift */,
 			);
 			name = "Graph Scene";
 			path = ..;
@@ -400,6 +403,7 @@
 				3F15C5D924AE8F610026E144 /* NSException + cutsom.swift in Sources */,
 				3F15C5D524AE8EBE0026E144 /* Keyboard Dismiss on Tap.swift in Sources */,
 				3F1B00A124241C390070E0FF /* FOTableViewCell.swift in Sources */,
+				3F07FA2B24B51CD70045D96A /* GRSegmentedTransmission.swift in Sources */,
 				B746C6E52445E0CC0004BD75 /* EIViewController.swift in Sources */,
 				2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */,
 				3F75562724B25DF80095897F /* Transmission.swift in Sources */,
@@ -409,7 +413,7 @@
 				3F68407524AD2E9900C92611 /* GRViewController.swift in Sources */,
 				3F15C5D224AE88C40026E144 /* Array + Median.swift in Sources */,
 				3F75562124B244060095897F /* String + Whitespaces.swift in Sources */,
-				3F07FA2924B4F8570045D96A /* GR Transmission.swift in Sources */,
+				3F07FA2924B4F8570045D96A /* GRLabelsTransmission.swift in Sources */,
 				3F15C5CC24AE5A360026E144 /* Date and Time.swift in Sources */,
 				3F6AE09A24AA77EB00EB228B /* EI + Text Fields.swift in Sources */,
 				3F6AE09C24AA781C00EB228B /* EI + DatePicker.swift in Sources */,

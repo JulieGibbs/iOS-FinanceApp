@@ -11,4 +11,5 @@ import Foundation
 @objc protocol Transmittable: class {
     @objc optional var anyData: Any { get set }
     @objc optional var sideLabelsData: [[Int]] { get set }
+    @objc optional var segmentedData: Int { get set }
 }

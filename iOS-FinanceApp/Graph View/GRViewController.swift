@@ -26,7 +26,8 @@ class GRViewController: UIViewController, Observer {
         print("notification was received: \(notification.sideLabelsData ?? [[]])")
         
         lineGraphView.maxLabel.text = "\(notification.sideLabelsData?[0][0])"
-        
+        lineGraphView.medLabel.text = "\(notification.sideLabelsData?[0][1])"
+        lineGraphView.minLabel.text = "\(notification.sideLabelsData?[0][2])"
     }
 }
 

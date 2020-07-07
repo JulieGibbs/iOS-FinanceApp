@@ -55,6 +55,7 @@ class GRSegmentedControl: UISegmentedControl {
         case 0:
             graphDataSource.matchEntry(timeFrame: .day, cutOff: DateConstants.today)
             graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
+            Publisher.send(transmission: GRSegmentedTransmission(selection: 0))
         case 1:
             graphDataSource.matchEntry(timeFrame: .week, cutOff: DateConstants.weekFloor)
             graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
@@ -68,4 +69,8 @@ class GRSegmentedControl: UISegmentedControl {
             print(entries)
         }
     }
+}
+
+enum GRSegmetedSelection {
+    case day, week, month, year, all
 }

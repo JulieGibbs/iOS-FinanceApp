@@ -8,15 +8,11 @@
 
 import Foundation
 
-final class GRTransmission: Transmittable {
+final class GRLabelsTransmission: Transmittable {
     var sideLabelsData: [[Int]]
     
     init(sideLabelsData: [[Int]]) {
         self.sideLabelsData = sideLabelsData
-    }
-    
-    var desctiption: String {
-        get { return "\(sideLabelsData)" }
     }
 }
 

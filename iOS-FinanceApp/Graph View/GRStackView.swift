@@ -39,4 +39,28 @@ class GRStackView: UIStackView {
         distribution = .fillEqually
     }
     
+    func addLabels(quantity: Int) {
+        mainLoop: for label in stackViewLabels[0...quantity + 1] {
+            label.font = UIFont.init(name: "Avenir Next Medium", size: 12)
+            label.textColor = .white
+            
+            self.addArrangedSubview(label)
+        }
+    }
+    
+    func changeContent(selectedSegmentIndex: Int) {
+        switch selectedSegmentIndex {
+        case 0:
+            addLabels(quantity: 4)
+        case 1:
+            addLabels(quantity: 7)
+        case 2:
+            addLabels(quantity: 4)
+        case 3:
+            addLabels(quantity: 5)
+        default:
+            break
+        }
+    }
+    
 }

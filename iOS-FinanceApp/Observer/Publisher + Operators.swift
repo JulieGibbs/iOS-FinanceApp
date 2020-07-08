@@ -37,10 +37,10 @@ extension Publisher {
     }
     
     static func ~>(lhs: Publisher, rhs: Transmittable) {
-        send(transmission: rhs)
+        send(rhs)
     }
     
     static func ~>(lhs: Publisher, rhs: [Transmittable]) {
-        rhs.forEach { send(transmission: $0) }
+        rhs.forEach { send($0) }
     }
 }

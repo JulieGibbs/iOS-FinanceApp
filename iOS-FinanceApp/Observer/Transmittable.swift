@@ -8,8 +8,9 @@
 
 import Foundation
 
-@objc protocol Transmittable: class {
-    @objc optional var anyData: Any { get set }
-    @objc optional var sideLabelsData: [[Int]] { get set }
-    @objc optional var segmentedData: Int { get set }
+protocol Transmittable: class {
+    var income: [Int?] { get set }
+    var expenses: [Int?] { get set }
+    var sideLabelsIncomeData: [Int?] { get set }
+    var sideLabelsExpenseData: [Int?] { get set }
 }

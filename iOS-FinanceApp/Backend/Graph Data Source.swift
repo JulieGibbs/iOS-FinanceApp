@@ -18,15 +18,28 @@ class GraphDataSource {
         }
     }
     
-    func splitAmounts(input: [Entry]) {
+    func getLabelsData(input: [Entry]) {
         input.forEach {
-            $0.amount < 0 ? Expenses.amountSet.append($0.amount * -1) : Incomes.amountSet.append($0.amount)
+            $0.amount < 0 ? Expenses.amountSet.append($0.amount * -1) : Income.amountSet.append($0.amount)
         }
         
-        let data = [[Expenses.max, Expenses.med, Expenses.min], [Incomes.max, Incomes.med, Incomes.min]]
-        
-        Publisher.send(transmission: GRLabelsTransmission(sideLabelsData: data))
+        let data = [[Expenses.max, Expenses.med, Expenses.min], [Income.max, Income.med, Income.min]]
     }
+    
+    func getTimeframeData(input: [Entry]) {
+        var income = [Int]()
+        var expenses = [Int]()
+        
+        input.forEach {
+            $0.amount > 0 ? income.append($0.amount) : expenses.append($0.amount * -1)
+        }
+        
+        let labelIncomeData = [income.max(), income.median(), income.min()]
+        let labelExpenseData = [expenses.max(), expenses.median(), expenses.min()]
+        
+        Publisher.send(GRTransmission(income: income, expenses: expenses, labelsIncomeData: labelIncomeData, labelsExpenseData: labelExpenseData))
+    }
+    
 }
 
 struct Expenses {
@@ -43,7 +56,7 @@ struct Expenses {
     }
 }
 
-struct Incomes {
+struct Income {
     static var amountSet = [Int]()
     
     static var max: Int {

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Observer: class {
-    func notify(with notification: Transmittable)
+    func receive(message: Transmittable)
 }

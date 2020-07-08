@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class Transmission: Transmittable {
-    var anyData: Any
-    
-    init(message: Any) {
-        self.anyData = message
-    }
-}
+//final class Message: Transmittable {
+//    var anyData: Any
+//    
+//    init(_ message: Any) {
+//        self.anyData = message
+//    }
+//}

@@ -36,12 +36,12 @@ class Publisher {
         }
     }
     
-    class func send(transmission: Transmittable) {
+    class func send(_ transmission: Transmittable) {
         queue.sync {
             recycle()
             
             observers.forEach {
-                $0.value?.notify(with: transmission)
+                $0.value?.receive(message: transmission)
             }
         }
     }

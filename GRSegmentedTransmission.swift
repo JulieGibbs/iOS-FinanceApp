@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class GRSegmentedTransmission: Transmittable {
-    var selection: Int
-    
-    init(selection: Int) {
-        self.selection = selection
-    }
-}
+//final class GRSegmentedTransmission: Transmittable {
+//    var selection: Int
+//    
+//    init(selection: Int) {
+//        self.selection = selection
+//    }
+//}

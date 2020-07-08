@@ -52,17 +52,16 @@ class GRSegmentedControl: UISegmentedControl {
         switch sender.selectedSegmentIndex {
         case 0:
             graphDataSource.matchEntry(timeFrame: .day, cutOff: DateConstants.today)
-            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
-            Publisher.send(transmission: GRSegmentedTransmission(selection: 0))
+            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
         case 1:
             graphDataSource.matchEntry(timeFrame: .week, cutOff: DateConstants.weekFloor)
-            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
         case 2:
             graphDataSource.matchEntry(timeFrame: .month, cutOff: DateConstants.monthFloor)
-            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
         case 3:
             graphDataSource.matchEntry(timeFrame: .year, cutOff: DateConstants.yearFloor)
-            graphDataSource.splitAmounts(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
         default:
             print(entries)
         }

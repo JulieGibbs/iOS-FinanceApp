@@ -40,7 +40,7 @@ class GRStackView: UIStackView {
     }
     
     func addLabels(quantity: Int) {
-        mainLoop: for label in stackViewLabels[0...quantity + 1] {
+        for label in stackViewLabels[0...quantity + 1] {
             label.font = UIFont.init(name: "Avenir Next Medium", size: 12)
             label.textColor = .white
             
@@ -48,16 +48,28 @@ class GRStackView: UIStackView {
         }
     }
     
+    func switchLabelsText(_case: Int) {
+        mainLoop: for label in stackViewLabels {
+            textLoop: for text in labelTexts[_case] {
+                label.text = text
+            }
+        }
+    }
+    
     func changeContent(selectedSegmentIndex: Int) {
         switch selectedSegmentIndex {
         case 0:
+            switchLabelsText(_case: 0)
             addLabels(quantity: 4)
         case 1:
             addLabels(quantity: 7)
+            switchLabelsText(_case: 1)
         case 2:
             addLabels(quantity: 4)
+            switchLabelsText(_case: 2)
         case 3:
-            addLabels(quantity: 5)
+            addLabels(quantity: 4)
+            switchLabelsText(_case: 3)
         default:
             break
         }

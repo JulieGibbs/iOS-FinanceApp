@@ -16,10 +16,6 @@ import RealmSwift
  */
 class Entry: Object {
     // MARK: - Entry Persisted Properties
-    enum Property: String {
-        case id, name, amount, date, category, entryType, creationStamp
-    }
-    
     /**
      'dynamic' engages the dynamic method dispatch to deal with the property (theory below)
      - method dispatch: mechanism that selects the appropriate method implementation to be called, breaks down in following types:
@@ -36,9 +32,7 @@ class Entry: Object {
     @objc dynamic var name: String?
     @objc dynamic var amount: Int = 0
     @objc dynamic var date: Date?
-    @objc dynamic var strDate: String? /* {
-     Butler.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date!)
-     }*/
+    @objc dynamic var strDate: String?
     @objc dynamic var category: String?
     @objc dynamic var entryType: String?
     @objc dynamic var creationStamp: String?
@@ -72,26 +66,5 @@ class Entry: Object {
             ToC: \(creationStamp ?? "").
             """
         }
-    }
-    
-    // MARK: - Entry Primary Key
-    /*
-     can be used to edit some of the object's property ~> EntryInsertion
-     
-     let person = MyPerson()
-     person.personID = "My-Primary-Key"
-     person.name = "Tom Anglade"
-     
-     Update `person` if it already exists, add it if not.
-     
-     let realm = try! Realm()
-     try! realm.write {
-     realm.add(person, update: true)
-     }
-     
-     [CONSIDER IMPLEMENTATION]
-     */
-    override static func primaryKey() -> String {
-        return Entry.Property.id.rawValue
     }
 }

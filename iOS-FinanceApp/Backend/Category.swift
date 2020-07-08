@@ -10,10 +10,6 @@ import Foundation
 import RealmSwift
 
 class Category: Object {
-    enum Property: String {
-        case id, name
-    }
-    
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name: String?
     
@@ -30,10 +26,6 @@ class Category: Object {
             name: \(name ?? "")
             """
         }
-    }
-    
-    override static func primaryKey() -> String? {
-        return Category.Property.name.rawValue
     }
 }
 

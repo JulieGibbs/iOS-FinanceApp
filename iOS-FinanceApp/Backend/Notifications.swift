@@ -27,9 +27,11 @@ extension Notification.Name {
     static var categoryAddSuccess: Notification.Name {
         return.init("com.category.add.success")
     }
+    
     static var categoryRemoveSuccess: Notification.Name {
         return.init("com.category.remove.success")
     }
+    
     static var categoryAmendSuccess: Notification.Name {
         return.init("com.category.amend.success")
     }

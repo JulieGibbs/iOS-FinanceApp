@@ -12,7 +12,7 @@
 		3F002F5D24201F19002C73F4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* Notifications.swift */; };
 		3F07FA2724B4F22F0045D96A /* GRStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2624B4F22F0045D96A /* GRStackView.swift */; };
 		3F07FA2924B4F8570045D96A /* GRTransmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2824B4F8570045D96A /* GRTransmission.swift */; };
-		3F15C5C424AE59230026E144 /* Lazy Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C324AE59230026E144 /* Lazy Globals.swift */; };
+		3F15C5C424AE59230026E144 /* Primary Data Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C324AE59230026E144 /* Primary Data Source.swift */; };
 		3F15C5C624AE594B0026E144 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C524AE594B0026E144 /* Entry.swift */; };
 		3F15C5C824AE59970026E144 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C724AE59970026E144 /* Category.swift */; };
 		3F15C5CA24AE5A000026E144 /* Data Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C924AE5A000026E144 /* Data Management.swift */; };
@@ -57,7 +57,7 @@
 		3F002F5C24201F19002C73F4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		3F07FA2624B4F22F0045D96A /* GRStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GRStackView.swift; path = "iOS-FinanceApp/Graph View/GRStackView.swift"; sourceTree = "<group>"; };
 		3F07FA2824B4F8570045D96A /* GRTransmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRTransmission.swift; sourceTree = "<group>"; };
-		3F15C5C324AE59230026E144 /* Lazy Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lazy Globals.swift"; sourceTree = "<group>"; };
+		3F15C5C324AE59230026E144 /* Primary Data Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Primary Data Source.swift"; sourceTree = "<group>"; };
 		3F15C5C524AE594B0026E144 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		3F15C5C724AE59970026E144 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F15C5C924AE5A000026E144 /* Data Management.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data Management.swift"; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 				3F15C5C524AE594B0026E144 /* Entry.swift */,
 				3F15C5CF24AE5D560026E144 /* Graph Data Source.swift */,
 				B7BA9FB0244C318D00923A60 /* Helpers.swift */,
-				3F15C5C324AE59230026E144 /* Lazy Globals.swift */,
+				3F15C5C324AE59230026E144 /* Primary Data Source.swift */,
 				3F002F5C24201F19002C73F4 /* Notifications.swift */,
 			);
 			path = Backend;
@@ -376,7 +376,7 @@
 				3FBFDE17241ECEE1006DAC7A /* FOViewController.swift in Sources */,
 				3F75562324B249170095897F /* Publisher + Subscripts.swift in Sources */,
 				3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */,
-				3F15C5C424AE59230026E144 /* Lazy Globals.swift in Sources */,
+				3F15C5C424AE59230026E144 /* Primary Data Source.swift in Sources */,
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
 				3F75562524B24C8B0095897F /* Publisher + Operators.swift in Sources */,
 				3F15C5C624AE594B0026E144 /* Entry.swift in Sources */,

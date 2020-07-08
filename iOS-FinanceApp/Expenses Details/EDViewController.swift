@@ -39,6 +39,3 @@ class EDViewController: UIViewController {
         }
     }
 }
-
-
-

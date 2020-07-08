@@ -18,14 +18,6 @@ class GraphDataSource {
         }
     }
     
-    func getLabelsData(input: [Entry]) {
-        input.forEach {
-            $0.amount < 0 ? Expenses.amountSet.append($0.amount * -1) : Income.amountSet.append($0.amount)
-        }
-        
-        let data = [[Expenses.max, Expenses.med, Expenses.min], [Income.max, Income.med, Income.min]]
-    }
-    
     func getTimeframeData(input: [Entry]) {
         var income = [Int]()
         var expenses = [Int]()
@@ -39,7 +31,6 @@ class GraphDataSource {
         
         Publisher.send(GRTransmission(income: income, expenses: expenses, labelsIncomeData: labelIncomeData, labelsExpenseData: labelExpenseData))
     }
-    
 }
 
 struct Expenses {

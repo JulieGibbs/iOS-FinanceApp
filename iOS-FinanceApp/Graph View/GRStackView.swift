@@ -22,7 +22,6 @@ class GRStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupSelf()
     }
     
     required init(coder: NSCoder) {
@@ -30,7 +29,8 @@ class GRStackView: UIStackView {
     }
     
     override func didMoveToSuperview() {
-        
+        setupSelf()
+        constrainSelf()
     }
     
     func setupSelf() {
@@ -75,4 +75,17 @@ class GRStackView: UIStackView {
         }
     }
     
+    func constrainSelf() {
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        let safeArea = superview?.safeAreaLayoutGuide
+        
+        let constraints = [
+            leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor),
+            bottomAnchor.constraint(equalTo: safeArea!.bottomAnchor),
+            trailingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
+        ]
+        
+        constraints.forEach { $0.isActive = true }
+    }
 }

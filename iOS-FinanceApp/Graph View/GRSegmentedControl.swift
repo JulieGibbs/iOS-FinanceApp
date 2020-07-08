@@ -33,9 +33,7 @@ class GRSegmentedControl: UISegmentedControl {
                 topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor)
             ]
             
-            constraints.forEach { constraint in
-                constraint.isActive = true
-            }
+            constraints.forEach { $0.isActive = true }
         }
     }
     

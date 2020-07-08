@@ -198,7 +198,6 @@
 		3FBFDE11241ECEE0006DAC7A /* iOS-FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
-				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
 				3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */,
 				B7CE14B9245AC63400B07DA1 /* Backend */,
 				3FBFDE38241ED1D9006DAC7A /* Entry Insertion */,
@@ -206,11 +205,12 @@
 				3F15C5D324AE88CD0026E144 /* Extensions */,
 				3F838F6424A9BCB400EA1CFB /* Finance Overview */,
 				3F822FE42484478600337513 /* Graph Scene */,
-				3FBFDE20241ECEE1006DAC7A /* Info.plist */,
+				3F75561724B2400F0095897F /* Observer */,
 				3FBFDE1D241ECEE1006DAC7A /* LaunchScreen.storyboard */,
 				3FBFDE18241ECEE1006DAC7A /* Main.storyboard */,
-				3F75561724B2400F0095897F /* Observer */,
+				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
 				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
+				3FBFDE20241ECEE1006DAC7A /* Info.plist */,
 			);
 			path = "iOS-FinanceApp";
 			sourceTree = "<group>";

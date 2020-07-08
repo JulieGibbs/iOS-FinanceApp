@@ -1,8 +1,8 @@
 //
-//  Side Labels Transmission.swift
+//  GRTransmission.swift
 //  iOS-FinanceApp
 //
-//  Created by Dmitry Aksyonov on 07.07.2020.
+//  Created by Dmitry Aksyonov on 16.03.2020.
 //  Copyright © 2020 Dmitry Aksyonov. All rights reserved.
 //
 
@@ -21,4 +21,3 @@ final class GRTransmission: Transmittable {
         self.sideLabelsExpenseData = labelsExpenseData
     }
 }
-

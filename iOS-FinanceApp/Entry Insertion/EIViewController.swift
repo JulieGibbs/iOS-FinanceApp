@@ -95,13 +95,14 @@ class EIViewController: UIViewController {
                     id: DataManager.generateId(),
                     name: nameInputTextField.text!,
                     amount: Int(amntInputTextField.text!)!,
-                    date: (Heplers.createDateFormatter(
-                        dateStyle: .medium,
-                        timeStyle: .none)
-                        .date(from: dateInputTextField.text!))!,
+                    date: Date(),
                     category: categoryInputTextField.text!,
                     entryType: type,
-                    ToC: "\(NSDate().timeIntervalSince1970)")
+                    ToC: "\(NSDate().timeIntervalSince1970)",
+                    weekDay: Heplers.createDateFormatter(
+                        dateStyle: .medium,
+                        timeStyle: .none)
+                        .weekdaySymbols[Calendar.current.component(.weekday, from: Date())])
                 
                 switch typeControl.selectedSegmentIndex {
                 case 1:

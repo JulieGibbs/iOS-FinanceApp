@@ -9,8 +9,10 @@
 import Foundation
 
 protocol Transmittable: class {
-    var income: [Int?] { get set }
-    var expenses: [Int?] { get set }
+    var incomeArray: [Int?] { get set }
+    var expensesArray: [Int?] { get set }
+    var incomeTotal: Int? { get set }
+    var expensesTotal: Int? { get set }
     var sideLabelsIncomeData: [Int?] { get set }
     var sideLabelsExpenseData: [Int?] { get set }
 }

@@ -27,7 +27,13 @@ class GraphDataSource {
         let labelIncomeData = [income.max(), income.median(), income.min()]
         let labelExpenseData = [expenses.max(), expenses.median(), expenses.min()]
         
-        Publisher.send(GRTransmission(income: income, expenses: expenses, labelsIncomeData: labelIncomeData, labelsExpenseData: labelExpenseData))
+        Publisher.send(GRTransmission(
+            income: income,
+            expenses: expenses,
+            labelsIncomeData: labelIncomeData,
+            labelsExpenseData: labelExpenseData,
+            incomeTotal: income.reduce(0, +),
+            expensesTotal: expenses.reduce(0, +)))
     }
     
     func getDailyAmounts() {

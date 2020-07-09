@@ -9,15 +9,19 @@
 import Foundation
 
 final class GRTransmission: Transmittable {
-    var income: [Int?]
-    var expenses: [Int?]
+    var incomeArray: [Int?]
+    var expensesArray: [Int?]
+    var incomeTotal: Int?
+    var expensesTotal: Int?
     var sideLabelsIncomeData: [Int?]
     var sideLabelsExpenseData: [Int?]
     
-    init(income: [Int?], expenses: [Int?], labelsIncomeData: [Int?], labelsExpenseData: [Int?]) {
-        self.income = income
-        self.expenses = expenses
+    init(income: [Int?], expenses: [Int?], labelsIncomeData: [Int?], labelsExpenseData: [Int?], incomeTotal: Int?, expensesTotal: Int?) {
+        self.incomeArray = income
+        self.expensesArray = expenses
         self.sideLabelsIncomeData = labelsIncomeData
         self.sideLabelsExpenseData = labelsExpenseData
+        self.incomeTotal = incomeTotal
+        self.expensesTotal = expensesTotal
     }
 }

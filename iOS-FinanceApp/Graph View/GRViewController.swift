@@ -23,10 +23,12 @@ class GRViewController: UIViewController, Observer {
     }
     
     func receive(message: Transmittable) {
-        print(message.expenses)
-        print(message.income)
-        print(message.sideLabelsExpenseData)
-        print(message.sideLabelsIncomeData)
+        print("Income values are: \(message.incomeArray)")
+        print("Expenses values are: \(message.expensesArray)")
+        print("Income total is: \(message.incomeTotal)")
+        print("Expenses total is: \(message.expensesTotal)")
+        print("Side labels income max / med / min values are: \(message.sideLabelsIncomeData)")
+        print("Side labels expenses max / med / min values are: \(message.sideLabelsExpenseData)")
     }
 }
 

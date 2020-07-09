@@ -51,17 +51,13 @@ class GRSegmentedControl: UISegmentedControl {
         
         switch sender.selectedSegmentIndex {
         case 0:
-            graphDataSource.matchEntry(timeFrame: .day, cutOff: DateConstants.today)
-            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(timeFrame: .day, cutOff: DateConstants.today)
         case 1:
-            graphDataSource.matchEntry(timeFrame: .week, cutOff: DateConstants.weekFloor)
-            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(timeFrame: .week, cutOff: DateConstants.weekFloor)
         case 2:
-            graphDataSource.matchEntry(timeFrame: .month, cutOff: DateConstants.monthFloor)
-            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(timeFrame: .month, cutOff: DateConstants.monthFloor)
         case 3:
-            graphDataSource.matchEntry(timeFrame: .year, cutOff: DateConstants.yearFloor)
-            graphDataSource.getTimeframeData(input: graphDataSource.matchedEntries)
+            graphDataSource.getTimeframeData(timeFrame: .year, cutOff: DateConstants.yearFloor)
         default:
             print(entries)
         }

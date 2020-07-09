@@ -12,11 +12,12 @@ import RealmSwift
 // MARK: - Class for Repeated Methods
 final class Heplers {
     // MARK: - Formatters
-    static func createDateFormatter(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> DateFormatter {
+    static func createDateFormatter(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style, timeZone: TimeZone = .autoupdatingCurrent) -> DateFormatter {
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateStyle = dateStyle
         dateFormatter.timeStyle = timeStyle
+        dateFormatter.timeZone = timeZone
         
         return dateFormatter
     }

@@ -102,7 +102,10 @@ class EIViewController: UIViewController {
                     weekDay: Heplers.createDateFormatter(
                         dateStyle: .medium,
                         timeStyle: .none)
-                        .weekdaySymbols[Calendar.current.component(.weekday, from: Date())])
+                        .weekdaySymbols[Calendar.current.component(
+                            .weekday, from: Date(
+                                timeIntervalSinceNow: TimeInterval(
+                                    exactly: -1*60*60*24)!))])
                 
                 switch typeControl.selectedSegmentIndex {
                 case 1:

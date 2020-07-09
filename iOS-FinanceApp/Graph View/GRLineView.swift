@@ -13,6 +13,7 @@ class GRLineView: UIView {
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
     
     let titleLabel = UILabel(frame: CGRect.zero)
+    let totalLabel = UILabel()
     let maxLabel = UILabel()
     let medLabel = UILabel()
     let minLabel = UILabel()

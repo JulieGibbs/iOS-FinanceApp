@@ -14,7 +14,7 @@ class GRStackView: UIStackView {
     }
     
     let labelTexts = [
-        ["00:00", "03:00", "06:00", "09:00"],
+        ["4AM", "8AM", "12AM", "4PM", "8PM", "12AM"],
         ["S", "M", "T", "W", "T", "F", "S"],
         ["W1", "W2", "W3", "W4"],
         ["Q1", "Q2", "Q3", "Q4"],

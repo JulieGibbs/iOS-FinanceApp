@@ -17,7 +17,7 @@
 		3F15C5C824AE59970026E144 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C724AE59970026E144 /* Category.swift */; };
 		3F15C5CA24AE5A000026E144 /* Data Management.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C924AE5A000026E144 /* Data Management.swift */; };
 		3F15C5CC24AE5A360026E144 /* Date and Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5CB24AE5A360026E144 /* Date and Time.swift */; };
-		3F15C5D024AE5D560026E144 /* Graph Data Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5CF24AE5D560026E144 /* Graph Data Source.swift */; };
+		3F15C5D024AE5D560026E144 /* GR Data Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5CF24AE5D560026E144 /* GR Data Source.swift */; };
 		3F15C5D224AE88C40026E144 /* Array + Median.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D124AE88C40026E144 /* Array + Median.swift */; };
 		3F15C5D524AE8EBE0026E144 /* Keyboard Dismiss on Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D424AE8EBE0026E144 /* Keyboard Dismiss on Tap.swift */; };
 		3F15C5D724AE8F020026E144 /* Alert + Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D624AE8F020026E144 /* Alert + Functions.swift */; };
@@ -62,7 +62,7 @@
 		3F15C5C724AE59970026E144 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3F15C5C924AE5A000026E144 /* Data Management.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data Management.swift"; sourceTree = "<group>"; };
 		3F15C5CB24AE5A360026E144 /* Date and Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date and Time.swift"; sourceTree = "<group>"; };
-		3F15C5CF24AE5D560026E144 /* Graph Data Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graph Data Source.swift"; sourceTree = "<group>"; };
+		3F15C5CF24AE5D560026E144 /* GR Data Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GR Data Source.swift"; sourceTree = "<group>"; };
 		3F15C5D124AE88C40026E144 /* Array + Median.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Median.swift"; sourceTree = "<group>"; };
 		3F15C5D424AE8EBE0026E144 /* Keyboard Dismiss on Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyboard Dismiss on Tap.swift"; sourceTree = "<group>"; };
 		3F15C5D624AE8F020026E144 /* Alert + Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alert + Functions.swift"; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				B7B50200245956430008BADE /* Data Validation.swift */,
 				3F15C5CB24AE5A360026E144 /* Date and Time.swift */,
 				3F15C5C524AE594B0026E144 /* Entry.swift */,
-				3F15C5CF24AE5D560026E144 /* Graph Data Source.swift */,
+				3F15C5CF24AE5D560026E144 /* GR Data Source.swift */,
 				B7BA9FB0244C318D00923A60 /* Helpers.swift */,
 				3F15C5C324AE59230026E144 /* Primary Data Source.swift */,
 				3F002F5C24201F19002C73F4 /* Notifications.swift */,
@@ -390,7 +390,7 @@
 				B7BA9FB1244C318D00923A60 /* Helpers.swift in Sources */,
 				3F6AE09E24AA78BD00EB228B /* EI + Validation.swift in Sources */,
 				8F4982C924AA386E00BD2B01 /* EI + Picker.swift in Sources */,
-				3F15C5D024AE5D560026E144 /* Graph Data Source.swift in Sources */,
+				3F15C5D024AE5D560026E144 /* GR Data Source.swift in Sources */,
 				3F15C5C824AE59970026E144 /* Category.swift in Sources */,
 				3F15C5D724AE8F020026E144 /* Alert + Functions.swift in Sources */,
 				3F75561B24B241450095897F /* Transmittable.swift in Sources */,

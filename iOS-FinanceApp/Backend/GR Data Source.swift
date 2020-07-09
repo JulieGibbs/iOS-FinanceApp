@@ -29,6 +29,22 @@ class GraphDataSource {
         
         Publisher.send(GRTransmission(income: income, expenses: expenses, labelsIncomeData: labelIncomeData, labelsExpenseData: labelExpenseData))
     }
+    
+    func getDailyAmounts() {
+        var fourAM, eightAM, midday, fourPM, eightPM, midnight: [Int]
+    }
+    
+    func getWeelyAmounts() {
+        var sun, mon, tue, wed, thu, fri, sat: [Int]
+    }
+    
+    func getMonthlyAmounts() {
+        var week1, week2, week3, week: [Int]
+    }
+    
+    func getYearlyAmounts() {
+        var q1, q2, q3, q4: [Int]
+    }
 }
 
 struct Expenses {

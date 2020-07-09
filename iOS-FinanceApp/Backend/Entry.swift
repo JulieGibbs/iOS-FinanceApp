@@ -37,12 +37,25 @@ class Entry: Object {
     @objc dynamic var entryType: String?
     @objc dynamic var creationStamp: String?
     @objc dynamic var weekDay: String?
+    @objc dynamic var weekOfMonth: Int = 0
+    @objc dynamic var quarter: Int = 0
+    @objc dynamic var _time: Int = 0
     
     // MARK: - Custom Init to Add an Entry
     /**
      convenience init - secondary supporting initializer [SOMEHOW NOW THIS IS THE ONLY WAY TO INIT REALM INSTANCE ~> NEEDS CLARIFICATION]
      */
-    convenience init(id: String, name: String, amount: Int, date: Date, category: String, entryType: String?, ToC: String, weekDay: String) {
+    convenience init(id: String,
+                     name: String,
+                     amount: Int,
+                     date: Date,
+                     category: String,
+                     entryType: String?,
+                     ToC: String,
+                     weekDay: String,
+                     weekOfMonth: Int,
+                     quarter: Int,
+                     time: Int) {
         self.init()
         self.id = id
         self.name = name
@@ -53,6 +66,9 @@ class Entry: Object {
         self.entryType = entryType
         self.creationStamp = ToC
         self.weekDay = weekDay
+        self.weekOfMonth = weekOfMonth
+        self.quarter = quarter
+        self._time = time
     }
     
     // MARK: - Entry Description

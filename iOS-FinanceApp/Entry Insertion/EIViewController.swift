@@ -105,7 +105,10 @@ class EIViewController: UIViewController {
                         .weekdaySymbols[Calendar.current.component(
                             .weekday, from: Date(
                                 timeIntervalSinceNow: TimeInterval(
-                                    exactly: -1*60*60*24)!))])
+                                    exactly: -1*60*60*24)!))],
+                    weekOfMonth: Calendar.current.component(.weekOfMonth, from: Date()),
+                    quarter: Calendar.current.component(.quarter, from: Date()),
+                    time: Calendar.current.component(.hour, from: Date()))
                 
                 switch typeControl.selectedSegmentIndex {
                 case 1:

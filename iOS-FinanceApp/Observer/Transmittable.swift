@@ -13,6 +13,7 @@ protocol Transmittable: class {
     var expensesArray: [Int?] { get set }
     var incomeTotal: Int? { get set }
     var expensesTotal: Int? { get set }
+    var graphPointsdata: [Int?] { get set }
     var sideLabelsIncomeData: [Int?] { get set }
     var sideLabelsExpenseData: [Int?] { get set }
 }

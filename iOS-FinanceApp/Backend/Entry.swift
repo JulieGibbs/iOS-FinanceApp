@@ -39,7 +39,7 @@ class Entry: Object {
     @objc dynamic var weekDay: String?
     @objc dynamic var weekOfMonth: Int = 0
     @objc dynamic var quarter: Int = 0
-    @objc dynamic var _time: Int = 0
+    @objc dynamic var hour: Int = 0
     
     // MARK: - Custom Init to Add an Entry
     /**
@@ -68,7 +68,7 @@ class Entry: Object {
         self.weekDay = weekDay
         self.weekOfMonth = weekOfMonth
         self.quarter = quarter
-        self._time = time
+        self.hour = time
     }
     
     // MARK: - Entry Description

@@ -13,8 +13,27 @@ enum TimeFrame {
 }
 
 struct DateConstants {
-    static let today = Date()
-    static let weekFloor = today.addingTimeInterval(-7 * 24 * 60 * 60)
-    static let monthFloor = today.addingTimeInterval(-30 * 24 * 60 * 60)
-    static let yearFloor = today.addingTimeInterval(-365 * 24 * 60 * 60)
+    static var today: Date {
+        get {
+            Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Date()))!
+        }
+    }
+    
+    static var weekFloor: Date {
+        get {
+            Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: today.addingTimeInterval(-7 * 24 * 60 * 60)))!
+        }
+    }
+    
+    static var monthFloor: Date {
+        get {
+            Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: today.addingTimeInterval(-30 * 24 * 60 * 60)))!
+        }
+    }
+    
+    static var yearFloor: Date {
+        get {
+            Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: today.addingTimeInterval(-365 * 24 * 60 * 60)))!
+        }
+    }
 }

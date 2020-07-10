@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-
+		
 class GraphDataSource {
     var matchedEntries = [Entry]()
     var income = [Int]()
@@ -16,9 +16,11 @@ class GraphDataSource {
     
     
     func getTimeframeData(timeFrame: TimeFrame, input data: Results<Entry> = entries, cutOff: Date) {
-        data.forEach {
-            $0.date! >= cutOff ? matchedEntries.append($0) : nil
-        }
+//        data.forEach {
+//            $0.date! >= cutOff ? matchedEntries.append($0) : nil
+//        }
+        
+        matchedEntries = data.filter({$0.date! >= cutOff})
         
         matchedEntries.forEach {
             $0.amount > 0 ? income.append($0.amount) : expenses.append($0.amount * -1)

@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In0-b5-Moi">
-                                <rect key="frame" x="192" y="203" width="30" height="30"/>
+                                <rect key="frame" x="188" y="203" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="1GC-sj-LnU"/>
                                     <constraint firstAttribute="width" constant="30" id="dq6-UK-75a"/>
@@ -124,7 +124,7 @@
                             <constraint firstItem="owv-aB-7pS" firstAttribute="leading" secondItem="Xfy-1Y-umu" secondAttribute="leading" constant="15" id="ALa-C0-4IM"/>
                             <constraint firstItem="2jv-2D-eej" firstAttribute="leading" secondItem="Xfy-1Y-umu" secondAttribute="leading" constant="15" id="J72-Tc-ne8"/>
                             <constraint firstItem="In0-b5-Moi" firstAttribute="top" secondItem="Xfy-1Y-umu" secondAttribute="top" constant="203" id="LRN-N0-Y5T"/>
-                            <constraint firstItem="In0-b5-Moi" firstAttribute="leading" secondItem="owv-aB-7pS" secondAttribute="trailing" constant="9" id="O6y-cD-UUv"/>
+                            <constraint firstItem="In0-b5-Moi" firstAttribute="leading" secondItem="owv-aB-7pS" secondAttribute="trailing" constant="5" id="O6y-cD-UUv"/>
                             <constraint firstItem="4wG-j6-0cd" firstAttribute="leading" secondItem="owv-aB-7pS" secondAttribute="trailing" constant="80" id="OJQ-pk-25A"/>
                             <constraint firstItem="Xfy-1Y-umu" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2jv-2D-eej" secondAttribute="trailing" symbolic="YES" id="S5w-jc-wW9"/>
                             <constraint firstItem="Jxg-dc-QgU" firstAttribute="centerX" secondItem="4wG-j6-0cd" secondAttribute="centerX" id="V8A-Ki-J3q"/>

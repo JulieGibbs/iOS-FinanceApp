@@ -81,7 +81,10 @@ class Entry: Object {
             date: \(date ?? Date());
             type: \(entryType ?? "");
             category: \(category ?? "");
-            ToC: \(creationStamp ?? "").
+            ToC: \(creationStamp ?? "");
+            weekday: \(weekDay ?? "");
+            week of month: \(weekOfMonth);
+            quarter: \(quarter).
             """
         }
     }

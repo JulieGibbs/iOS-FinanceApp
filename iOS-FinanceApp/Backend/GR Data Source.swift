@@ -8,18 +8,31 @@
 
 import Foundation
 import RealmSwift
-		
+
 class GraphDataSource {
     var matchedEntries = [Entry]()
     var income = [Int]()
     var expenses = [Int]()
     
+    var dailyData: [ClosedRange<Int> : Int] = [0...4 : 0,
+                                               5...8 : 0,
+                                               9...12: 0,
+                                               13...16 : 0,
+                                               17...20 : 0,
+                                               21...24 : 0]
+    
+    var weeklyData: [String : Int] = ["Sunday" : 0,
+                                      "Monday" : 0,
+                                      "Tuesday" : 0,
+                                      "Wednesday" : 0,
+                                      "Thursday" : 0,
+                                      "Friday" : 0,
+                                      "Saturday" : 0]
+    
+    var monthlyData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
+    var yearlyData: [Int: Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
     
     func getTimeframeData(timeFrame: TimeFrame, input data: Results<Entry> = entries, cutOff: Date) {
-//        data.forEach {
-//            $0.date! >= cutOff ? matchedEntries.append($0) : nil
-//        }
-        
         matchedEntries = data.filter({$0.date! >= cutOff})
         
         matchedEntries.forEach {
@@ -33,13 +46,13 @@ class GraphDataSource {
         
         switch timeFrame {
         case .day:
-            graphPointsData = getDailyAmounts(input: matchedEntries)
+            getDailyAmounts(input: matchedEntries)
         case .week:
-            graphPointsData = getWeeklyAmounts(input: matchedEntries)
+            getWeeklyData(input: matchedEntries)
         case .month:
-            graphPointsData = getMonthlyAmounts(input: matchedEntries)
+            getMonthlyData(input: matchedEntries)
         case .year:
-            graphPointsData = getYearlyAmounts(input: matchedEntries)
+            getYearlyAmounts(input: matchedEntries)
         default:
             break
         }
@@ -54,75 +67,77 @@ class GraphDataSource {
             graphPointsData: graphPointsData))
     }
     
-    func getDailyAmounts(input: [Entry]) -> [Int] {
-        let fourAM = input.filter({ $0.hour >= 0 && $0.hour <= 4 }).map({ $0.amount }).reduce(0, +)
-        let eightAM = input.filter({ $0.hour >= 5 && $0.hour <= 8 }).map({ $0.amount }).reduce(0, +)
-        let midday = input.filter({ $0.hour >= 9 && $0.hour <= 12 }).map({ $0.amount }).reduce(0, +)
-        let fourPM = input.filter({ $0.hour >= 13 && $0.hour <= 16 }).map({ $0.amount }).reduce(0, +)
-        let eightPM = input.filter({ $0.hour >= 17 && $0.hour <= 20 }).map({ $0.amount }).reduce(0, +)
-        let midnight = input.filter({ $0.hour >= 21 && $0.hour <= 24 }).map({ $0.amount }).reduce(0, +)
-        
-        return [fourAM, eightAM, midday, fourPM, eightPM, midnight]
+    func getDailyAmounts(input: [Entry]){
+        for (hours, _) in dailyData {
+            dailyData[hours] = input.filter({ hours.contains($0.hour) }).map({ (entry) -> Int in
+                if entry.amount < 0 {
+                    let amendedExpense: Int = entry.amount * -1
+                    return amendedExpense
+                } else { return entry.amount }}).reduce(0, +)}
     }
     
-    func getWeeklyAmounts(input: [Entry]) -> [Int] {
-        let mon = input.filter({ $0.weekDay == "Monday" }).map({ $0.amount }).reduce(0, +)
-        let tue = input.filter({ $0.weekDay == "Tuesday" }).map({ $0.amount }).reduce(0, +)
-        let wed = input.filter({ $0.weekDay == "Wednesday" }).map({ $0.amount }).reduce(0, +)
-        let thu = input.filter({ $0.weekDay == "Thursday" }).map({ $0.amount }).reduce(0, +)
-        let fri = input.filter({ $0.weekDay == "Friday" }).map({ $0.amount }).reduce(0, +)
-        let sat = input.filter({ $0.weekDay == "Saturday" }).map({ $0.amount }).reduce(0, +)
-        let sun = input.filter({ $0.weekDay == "Sunday" }).map({ $0.amount }).reduce(0, +)
-        
-        return [mon, tue, wed, thu, fri, sat, sun]
+    func getWeeklyData(input: [Entry]) {
+        for (day, _) in weeklyData {
+            weeklyData[day] = input.filter({ $0.weekDay == day }).map({ (entry) -> Int in
+                if entry.amount < 0 {
+                    let amendedExpense: Int = entry.amount * -1
+                    return amendedExpense
+                } else { return entry.amount }}).reduce(0, +)}
     }
     
-    func getMonthlyAmounts(input: [Entry]) -> [Int] {
-        let week1 = input.filter({ $0.weekOfMonth == 1 }).map({ $0.amount }).reduce(0, +)
-        let week2 = input.filter({ $0.weekOfMonth == 2 }).map({ $0.amount }).reduce(0, +)
-        let week3 = input.filter({ $0.weekOfMonth == 3 }).map({ $0.amount }).reduce(0, +)
-        let week4 = input.filter({ $0.weekOfMonth == 4 }).map({ $0.amount }).reduce(0, +)
-        
-        return [week1, week2, week3, week4]
+    func getMonthlyData(input: [Entry]) {
+        for (week, _) in monthlyData {
+            monthlyData[week] = input.filter({ $0.weekOfMonth == week }).map({ (entry) -> Int in
+                if entry.amount < 0 {
+                    let amendedExpense: Int = entry.amount * -1
+                    return amendedExpense
+                } else { return entry.amount }}).reduce(0, +)}
     }
     
-    func getYearlyAmounts(input: [Entry]) -> [Int] {
-        let q1 = input.filter({ $0.quarter == 1 }).map({ $0.amount }).reduce(0, +)
-        let q2 = input.filter({ $0.quarter == 2 }).map({ $0.amount }).reduce(0, +)
-        let q3 = input.filter({ $0.quarter == 3 }).map({ $0.amount }).reduce(0, +)
-        let q4 = input.filter({ $0.quarter == 4 }).map({ $0.amount }).reduce(0, +)
-        
-        return [q1, q2, q3, q4]
+    func getYearlyAmounts(input: [Entry]){
+        for (quarter, _) in yearlyData {
+            yearlyData[quarter] = input.filter({ $0.quarter == quarter }).map({ (entry) -> Int in
+                if entry.amount < 0 {
+                    let amendedExpense: Int = entry.amount * -1
+                    return amendedExpense
+                } else { return entry.amount }}).reduce(0, +)}
     }
+}
+
+struct Expenses {
+    static var amountSet = [Int]()
     
-    struct Expenses {
-        static var amountSet = [Int]()
-        
-        static var max: Int {
-            get { return amountSet.max() ?? 0 }
-        }
-        static var med: Int {
-            get { return amountSet.median() ?? 0 }
-        }
-        static var min: Int {
-            get { return amountSet.min() ?? 0 }
-        }
+    static var max: Int {
+        get { return amountSet.max() ?? 0 }
     }
+    static var med: Int {
+        get { return amountSet.median() ?? 0 }
+    }
+    static var min: Int {
+        get { return amountSet.min() ?? 0 }
+    }
+}
+
+struct Income {
+    static var amountSet = [Int]()
     
-    struct Income {
-        static var amountSet = [Int]()
-        
-        static var max: Int {
-            get { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
-                return amountSet.max() ?? 0 }
+    static var max: Int {
+        get {
+            if amountSet.count == 1 {
+                return amountSet.first ?? 0
+                
+            } else {
+                return amountSet.max() ?? 0
             }
         }
-        static var med: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
-            return amountSet.median() ?? 0 }
+    }
+    
+    static var med: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
+        return amountSet.median() ?? 0
         }
-        
-        static var min: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
-            return amountSet.min() ?? 0 }
-        }
+    }
+    
+    static var min: Int { if amountSet.count == 1 { return amountSet.first ?? 0 } else {
+        return amountSet.min() ?? 0 }
     }
 }

@@ -29,6 +29,7 @@ class GRViewController: UIViewController, Observer {
         print("Expenses total is: \(message.expensesTotal)")
         print("Side labels income max / med / min values are: \(message.sideLabelsIncomeData)")
         print("Side labels expenses max / med / min values are: \(message.sideLabelsExpenseData)")
+        print("Graph points values are: \(message.graphPointsdata)")
     }
 }
 

@@ -13,11 +13,11 @@ final class GRTransmission: Transmittable {
     var expensesArray: [Int?]
     var incomeTotal: Int?
     var expensesTotal: Int?
-    var graphPointsdata: [Int?]
+    var graphPointsdata: [Any]
     var sideLabelsIncomeData: [Int?]
     var sideLabelsExpenseData: [Int?]
     
-    init(income: [Int?], expenses: [Int?], labelsIncomeData: [Int?], labelsExpenseData: [Int?], incomeTotal: Int?, expensesTotal: Int?, graphPointsData: [Int]) {
+    init(income: [Int?], expenses: [Int?], labelsIncomeData: [Int?], labelsExpenseData: [Int?], incomeTotal: Int?, expensesTotal: Int?, graphPointsData: [Any]) {
         self.incomeArray = income
         self.expensesArray = expenses
         self.sideLabelsIncomeData = labelsIncomeData

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D59FE624BCBEBB006527F8 /* GR Data Source + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D59FE524BCBEBB006527F8 /* GR Data Source + Data.swift */; };
 		1956B550C8FEF4043E9DD8DB /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */; };
 		2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */; };
 		3F002F5D24201F19002C73F4 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* Notifications.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05D59FE524BCBEBB006527F8 /* GR Data Source + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GR Data Source + Data.swift"; sourceTree = "<group>"; };
 		2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDTableViewCell.swift; sourceTree = "<group>"; };
 		3F002F5C24201F19002C73F4 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		3F07FA2624B4F22F0045D96A /* GRStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GRStackView.swift; path = "iOS-FinanceApp/Graph View/GRStackView.swift"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				3F15C5CB24AE5A360026E144 /* Date and Time.swift */,
 				3F15C5C524AE594B0026E144 /* Entry.swift */,
 				3F15C5CF24AE5D560026E144 /* GR Data Source.swift */,
+				05D59FE524BCBEBB006527F8 /* GR Data Source + Data.swift */,
 				B7BA9FB0244C318D00923A60 /* Helpers.swift */,
 				3F15C5C324AE59230026E144 /* Primary Data Source.swift */,
 				3F002F5C24201F19002C73F4 /* Notifications.swift */,
@@ -378,6 +381,7 @@
 				3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */,
 				3F15C5C424AE59230026E144 /* Primary Data Source.swift in Sources */,
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
+				05D59FE624BCBEBB006527F8 /* GR Data Source + Data.swift in Sources */,
 				3F75562524B24C8B0095897F /* Publisher + Operators.swift in Sources */,
 				3F15C5C624AE594B0026E144 /* Entry.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,

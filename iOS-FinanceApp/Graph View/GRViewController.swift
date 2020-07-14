@@ -27,6 +27,17 @@ class GRViewController: UIViewController, Observer {
     
     func receive(message: Transmittable) {
         print(message.description)
+        lineGraphView.totalLabel.text = "\(message.totalForIncome)"
+        
+        var index = 0
+        
+        for label in [lineGraphView.maxLabel, lineGraphView.medLabel, lineGraphView.minLabel] {
+                    
+            label.text = "\(message.incomeExtremums[index] ?? 0)"
+            
+            index += 1
+        }
+        
     }
     
     @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {

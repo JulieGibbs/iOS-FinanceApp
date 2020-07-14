@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 
 class GraphDataSource {
+    typealias EntryTotal = ([Int]) -> Int
+    
     var matchedEntries = [Entry]()
     
     var incomeEntries = [Entry]()
@@ -18,13 +20,8 @@ class GraphDataSource {
     var income = [Int]()
     var expenses = [Int]()
     
-    lazy var totalForIncome: ([Int]) -> Int = { array in
-        return array.reduce(0, +)
-    }
-    
-    lazy var totalForExpenses: ([Int]) -> Int = { array in
-        return array.reduce(0, +)
-    }
+    var totalForIncome: Int = 0
+    var totalForExpenses: Int = 0
     
     var incomeExtremums = [Int?]()
     var expensesExtremums = [Int?]()
@@ -57,7 +54,10 @@ class GraphDataSource {
         graphData.append([income, expenses])
         
         graphData.append([incomeExtremums, expensesExtremums])
-        graphData.append([totalForIncome(income), totalForExpenses(expenses)])
+        
+        totalForIncome = income.reduce(0, +)
+        totalForExpenses = expenses.reduce(0, +)
+        graphData.append([totalForIncome, totalForExpenses])
         
         switch timeFrame {
         case .day:

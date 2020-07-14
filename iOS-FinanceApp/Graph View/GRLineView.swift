@@ -87,8 +87,7 @@ class GRLineView: UIView {
                 leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
                 trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
                 heightAnchor.constraint(equalToConstant: 250)
-            ]
-            
+           ]
             constraints.forEach { $0.isActive = true }
         }
     }
@@ -97,28 +96,37 @@ class GRLineView: UIView {
         titleLabel = UILabel(frame: CGRect(x: 10.0, y: 5.0, width: 100.0, height: 40.0))
         titleLabel.text = "Profit & Loss Breakdown"
         titleLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        titleLabel.textColor = .white
+        titleLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
         titleLabel.sizeToFit()
         self.addSubview(titleLabel)
         
         totalLabel = UILabel(frame: CGRect(x: 10.0, y: 12.0, width: 100, height: 40))
         totalLabel.text = "Total:"
         totalLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        totalLabel.textColor = .white
+        totalLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
         titleLabel.sizeToFit()
         self.addSubview(totalLabel)
         
-        self.addSubview(maxLabel)
+        maxLabel = UILabel(frame: CGRect(x: 10.0, y: 47.5, width: 100, height: 100))
         maxLabel.text = "Max"
-        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        maxLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        maxLabel.sizeToFit()
+        self.addSubview(maxLabel)
         
-        self.addSubview(medLabel)
+        medLabel = UILabel(frame: CGRect(x: 10.0, y: 115, width: 100, height: 100))
         medLabel.text = "Med"
-        medLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        medLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        medLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        medLabel.sizeToFit()
+        self.addSubview(medLabel)
         
-        self.addSubview(minLabel)
+        minLabel = UILabel(frame: CGRect(x: 10.0, y: 177.5, width: 100, height: 100))
         minLabel.text = "Min"
-        minLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        minLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        minLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        minLabel.sizeToFit()
+        self.addSubview(minLabel)
     }
 }
 

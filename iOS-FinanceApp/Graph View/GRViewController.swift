@@ -34,6 +34,14 @@ class GRViewController: UIViewController, Observer {
         print("Side labels expenses max / med / min values are: \(message.sideLabelsExpenseData)")
         print("Graph points values are: \(message.graphPointsdata)")
     }
+    
+    @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {
+        switch sender.selectedSegmentIndex {
+        case 0: break
+        case 1: break
+        default: break
+        }
+    }
 }
 
 //    func setupLineGraphView() {

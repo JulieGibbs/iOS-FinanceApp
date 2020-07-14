@@ -16,15 +16,7 @@ class GREntryTypeToggle: UISegmentedControl {
         setup(input: items)
         constrain()
     }
-    
-    @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {
-        switch selectedSegmentIndex {
-        case 0: break
-        case 1: break
-        default: break
-        }
-    }
-    
+       
     func constrain() {
         if let superview = superview {
             translatesAutoresizingMaskIntoConstraints = false

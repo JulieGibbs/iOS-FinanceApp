@@ -12,12 +12,15 @@ import RealmSwift
 class GRViewController: UIViewController, Observer {
     let segmentedControl = GRSegmentedControl()
     let lineGraphView = GRLineView()
+    let entryTypeToggle = GREntryTypeToggle()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(segmentedControl)
         view.addSubview(lineGraphView)
-        lineGraphView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 25).isActive = true
+        view.addSubview(entryTypeToggle)
+        lineGraphView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
+        entryTypeToggle.topAnchor.constraint(equalTo: lineGraphView.bottomAnchor, constant: 20).isActive = true
         
         Publisher.add(observer: self)
     }

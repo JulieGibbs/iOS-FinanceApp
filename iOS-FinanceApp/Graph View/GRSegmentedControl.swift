@@ -10,16 +10,7 @@ import UIKit
 
 class GRSegmentedControl: UISegmentedControl {
     let items = ["All", "Year", "Month", "Week", "Day"]
-    
-    func setup() {
-        for item in items {
-            var index = 0
-            insertSegment(withTitle: item, at: index, animated: true)
-            index += 1
-        }
-        selectedSegmentIndex = 0
-    }
-    
+        
     func constrain() {
         if let superview = superview {
             let safeArea = superview.safeAreaLayoutGuide
@@ -38,12 +29,10 @@ class GRSegmentedControl: UISegmentedControl {
     }
     
     override func didMoveToSuperview() {
-        setup()
+        setup(input: items)
         constrain()
         
         addTarget(self, action: #selector(segmentTapped), for: .valueChanged)
-        
-        
     }
     
     @objc func segmentTapped(_ sender: UISegmentedControl) {

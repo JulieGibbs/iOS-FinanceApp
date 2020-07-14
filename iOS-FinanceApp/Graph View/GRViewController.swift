@@ -26,13 +26,7 @@ class GRViewController: UIViewController, Observer {
     }
     
     func receive(message: Transmittable) {
-        print("Income values are: \(message.incomeArray)")
-        print("Expenses values are: \(message.expensesArray)")
-        print("Income total is: \(message.incomeTotal)")
-        print("Expenses total is: \(message.expensesTotal)")
-        print("Side labels income max / med / min values are: \(message.sideLabelsIncomeData)")
-        print("Side labels expenses max / med / min values are: \(message.sideLabelsExpenseData)")
-        print("Graph points values are: \(message.graphPointsdata)")
+        print(message.description)
     }
     
     @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {

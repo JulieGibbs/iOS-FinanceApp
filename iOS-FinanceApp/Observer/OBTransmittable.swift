@@ -9,11 +9,31 @@
 import Foundation
 
 protocol Transmittable: class {
-    var incomeArray: [Int?] { get set }
-    var expensesArray: [Int?] { get set }
-    var incomeTotal: Int? { get set }
-    var expensesTotal: Int? { get set }
-    var graphPointsdata: [Any] { get set }
-    var sideLabelsIncomeData: [Int?] { get set }
-    var sideLabelsExpenseData: [Int?] { get set }
+    var matchedEntries: [Entry] { get set }
+    
+    var incomeEntries: [Entry] { get set }
+    var expensesEntries: [Entry] { get set }
+    
+    var income: [Int] { get set }
+    var expenses: [Int] { get set }
+    
+    var totalForIncome: ([Int]) -> Int { get set }
+    var totalForExpenses: ([Int]) -> Int { get set }
+    
+    var incomeExtremums: [Int?] { get set }
+    var expensesExtremums: [Int?] { get set }
+    
+    var dailyIncomeData: [ClosedRange<Int> : Int] { get set }
+    var dailyExpenseData: [ClosedRange<Int> : Int] { get set }
+    
+    var weeklyIncomeData: [String : Int] { get set }
+    var weeklyExpenseData: [String : Int] { get set }
+    
+    var monthlyIncomeData: [Int : Int] { get set }
+    var monthlyExpenseData: [Int : Int] { get set }
+    
+    var yearlyIncomeData: [Int: Int] { get set }
+    var yearlyExpenseData: [Int: Int] { get set }
+    
+    var description: String { get set }
 }

@@ -9,8 +9,9 @@
 import Foundation
 
 final class GRTransmission: Transmittable {
-    var matchedEntries: [Entry]
 
+    var matchedEntries: [Entry]
+    
     var incomeEntries: [Entry]
     var expensesEntries: [Entry]
     
@@ -20,8 +21,8 @@ final class GRTransmission: Transmittable {
     var totalForIncome: ([Int]) -> Int
     var totalForExpenses: ([Int]) -> Int
     
-    var incomeExtremums: [Int]
-    var expensesExtremums: [Int]
+    var incomeExtremums: [Int?]
+    var expensesExtremums: [Int?]
     
     var dailyIncomeData: [ClosedRange<Int> : Int]
     var dailyExpenseData: [ClosedRange<Int> : Int]
@@ -47,10 +48,11 @@ final class GRTransmission: Transmittable {
     ///   - expensesExtremums: min / med / max for expenses
     ///   - dailyIncome: income amounts split by hours (see GRDataSource / GRStackView)
     ///   - dailyExpense: income amounts split by hours (see GRDataSource / GRStackView)
-    init(matchedEntries: [Entry], incomeEntries: [Entry], income: [Int], expenses: [Int], totalIncome: @escaping ([Int]) -> Int, totalExpenses: @escaping ([Int]) -> Int, incomeExtremums: [Int], expensesExtremums: [Int], dailyIncome: [ClosedRange<Int> : Int], dailyExpense: [ClosedRange<Int> : Int]) {
+    init(matchedEntries: [Entry], incomeEntries: [Entry], expensesEntries: [Entry], income: [Int], expenses: [Int], totalIncome: @escaping ([Int]) -> Int, totalExpenses: @escaping ([Int]) -> Int, incomeExtremums: [Int?], expensesExtremums: [Int?], dailyIncome: [ClosedRange<Int> : Int], dailyExpense: [ClosedRange<Int> : Int], weeklyIncome: [String : Int], weeklyExpense: [String : Int], monthlyIncome: [Int : Int], monthlyExpense: [Int : Int], yearlyIncome: [Int : Int], yearlyExpense: [Int : Int]) {
         
         self.matchedEntries = matchedEntries
         self.incomeEntries = incomeEntries
+        self.expensesEntries = expensesEntries
         
         self.income = income
         self.expenses = expenses
@@ -63,59 +65,49 @@ final class GRTransmission: Transmittable {
         
         self.dailyIncomeData = dailyIncome
         self.dailyExpenseData = dailyExpense
-    }
-    
-    init(matchedEntries: [Entry], incomeEntries: [Entry], income: [Int], expenses: [Int], totalIncome: @escaping ([Int]) -> Int, totalExpenses: @escaping ([Int]) -> Int, incomeExtremums: [Int], expensesExtremums: [Int], weeklyIncome: [String : Int], weeklyExpense: [String : Int]) {
-        
-        self.matchedEntries = matchedEntries
-        self.incomeEntries = incomeEntries
-        
-        self.income = income
-        self.expenses = expenses
-        
-        self.totalForIncome = totalIncome
-        self.totalForExpenses = totalExpenses
-        
-        self.incomeExtremums = incomeExtremums
-        self.expensesExtremums = expensesExtremums
         
         self.weeklyIncomeData = weeklyIncome
         self.weeklyExpenseData = weeklyExpense
-    }
-    
-    init(matchedEntries: [Entry], incomeEntries: [Entry], income: [Int], expenses: [Int], totalIncome: @escaping ([Int]) -> Int, totalExpenses: @escaping ([Int]) -> Int, incomeExtremums: [Int], expensesExtremums: [Int], monthlyIncome: [Int : Int], monthlyExpense: [Int : Int]) {
-        
-        self.matchedEntries = matchedEntries
-        self.incomeEntries = incomeEntries
-        
-        self.income = income
-        self.expenses = expenses
-        
-        self.totalForIncome = totalIncome
-        self.totalForExpenses = totalExpenses
-        
-        self.incomeExtremums = incomeExtremums
-        self.expensesExtremums = expensesExtremums
         
         self.monthlyIncomeData = monthlyIncome
         self.monthlyExpenseData = monthlyExpense
-    }
-    
-    init(matchedEntries: [Entry], incomeEntries: [Entry], income: [Int], expenses: [Int], totalIncome: @escaping ([Int]) -> Int, totalExpenses: @escaping ([Int]) -> Int, incomeExtremums: [Int], expensesExtremums: [Int], yearlyIncome: [Int : Int], yearlyExpense: [Int : Int]) {
-        
-        self.matchedEntries = matchedEntries
-        self.incomeEntries = incomeEntries
-        
-        self.income = income
-        self.expenses = expenses
-        
-        self.totalForIncome = totalIncome
-        self.totalForExpenses = totalExpenses
-        
-        self.incomeExtremums = incomeExtremums
-        self.expensesExtremums = expensesExtremums
         
         self.yearlyIncomeData = yearlyIncome
         self.yearlyExpenseData = yearlyExpense
+        
+    }
+    
+    var description: String {
+        get {
+            return """
+            ***PRINTING MESSAGE DESCRIPTION***
+            Matched entries: \(matchedEntries);
+            ------------------------------------------------\n
+            Income Entries: \(incomeEntries);
+            Expenses Entries: \(expensesEntries);
+            ------------------------------------------------\n
+            Income: \(income);
+            Expenses: \(expenses);
+            ------------------------------------------------\n
+            Income Total: \(totalForIncome);
+            Expenses Total: \(totalForExpenses);
+            ------------------------------------------------\n
+            Income Min / Med / Max: \(incomeExtremums);
+            Expenses Min / Med / Max: \(expensesExtremums);
+            ================================================\n
+            Daily Income Data \(dailyIncomeData);
+            Daily Expense Data \(dailyIncomeData);
+            ------------------------------------------------\n
+            Weekly Income Data \(weeklyIncomeData);
+            Weekly Expense Data \(weeklyExpenseData);
+            ------------------------------------------------\n
+            Monthly Income Data \(monthlyIncomeData);
+            Monthly Expense Data \(monthlyExpenseData);
+            ------------------------------------------------\n
+            Yearly Income Data \(yearlyIncomeData);
+            Yearly Expense Data \(yearlyExpenseData);
+            """
+        }
+        set {  }
     }
 }

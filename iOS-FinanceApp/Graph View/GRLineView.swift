@@ -12,11 +12,11 @@ class GRLineView: UIView {
     var gradientStartColor: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9490196078, blue: 0.4117647059, alpha: 1)
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
     
-    let titleLabel = UILabel(frame: CGRect.zero)
-    let totalLabel = UILabel()
-    let maxLabel = UILabel()
-    let medLabel = UILabel()
-    let minLabel = UILabel()
+    var titleLabel = UILabel()
+    var totalLabel = UILabel()
+    var maxLabel = UILabel()
+    var medLabel = UILabel()
+    var minLabel = UILabel()
     
     let bottomStackView = GRStackView()
     
@@ -70,7 +70,6 @@ class GRLineView: UIView {
         setupSelf()
         setupLabels()
         constrainSelf()
-        constainLabels()
     }
     
     func setupSelf() {
@@ -95,9 +94,19 @@ class GRLineView: UIView {
     }
     
     func setupLabels() {
+        titleLabel = UILabel(frame: CGRect(x: 10.0, y: 5.0, width: 100.0, height: 40.0))
+        titleLabel.text = "Profit & Loss Breakdown"
+        titleLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        titleLabel.textColor = .white
+        titleLabel.sizeToFit()
         self.addSubview(titleLabel)
-        titleLabel.text = "Profit & Loss breakdown"
-        titleLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
+        
+        totalLabel = UILabel(frame: CGRect(x: 10.0, y: 12.0, width: 100, height: 40))
+        totalLabel.text = "Total:"
+        totalLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        totalLabel.textColor = .white
+        titleLabel.sizeToFit()
+        self.addSubview(totalLabel)
         
         self.addSubview(maxLabel)
         maxLabel.text = "Max"
@@ -110,56 +119,6 @@ class GRLineView: UIView {
         self.addSubview(minLabel)
         minLabel.text = "Min"
         minLabel.font = UIFont(name: "Avenir Next Regular", size: 12)
-    }
-    
-    func constainLabels() {
-        let viewSafeArea = self.safeAreaLayoutGuide
-        
-        let titleLabelconstraints = [
-            titleLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: viewSafeArea.topAnchor),
-            titleLabel.widthAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.width),
-            titleLabel.heightAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.height)
-        ]
-        
-        titleLabel.translatesAutoresizingMaskIntoConstraints = true
-        titleLabelconstraints.forEach { $0.isActive = true }
-        
-        let titleLabelSafeArea = titleLabel.safeAreaLayoutGuide
-        
-        let maxLabelConstraints = [
-            maxLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
-            maxLabel.topAnchor.constraint(equalTo: titleLabelSafeArea.bottomAnchor),
-            maxLabel.widthAnchor.constraint(equalToConstant: maxLabel.intrinsicContentSize.width),
-            maxLabel.heightAnchor.constraint(equalToConstant: maxLabel.intrinsicContentSize.height)
-        ]
-        
-        maxLabel.translatesAutoresizingMaskIntoConstraints = true
-        maxLabelConstraints.forEach { $0.isActive = true }
-        
-        let maxLabelSafeArea = maxLabel.safeAreaLayoutGuide
-        
-        let medLabelConstraints = [
-            medLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
-            medLabel.topAnchor.constraint(equalTo: maxLabelSafeArea.bottomAnchor),
-            medLabel.widthAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.width),
-            medLabel.heightAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.height)
-        ]
-        
-        medLabel.translatesAutoresizingMaskIntoConstraints = true
-        medLabelConstraints.forEach { $0.isActive = true }
-        
-        let medLabelSafeArea = maxLabel.safeAreaLayoutGuide
-        
-        let minLabelConstraints = [
-            minLabel.leadingAnchor.constraint(equalTo: viewSafeArea.leadingAnchor),
-            minLabel.topAnchor.constraint(equalTo: medLabelSafeArea.bottomAnchor),
-            minLabel.widthAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.width),
-            minLabel.heightAnchor.constraint(equalToConstant: medLabel.intrinsicContentSize.height)
-        ]
-        
-        minLabel.translatesAutoresizingMaskIntoConstraints = true
-        minLabelConstraints.forEach { $0.isActive = true }
     }
 }
 

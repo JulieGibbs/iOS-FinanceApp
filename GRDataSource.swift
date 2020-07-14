@@ -75,6 +75,8 @@ class GraphDataSource {
         default:
             break
         }
+        
+        Publisher.send(GRTransmission(income: <#T##[Int?]#>, expenses: <#T##[Int?]#>, labelsIncomeData: <#T##[Int?]#>, labelsExpenseData: <#T##[Int?]#>, incomeTotal: <#T##Int?#>, expensesTotal: <#T##Int?#>, graphPointsData: <#T##[Any]#>))
     }
     
     func getDailyData(input: [Entry], inputDic: [ClosedRange<Int> : Int]) -> [ClosedRange<Int> : Int] {

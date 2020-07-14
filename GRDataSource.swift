@@ -76,7 +76,26 @@ class GraphDataSource {
             break
         }
         
-        Publisher.send(GRTransmission(income: <#T##[Int?]#>, expenses: <#T##[Int?]#>, labelsIncomeData: <#T##[Int?]#>, labelsExpenseData: <#T##[Int?]#>, incomeTotal: <#T##Int?#>, expensesTotal: <#T##Int?#>, graphPointsData: <#T##[Any]#>))
+        let transmission = GRTransmission(
+            matchedEntries: matchedEntries,
+            incomeEntries: incomeEntries,
+            expensesEntries: expensesEntries,
+            income: income,
+            expenses: expenses,
+            totalIncome: totalForIncome,
+            totalExpenses: totalForIncome,
+            incomeExtremums: incomeExtremums,
+            expensesExtremums: expensesExtremums,
+            dailyIncome: dailyIncomeData,
+            dailyExpense: dailyExpenseData,
+            weeklyIncome: weeklyIncomeData,
+            weeklyExpense: weeklyExpenseData,
+            monthlyIncome: monthlyIncomeData,
+            monthlyExpense: monthlyExpenseData,
+            yearlyIncome: yearlyIncomeData,
+            yearlyExpense: yearlyExpenseData)
+        
+        Publisher.send(transmission)
     }
     
     func getDailyData(input: [Entry], inputDic: [ClosedRange<Int> : Int]) -> [ClosedRange<Int> : Int] {

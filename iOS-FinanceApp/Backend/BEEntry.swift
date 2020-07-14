@@ -29,16 +29,27 @@ class Entry: Object {
      - inline dispatch (fastest): (@inline) - inlining the code into the dispatch [NEEDS CLARIFICATION]
      */
     @objc dynamic var id: String?
+    
     @objc dynamic var name: String?
+    
     @objc dynamic var amount: Int = 0
+    
     @objc dynamic var date: Date?
+    
     @objc dynamic var strDate: String?
+    
     @objc dynamic var category: String?
+    
     @objc dynamic var entryType: String?
+    
     @objc dynamic var creationStamp: String?
+    
     @objc dynamic var weekDay: String?
+    
     @objc dynamic var weekOfMonth: Int = 0
+    
     @objc dynamic var quarter: Int = 0
+    
     @objc dynamic var hour: Int = 0
     
     // MARK: - Custom Init to Add an Entry

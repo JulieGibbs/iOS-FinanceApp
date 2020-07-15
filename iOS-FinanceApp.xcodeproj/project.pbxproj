@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9824BF276000B94097 /* GE_UILabel.swift */; };
 		05D59FE624BCBEBB006527F8 /* GRDataSource + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */; };
 		05EAED7924BDF25200F14680 /* GREntryTypeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */; };
 		05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05B69E9824BF276000B94097 /* GE_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_UILabel.swift; sourceTree = "<group>"; };
 		05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRDataSource + Data.swift"; sourceTree = "<group>"; };
 		05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GREntryTypeToggle.swift; sourceTree = "<group>"; };
 		05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_SegmentedControl.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				3F002F5C24201F19002C73F4 /* GE_Notifications.swift */,
 				3F15C5D824AE8F610026E144 /* GE_NSException + cutsom.swift */,
 				3F75562024B244060095897F /* GE_String + Whitespaces.swift */,
+				05B69E9824BF276000B94097 /* GE_UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				3FBFDE17241ECEE1006DAC7A /* FOViewController.swift in Sources */,
 				3F75562324B249170095897F /* OBPublisher + Subscripts.swift in Sources */,
 				3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */,
+				05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */,
 				3F15C5C424AE59230026E144 /* BERealm.swift in Sources */,
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
 				05D59FE624BCBEBB006527F8 /* GRDataSource + Data.swift in Sources */,

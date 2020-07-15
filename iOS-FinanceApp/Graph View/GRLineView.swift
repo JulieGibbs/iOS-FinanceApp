@@ -68,9 +68,10 @@ class GRLineView: UIView {
     
     override func didMoveToSuperview() {
         setupSelf()
-        setupLabels()
+        addLabels()
         constrainSelf()
         setupStackView()
+        constrainLabels()
     }
     
     func setupSelf() {
@@ -93,18 +94,13 @@ class GRLineView: UIView {
         }
     }
     
-    func setupLabels() {
+    func addLabels() {
         titleLabel = UILabel(frame: CGRect(
             x: 10.0,
             y: 5.0,
             width: 100,
             height: 15))
-        
-        titleLabel.text = "Profit & Loss Breakdown"
-        titleLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        titleLabel.font = titleLabel.font.withSize(9)
-        titleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
+        setupLabel(inputLabel: titleLabel, labelText: "Profit & Loss Breakdown", fontString: "Avernir Next Regular", fontSize: 15)
         self.addSubview(titleLabel)
         
         totalLabel = UILabel(frame: CGRect(
@@ -112,11 +108,7 @@ class GRLineView: UIView {
             y: 12.0,
             width: 100,
             height: 40))
-        
-        totalLabel.text = "Total:"
-        totalLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
-        totalLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
+        setupLabel(inputLabel: totalLabel, labelText: "Total:", fontString: "Avernir Next Regular", fontSize: 15)
         self.addSubview(totalLabel)
         
         maxLabel = UILabel(frame: CGRect(
@@ -124,12 +116,7 @@ class GRLineView: UIView {
             y: 47.5,
             width: 100,
             height: 100))
-        
-        maxLabel.text = "Max"
-        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
-        maxLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        maxLabel.sizeToFit()
-        
+        setupLabel(inputLabel: maxLabel, labelText: "Max", fontString: "Avernir Next Regular", fontSize: 15)
         self.addSubview(maxLabel)
         
         medLabel = UILabel(frame: CGRect(
@@ -137,12 +124,7 @@ class GRLineView: UIView {
             y: 115,
             width: 100,
             height: 100))
-        
-        medLabel.text = "Med"
-        medLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
-        medLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        medLabel.sizeToFit()
-        
+        setupLabel(inputLabel: medLabel, labelText: "Med", fontString: "Avernir Next Regular", fontSize: 15)
         self.addSubview(medLabel)
         
         minLabel = UILabel(frame: CGRect(
@@ -150,13 +132,16 @@ class GRLineView: UIView {
             y: 177.5,
             width: 100,
             height: 100))
-        
-        minLabel.text = "Min"
-        minLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
-        minLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        minLabel.sizeToFit()
-        
+        setupLabel(inputLabel: minLabel, labelText: "Min", fontString: "Avernir Next Regular", fontSize: 15)
         self.addSubview(minLabel)
+    }
+    
+    func setupLabel(inputLabel: UILabel, labelText: String, fontString: String, fontSize: CGFloat) {
+        inputLabel.text = "\(labelText)"
+        inputLabel.font = UIFont(name: fontString, size: fontSize)
+        inputLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        inputLabel.font = inputLabel.font.withSize(fontSize)
+        inputLabel.resizeToText()
     }
     
     func constrainLabels() {
@@ -166,14 +151,27 @@ class GRLineView: UIView {
         medLabel.translatesAutoresizingMaskIntoConstraints = false
         minLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        let intrinsicHeight = titleLabel.intrinsicContentSize.height
         
-        let constraints = [
-            titleLabel.widthAnchor.constraint(equalToConstant: intrinsicHeight),
-            titleLabel.heightAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.height)
-        ]
-        
-        constraints.forEach({ $0.isActive = true })
+            let safeArea = safeAreaLayoutGuide
+            
+            let constraints = [
+                titleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 6),
+                titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+                
+                totalLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+                totalLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
+                
+                maxLabel.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 7.61),
+                maxLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+                
+                medLabel.topAnchor.constraint(equalTo: maxLabel.bottomAnchor, constant: 48),
+                medLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+                
+                minLabel.topAnchor.constraint(equalTo: medLabel.bottomAnchor, constant: 46),
+                minLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+            ]
+            
+            constraints.forEach({ $0.isActive = true })
     }
     
     func setupStackView() {

@@ -16,8 +16,7 @@ class GRViewController: UIViewController, Observer {
     
     var transmittedData: AnyObject? = nil
     
-    @objc var segmentedControlObservable: GRSegmentedControl()
-    var observation: NSKeyValueObservation
+    var kvoToken: NSKeyValueObservation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +28,9 @@ class GRViewController: UIViewController, Observer {
         lineGraphView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
         entryTypeToggle.topAnchor.constraint(equalTo: lineGraphView.bottomAnchor, constant: 20).isActive = true
         
+        observe(segmentedControl: segmentedControl)
+        
         Publisher.add(observer: self)
-                
-        observation = observe(
-            \.segmentedControlObservable.segIndex,
-            options: [.old, .new]) { object, change in
-                print("VC: I see segIndex changed from \(change.oldValue ?? 0) to \(change.newValue ?? 0)")
-        }
     }
     
     func receive(message: Transmittable) {
@@ -55,6 +50,16 @@ class GRViewController: UIViewController, Observer {
         
     }
     
+    func observe(segmentedControl: GRSegmentedControl) {
+        kvoToken = segmentedControl.observe(\.segIndex, options: [.old, .new]) { (segmentedControl, change) in
+            guard let segIndexNew = change.newValue, let segIndexOld = change.oldValue else { return }
+            print("VC: I see segmented control is now at \(segIndexNew) index. Was \(segIndexOld)")
+        }
+    }
+    
+    deinit {
+        kvoToken?.invalidate()
+    }
     
     @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {
         switch sender.selectedSegmentIndex {

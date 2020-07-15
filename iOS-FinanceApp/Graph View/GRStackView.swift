@@ -31,6 +31,8 @@ class GRStackView: UIStackView {
     override func didMoveToSuperview() {
         setupSelf()
         constrainSelf()
+        addLabels(quantity: 7)
+        print(arrangedSubviews)
     }
     
     func setupSelf() {
@@ -40,9 +42,12 @@ class GRStackView: UIStackView {
     }
     
     func addLabels(quantity: Int) {
-        for label in stackViewLabels[0...quantity + 1] {
-            label.font = UIFont.init(name: "Avenir Next Medium", size: 12)
+        for label in stackViewLabels[0...quantity - 1] {
+            label.font = UIFont.init(name: "Avenir Next Medium", size: 7)
+            label.text = "M"
             label.textColor = .white
+            label.textAlignment = .center
+            label.backgroundColor = .clear
             
             self.addArrangedSubview(label)
         }
@@ -81,8 +86,8 @@ class GRStackView: UIStackView {
         let safeArea = superview?.safeAreaLayoutGuide
         
         let constraints = [
-            leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor),
-            bottomAnchor.constraint(equalTo: safeArea!.bottomAnchor),
+            leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor, constant: 25),
+            bottomAnchor.constraint(equalTo: safeArea!.bottomAnchor, constant: -25),
             trailingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
         ]
         

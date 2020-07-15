@@ -159,7 +159,7 @@ class GRLineView: UIView {
                 titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
                 
                 totalLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
-                totalLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
+                totalLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
                 
                 maxLabel.topAnchor.constraint(equalTo: totalLabel.bottomAnchor, constant: 7.61),
                 maxLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),

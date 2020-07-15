@@ -18,7 +18,7 @@ class GRLineView: UIView {
     var medLabel = UILabel()
     var minLabel = UILabel()
     
-    let bottomStackView = GRStackView()
+    var bottomStackView = GRStackView()
     
     override func draw(_ rect: CGRect) {
         let width = rect.width
@@ -70,6 +70,7 @@ class GRLineView: UIView {
         setupSelf()
         setupLabels()
         constrainSelf()
+        setupStackView()
     }
     
     func setupSelf() {
@@ -87,46 +88,96 @@ class GRLineView: UIView {
                 leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
                 trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -20),
                 heightAnchor.constraint(equalToConstant: 250)
-           ]
+            ]
             constraints.forEach { $0.isActive = true }
         }
     }
     
     func setupLabels() {
-        titleLabel = UILabel(frame: CGRect(x: 10.0, y: 5.0, width: 100.0, height: 40.0))
+        titleLabel = UILabel(frame: CGRect(
+            x: 10.0,
+            y: 5.0,
+            width: 100,
+            height: 15))
+        
         titleLabel.text = "Profit & Loss Breakdown"
         titleLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        titleLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
-        titleLabel.sizeToFit()
+        titleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         self.addSubview(titleLabel)
         
-        totalLabel = UILabel(frame: CGRect(x: 10.0, y: 12.0, width: 100, height: 40))
+        totalLabel = UILabel(frame: CGRect(
+            x: 10.0,
+            y: 12.0,
+            width: 100,
+            height: 40))
+        
         totalLabel.text = "Total:"
-        totalLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        totalLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
-        titleLabel.sizeToFit()
+        totalLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
+        totalLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         self.addSubview(totalLabel)
         
-        maxLabel = UILabel(frame: CGRect(x: 10.0, y: 47.5, width: 100, height: 100))
+        maxLabel = UILabel(frame: CGRect(
+            x: 10.0,
+            y: 47.5,
+            width: 100,
+            height: 100))
+        
         maxLabel.text = "Max"
-        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        maxLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        maxLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
+        maxLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         maxLabel.sizeToFit()
+        
         self.addSubview(maxLabel)
         
-        medLabel = UILabel(frame: CGRect(x: 10.0, y: 115, width: 100, height: 100))
+        medLabel = UILabel(frame: CGRect(
+            x: 10.0,
+            y: 115,
+            width: 100,
+            height: 100))
+        
         medLabel.text = "Med"
-        medLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        medLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        medLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
+        medLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         medLabel.sizeToFit()
+        
         self.addSubview(medLabel)
         
-        minLabel = UILabel(frame: CGRect(x: 10.0, y: 177.5, width: 100, height: 100))
+        minLabel = UILabel(frame: CGRect(
+            x: 10.0,
+            y: 177.5,
+            width: 100,
+            height: 100))
+        
         minLabel.text = "Min"
-        minLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
-        minLabel.textColor = #colorLiteral(red: 0.3019607843, green: 0.7137254902, blue: 0.5490196078, alpha: 1)
+        minLabel.font = UIFont(name: "Avenir Next Regular", size: 7)
+        minLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         minLabel.sizeToFit()
+        
         self.addSubview(minLabel)
+    }
+    
+    func constrainLabels() {
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        totalLabel.translatesAutoresizingMaskIntoConstraints = false
+        maxLabel.translatesAutoresizingMaskIntoConstraints = false
+        medLabel.translatesAutoresizingMaskIntoConstraints = false
+        minLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        let intrinsicHeight = titleLabel.intrinsicContentSize.height
+        
+        let constraints = [
+            titleLabel.widthAnchor.constraint(equalToConstant: intrinsicHeight),
+            titleLabel.heightAnchor.constraint(equalToConstant: titleLabel.intrinsicContentSize.height)
+        ]
+        
+        constraints.forEach({ $0.isActive = true })
+    }
+    
+    func setupStackView() {
+        bottomStackView = GRStackView(frame: CGRect(x: 10.0, y: 180, width: 100, height: 100))
+        self.addSubview(bottomStackView)
     }
 }
 

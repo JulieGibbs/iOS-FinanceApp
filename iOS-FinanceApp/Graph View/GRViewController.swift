@@ -14,6 +14,8 @@ class GRViewController: UIViewController, Observer {
     let lineGraphView = GRLineView()
     let entryTypeToggle = GREntryTypeToggle()
     
+    var transmittedData: AnyObject? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(segmentedControl)
@@ -27,6 +29,8 @@ class GRViewController: UIViewController, Observer {
     
     func receive(message: Transmittable) {
         print(message.description)
+        transmittedData = message
+        
         lineGraphView.totalLabel.text = "\(message.totalForIncome)"
         
         var index = 0

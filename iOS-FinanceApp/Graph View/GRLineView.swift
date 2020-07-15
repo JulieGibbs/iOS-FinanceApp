@@ -102,6 +102,7 @@ class GRLineView: UIView {
         
         titleLabel.text = "Profit & Loss Breakdown"
         titleLabel.font = UIFont(name: "Avenir Next Regular", size: 9)
+        titleLabel.font = titleLabel.font.withSize(9)
         titleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         
         self.addSubview(titleLabel)

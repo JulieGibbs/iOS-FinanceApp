@@ -10,6 +10,8 @@ import UIKit
 
 class GRSegmentedControl: UISegmentedControl {
     let items = ["All", "Year", "Month", "Week", "Day"]
+    
+    @objc dynamic var segIndex: Int = 0
         
     func constrain() {
         if let superview = superview {
@@ -41,14 +43,29 @@ class GRSegmentedControl: UISegmentedControl {
         switch sender.selectedSegmentIndex {
         case 0:
             graphDataSource.getTimeframeData(timeFrame: .day, cutOff: DateConstants.today)
+            
+            segIndex = sender.selectedSegmentIndex
+            print("SegIndex is now \(segIndex)")
         case 1:
             graphDataSource.getTimeframeData(timeFrame: .week, cutOff: DateConstants.weekFloor)
+            
+            segIndex = sender.selectedSegmentIndex
+            print("SegIndex is now \(segIndex)")
         case 2:
             graphDataSource.getTimeframeData(timeFrame: .month, cutOff: DateConstants.monthFloor)
+            
+            segIndex = sender.selectedSegmentIndex
+            print("SegIndex is now \(segIndex)")
         case 3:
             graphDataSource.getTimeframeData(timeFrame: .year, cutOff: DateConstants.yearFloor)
+            
+            segIndex = sender.selectedSegmentIndex
+            print("SegIndex is now \(segIndex)")
         default:
             print(entries)
+            
+            segIndex = sender.selectedSegmentIndex
+            print("SegIndex is now \(segIndex)")
         }
     }
 }

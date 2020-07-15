@@ -16,33 +16,45 @@ class GRViewController: UIViewController, Observer {
     
     var transmittedData: AnyObject? = nil
     
+    @objc var segmentedControlObservable: GRSegmentedControl()
+    var observation: NSKeyValueObservation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.addSubview(segmentedControl)
         view.addSubview(lineGraphView)
         view.addSubview(entryTypeToggle)
+        
         lineGraphView.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 20).isActive = true
         entryTypeToggle.topAnchor.constraint(equalTo: lineGraphView.bottomAnchor, constant: 20).isActive = true
         
         Publisher.add(observer: self)
+                
+        observation = observe(
+            \.segmentedControlObservable.segIndex,
+            options: [.old, .new]) { object, change in
+                print("VC: I see segIndex changed from \(change.oldValue ?? 0) to \(change.newValue ?? 0)")
+        }
     }
     
     func receive(message: Transmittable) {
         print(message.description)
         transmittedData = message
         
-        lineGraphView.totalLabel.text = "\(message.totalForIncome)"
+        lineGraphView.totalLabel.text = "Total: \(message.totalForIncome)"
         
         var index = 0
         
         for label in [lineGraphView.maxLabel, lineGraphView.medLabel, lineGraphView.minLabel] {
-                    
+            
             label.text = "\(message.incomeExtremums[index] ?? 0)"
             
             index += 1
         }
         
     }
+    
     
     @objc func entryToggleTapped(_ sender: GREntryTypeToggle) {
         switch sender.selectedSegmentIndex {

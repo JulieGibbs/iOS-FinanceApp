@@ -31,26 +31,32 @@ class GRStackView: UIStackView {
     override func didMoveToSuperview() {
         setupSelf()
         constrainSelf()
-        addLabels(quantity: 7)
+        addLabels(quantity: 6)
         print(arrangedSubviews)
     }
     
     func setupSelf() {
         axis = .horizontal
         alignment = .fill
-        distribution = .fillEqually
+        distribution = .fillProportionally
     }
     
     func addLabels(quantity: Int) {
-        for label in stackViewLabels[0...quantity - 1] {
+        arrangedSubviews.forEach({ removeArrangedSubview($0) })
+        
+        for label in stackViewLabels[0...quantity-1] {
             label.font = UIFont.init(name: "Avenir Next Medium", size: 7)
             label.text = "M"
             label.textColor = .white
             label.textAlignment = .center
             label.backgroundColor = .clear
             
-            self.addArrangedSubview(label)
+            addArrangedSubview(label)
+            print(arrangedSubviews.count)
+            layoutIfNeeded()
         }
+        
+        
     }
     
     func switchLabelsText(_case: Int) {
@@ -67,13 +73,13 @@ class GRStackView: UIStackView {
             switchLabelsText(_case: 0)
             addLabels(quantity: 4)
         case 1:
-            addLabels(quantity: 7)
+            addLabels(quantity: 6)
             switchLabelsText(_case: 1)
         case 2:
-            addLabels(quantity: 4)
+            addLabels(quantity: 3)
             switchLabelsText(_case: 2)
         case 3:
-            addLabels(quantity: 4)
+            addLabels(quantity: 3)
             switchLabelsText(_case: 3)
         default:
             break

@@ -35,11 +35,13 @@ class GRViewController: UIViewController, Observer {
     
     func receive(message: Transmittable) {
         print(message.description)
+        
         transmittedData = message
         
         lineGraphView.totalLabel.text = "Total: \(message.totalForIncome)"
         
         var index = 0
+        
         
         for label in [lineGraphView.maxLabel, lineGraphView.medLabel, lineGraphView.minLabel] {
             
@@ -47,13 +49,29 @@ class GRViewController: UIViewController, Observer {
             
             index += 1
         }
-        
     }
     
     func observe(segmentedControl: GRSegmentedControl) {
         kvoToken = segmentedControl.observe(\.segIndex, options: [.old, .new]) { (segmentedControl, change) in
             guard let segIndexNew = change.newValue, let segIndexOld = change.oldValue else { return }
             print("VC: I see segmented control is now at \(segIndexNew) index. Was \(segIndexOld)")
+            
+            switch segIndexNew {
+                case 0:
+                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 0)
+                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
+                case 1:
+                    self.lineGraphView.bottomStackView.addLabels(quantity: 7)
+                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 1)
+                case 2:
+                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
+                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 2)
+                case 3:
+                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
+                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 3)
+                default:
+                    break
+            }
         }
     }
     

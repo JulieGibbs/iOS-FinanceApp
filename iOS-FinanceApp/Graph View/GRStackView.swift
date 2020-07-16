@@ -20,6 +20,8 @@ class GRStackView: UIStackView {
         ["Q1", "Q2", "Q3", "Q4"],
     ]
     
+    @objc dynamic var arrangedSubviewsCount: Int = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSelf()
@@ -49,8 +51,6 @@ class GRStackView: UIStackView {
         var i = 0
         
         for label in arrangedSUbviewsToLoad {
-            
-            
             label.text = "\(_labelTexts[i])"
             print(label.text)
             
@@ -62,6 +62,8 @@ class GRStackView: UIStackView {
             
             addArrangedSubview(label)
         }
+        
+        arrangedSubviewsCount = arrangedSubviews.count
     }
     
     func constrainSelf() {

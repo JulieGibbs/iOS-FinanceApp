@@ -11,18 +11,28 @@ import UIKit
 class EIViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var imageForCategory: UIImageView!
+    
     @IBOutlet weak var nameInputTextField: UITextField!
+    
     @IBOutlet weak var amntInputTextField: UITextField!
+    
     @IBOutlet weak var dateInputTextField: UITextField!
+    
     @IBOutlet weak var categoryInputTextField: UITextField!
+    
     @IBOutlet weak var typeControl: UISegmentedControl!
     
     // MARK: - Programmatic Properties
     var datePicker = UIDatePicker()
+    
     var categoryPicker  = UIPickerView()
+    
     var toolBar = UIToolbar()
+    
     var incomingData: Entry? = nil
+    
     let notificationCenter = NotificationCenter.default
+    
     var pickerData: [String] {
         get {
             let uniques = Array(Set(realm.objects(Category.self).value(forKeyPath: "name") as! Array<String>))

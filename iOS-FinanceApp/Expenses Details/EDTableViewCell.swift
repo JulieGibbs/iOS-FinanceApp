@@ -9,8 +9,11 @@ import UIKit
 
 class EDTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var amountLabel: UILabel!
+    
     @IBOutlet weak var categoryLabel: UILabel!
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     func updateDetailsCell(with data: Entry) {

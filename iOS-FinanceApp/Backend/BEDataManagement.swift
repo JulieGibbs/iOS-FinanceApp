@@ -90,7 +90,6 @@ final /* 'final' increases performance as static diapatch comes in*/ class DataM
                 dict[$0.category!] = current + $0.amount
             } else {
                 dict[$0.category!] = $0.amount
-                
             }
         }
         return dict.sorted { $0.value < $1.value }

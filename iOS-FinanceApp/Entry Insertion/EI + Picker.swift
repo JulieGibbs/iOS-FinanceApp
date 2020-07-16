@@ -51,9 +51,22 @@ extension EIViewController {
         toolBar.isTranslucent = true
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(categoryPickerDoneButtonHit))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(categoryPickerDoneButtonHit))
+        let doneButton = UIBarButtonItem(
+            title: "Done",
+            style: .done,
+            target: self,
+            action: #selector(categoryPickerDoneButtonHit))
+       
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil)
+        
+        let cancelButton = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(categoryPickerDoneButtonHit))
         
         toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: true)
         toolBar.isUserInteractionEnabled = true

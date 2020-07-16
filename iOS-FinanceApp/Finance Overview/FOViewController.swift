@@ -12,6 +12,7 @@ import RealmSwift
 class FOViewController: UIViewController {
     // MARK: - Properties and Outlets
     @IBOutlet weak var pivotTableView: UITableView!
+    
     @IBOutlet weak var currentBalanceLabel: UILabel!
     
     var data: [Dictionary<String, Int>.Element] {
@@ -34,7 +35,6 @@ class FOViewController: UIViewController {
         pivotTableView.delegate = self // DRY
         pivotTableView.dataSource = self // DRY
         pivotTableView.allowsSelection = false // DRY
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -92,11 +92,13 @@ class FOViewController: UIViewController {
             selector: #selector(refreshOverviewData),
             name: .entryAddSuccess,
             object: nil)
+       
         notificationCenter.addObserver(
             self,
             selector: #selector(refreshOverviewData),
             name: .entryRemoveSuccess,
             object: nil)
+        
         notificationCenter.addObserver(
             self,
             selector: #selector(refreshOverviewData),

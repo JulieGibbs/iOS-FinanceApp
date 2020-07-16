@@ -19,6 +19,7 @@ class Publisher {
     }
     
     static var observers = [WeakObserver]()
+    
     static var queue = DispatchQueue(label: "concurrentQueue", attributes:  .concurrent)
     
     class func add(observer: Observer) {

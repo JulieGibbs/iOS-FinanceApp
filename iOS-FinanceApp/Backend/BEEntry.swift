@@ -68,17 +68,31 @@ class Entry: Object {
                      quarter: Int,
                      time: Int) {
         self.init()
+        
         self.id = id
+        
         self.name = name
+        
         self.amount = amount
+        
         self.date = date
-        self.strDate = Heplers.createDateFormatter(dateStyle: .medium, timeStyle: .none).string(from: date)
+        
+        self.strDate = Heplers.createDateFormatter(
+            dateStyle: .medium,
+            timeStyle: .none).string(from: date)
+        
         self.category = category
+        
         self.entryType = entryType
+        
         self.creationStamp = ToC
+        
         self.weekDay = weekDay
+        
         self.weekOfMonth = weekOfMonth
+        
         self.quarter = quarter
+        
         self.hour = time
     }
     

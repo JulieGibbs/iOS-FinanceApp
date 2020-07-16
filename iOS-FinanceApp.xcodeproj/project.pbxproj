@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9824BF276000B94097 /* GE_UILabel.swift */; };
-		05D59FE624BCBEBB006527F8 /* GRDataSource + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */; };
 		05EAED7924BDF25200F14680 /* GREntryTypeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */; };
 		05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */; };
 		1956B550C8FEF4043E9DD8DB /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */; };
@@ -58,8 +57,6 @@
 
 /* Begin PBXFileReference section */
 		05B69E9824BF276000B94097 /* GE_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_UILabel.swift; sourceTree = "<group>"; };
-		05B69E9A24BF789900B94097 /* GE_UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_UIStackView.swift; sourceTree = "<group>"; };
-		05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRDataSource + Data.swift"; sourceTree = "<group>"; };
 		05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GREntryTypeToggle.swift; sourceTree = "<group>"; };
 		05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_SegmentedControl.swift; sourceTree = "<group>"; };
 		2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,7 +157,6 @@
 				05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */,
 				3F75562024B244060095897F /* GE_String + Whitespaces.swift */,
 				05B69E9824BF276000B94097 /* GE_UILabel.swift */,
-				05B69E9A24BF789900B94097 /* GE_UIStackView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -182,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				3F15C5CF24AE5D560026E144 /* GRDataSource.swift */,
-				05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */,
 				3F07FA2824B4F8570045D96A /* GRTransmission.swift */,
 				3F68407324AD2E9900C92611 /* GRLineView.swift */,
 				3F68407424AD2E9900C92611 /* GRSegmentedControl.swift */,
@@ -401,7 +396,6 @@
 				05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */,
 				3F15C5C424AE59230026E144 /* BERealm.swift in Sources */,
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
-				05D59FE624BCBEBB006527F8 /* GRDataSource + Data.swift in Sources */,
 				3F75562524B24C8B0095897F /* OBPublisher + Operators.swift in Sources */,
 				3F15C5C624AE594B0026E144 /* BEEntry.swift in Sources */,
 				05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */,

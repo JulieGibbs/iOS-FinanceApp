@@ -57,20 +57,16 @@ class GRViewController: UIViewController, Observer {
             print("VC: I see segmented control is now at \(segIndexNew) index. Was \(segIndexOld)")
             
             switch segIndexNew {
-                case 0:
-                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 0)
-                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
-                case 1:
-                    self.lineGraphView.bottomStackView.addLabels(quantity: 7)
-                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 1)
-                case 2:
-                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
-                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 2)
-                case 3:
-                    self.lineGraphView.bottomStackView.addLabels(quantity: 4)
-                    self.lineGraphView.bottomStackView.switchLabelsText(_case: 3)
-                default:
-                    break
+            case 0:
+                self.lineGraphView.bottomStackView.switchLabelsText(_case: 0, quantity: 6)
+            case 1:
+                self.lineGraphView.bottomStackView.switchLabelsText(_case: 1, quantity: 7)
+            case 2:
+                self.lineGraphView.bottomStackView.switchLabelsText(_case: 2, quantity: 4)
+            case 3:
+                self.lineGraphView.bottomStackView.switchLabelsText(_case: 3, quantity: 4)
+            default:
+                break
             }
         }
     }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9824BF276000B94097 /* GE_UILabel.swift */; };
-		05B69E9B24BF789900B94097 /* GE_UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9A24BF789900B94097 /* GE_UIStackView.swift */; };
 		05D59FE624BCBEBB006527F8 /* GRDataSource + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D59FE524BCBEBB006527F8 /* GRDataSource + Data.swift */; };
 		05EAED7924BDF25200F14680 /* GREntryTypeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */; };
 		05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */; };
@@ -427,7 +426,6 @@
 				B746C6E52445E0CC0004BD75 /* EIViewController.swift in Sources */,
 				2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */,
 				3F75561D24B2424E0095897F /* OBWeakObserver.swift in Sources */,
-				05B69E9B24BF789900B94097 /* GE_UIStackView.swift in Sources */,
 				3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */,
 				3F002F5D24201F19002C73F4 /* GE_Notifications.swift in Sources */,
 				3F68407524AD2E9900C92611 /* GRViewController.swift in Sources */,

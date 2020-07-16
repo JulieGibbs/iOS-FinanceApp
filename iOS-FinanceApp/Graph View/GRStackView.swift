@@ -22,6 +22,9 @@ class GRStackView: UIStackView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupSelf()
+        
+        switchLabelsText(_case: 0, quantity: 6)
     }
     
     required init(coder: NSCoder) {
@@ -29,60 +32,35 @@ class GRStackView: UIStackView {
     }
     
     override func didMoveToSuperview() {
-        setupSelf()
         constrainSelf()
-        addLabels(quantity: 6)
-        print(arrangedSubviews)
     }
     
     func setupSelf() {
         axis = .horizontal
         alignment = .fill
-        distribution = .fillProportionally
+        distribution = .equalSpacing
     }
     
-    func addLabels(quantity: Int) {
+    func switchLabelsText(_case: Int, quantity: Int) {
         arrangedSubviews.forEach({ removeArrangedSubview($0) })
         
-        for label in stackViewLabels[0...quantity-1] {
-            label.font = UIFont.init(name: "Avenir Next Medium", size: 7)
-            label.text = "M"
+        let arrangedSUbviewsToLoad = stackViewLabels[0...quantity - 1]
+        let _labelTexts = labelTexts[_case]
+        var i = 0
+        
+        for label in arrangedSUbviewsToLoad {
+            
+            
+            label.text = "\(_labelTexts[i])"
+            print(label.text)
+            
+            label.font = UIFont.init(name: "Avenir Next Regular", size: 7)
+            label.font.withSize(6)
             label.textColor = .white
-            label.textAlignment = .center
-            label.backgroundColor = .clear
+            
+            i += 1
             
             addArrangedSubview(label)
-            print(arrangedSubviews.count)
-            layoutIfNeeded()
-        }
-        
-        
-    }
-    
-    func switchLabelsText(_case: Int) {
-        mainLoop: for label in stackViewLabels {
-            textLoop: for text in labelTexts[_case] {
-                label.text = text
-            }
-        }
-    }
-    
-    func changeContent(selectedSegmentIndex: Int) {
-        switch selectedSegmentIndex {
-        case 0:
-            switchLabelsText(_case: 0)
-            addLabels(quantity: 4)
-        case 1:
-            addLabels(quantity: 6)
-            switchLabelsText(_case: 1)
-        case 2:
-            addLabels(quantity: 3)
-            switchLabelsText(_case: 2)
-        case 3:
-            addLabels(quantity: 3)
-            switchLabelsText(_case: 3)
-        default:
-            break
         }
     }
     
@@ -92,9 +70,9 @@ class GRStackView: UIStackView {
         let safeArea = superview?.safeAreaLayoutGuide
         
         let constraints = [
-            leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor, constant: 25),
+            leadingAnchor.constraint(equalTo: safeArea!.leadingAnchor, constant: 40),
             bottomAnchor.constraint(equalTo: safeArea!.bottomAnchor, constant: -25),
-            trailingAnchor.constraint(equalTo: safeArea!.trailingAnchor)
+            trailingAnchor.constraint(equalTo: safeArea!.trailingAnchor, constant: -20)
         ]
         
         constraints.forEach { $0.isActive = true }

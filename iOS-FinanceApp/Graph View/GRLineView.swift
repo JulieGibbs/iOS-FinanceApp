@@ -87,12 +87,15 @@ class GRLineView: UIView {
         
         let graphWidth = width - margin * 2 - 4
         
-        
-        
         let xPoint = { (column: Int) -> CGFloat in
             let spacing = graphWidth / CGFloat(self.graphPointsCount)
             
             return CGFloat(column) * spacing + margin + 2
+        }
+        
+        let yPoint = { (graphPoint: Int) -> CGFloat in
+            let y = CGFloat(graphPoint) / CGFloat(self.graphPointsMaxValue) * graphHeight
+            return graphHeight + Constants.topBorder - y
         }
         
         // MARK: - Paths

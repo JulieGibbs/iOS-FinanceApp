@@ -16,9 +16,10 @@ class GRViewController: UIViewController, Observer {
     
     let entryTypeToggle = GREntryTypeToggle()
     
-    var transmittedData: AnyObject? = nil
+    var transmittedData: Transmittable? = nil
     
     var kvoTokenSegmentedControl: NSKeyValueObservation?
+    
     var kvoTokenGRStackView: NSKeyValueObservation?
     
     override func viewDidLoad() {
@@ -59,12 +60,23 @@ class GRViewController: UIViewController, Observer {
             switch segIndexNew {
             case 0:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 0, quantity: 6)
+                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.dailyExpenseData.values.max() as! Int
+                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 1:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 1, quantity: 7)
+                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.weeklyExpenseData.values.max() as! Int
+                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 2:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 2, quantity: 4)
+                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.monthlyExpenseData.values.max() as! Int
+                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 3:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 3, quantity: 4)
+                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.yearlyExpenseData.values.max() as! Int
+                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+            case 4:
+                self.lineGraphView.graphPointsMaxValue = entries.map({ $0.amount }).max() as? Int ?? 0
+                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             default:
                 break
             }

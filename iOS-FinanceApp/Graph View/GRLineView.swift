@@ -11,6 +11,7 @@ import UIKit
 class GRLineView: UIView {
     // MARK: - Gradient
     var gradientStartColor: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9490196078, blue: 0.4117647059, alpha: 1)
+    
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
     
     var titleLabel = UILabel()
@@ -27,11 +28,16 @@ class GRLineView: UIView {
     
     var graphPointsCount: Int = 0
     
+    var graphPointsMaxValue: Int = 0
+    
     override func draw(_ rect: CGRect) {
         let width = rect.width
+        
         let height = rect.height
+        
         let graphHeight = height - Constants.topBorder - Constants.bottomBorder
         
+        // MARK: - Gradient
         let path = UIBezierPath(roundedRect: rect,
                                 byRoundingCorners: .allCorners,
                                 cornerRadii: Constants.cornerRadius)
@@ -39,14 +45,20 @@ class GRLineView: UIView {
         path.addClip()
         
         let context = UIGraphicsGetCurrentContext()
+        
         let colorSpace = CGColorSpaceCreateDeviceRGB()
+        
         let colorLocations: [CGFloat] = [0.0, 1.0]
+        
         let colors = [gradientStartColor.cgColor, gradientEndColor.cgColor]
+        
         let gradient = CGGradient(colorsSpace: colorSpace,
                                   colors: colors as CFArray,
                                   locations: colorLocations)!
         let startPoint = CGPoint.zero
+        
         let endPoint = CGPoint(x: 0, y: self.bounds.height)
+        
         context?.drawLinearGradient(gradient,
                                     start: startPoint,
                                     end: endPoint,
@@ -72,14 +84,21 @@ class GRLineView: UIView {
         
         // MARK: - Graph Points
         let margin = height - Constants.bottomBorder
-        let graphWidth = width - margin * 2
+        
+        let graphWidth = width - margin * 2 - 4
+        
+        
+        
         let xPoint = { (column: Int) -> CGFloat in
-            return CGFloat.zero
+            let spacing = graphWidth / CGFloat(self.graphPointsCount)
+            
+            return CGFloat(column) * spacing + margin + 2
         }
         
         // MARK: - Paths
         
         let incomesPath = UIBezierPath()
+        
         let expensesPath = UIBezierPath()
     }
     

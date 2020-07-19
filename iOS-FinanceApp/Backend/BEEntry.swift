@@ -100,16 +100,18 @@ class Entry: Object {
     override var description: String {
         get {
             return """
-            \nid: \(id ?? "");
-            name: \(name ?? "");
-            amount: \(amount);
-            date: \(date ?? Date());
-            type: \(entryType ?? "");
-            category: \(category ?? "");
-            ToC: \(creationStamp ?? "");
-            weekday: \(weekDay ?? "");
-            week of month: \(weekOfMonth);
-            quarter: \(quarter).
+            \n\t- Entry description:
+            \t\t- id: \(id ?? "");
+            \t\t- name: \(name ?? "");
+            \t\t- amount: \(amount);
+            \t\t- date: \(date ?? Date());
+            \t\t- type: \(entryType ?? "");
+            \t\t- category: \(category ?? "");
+            \t\t- ToC: \(creationStamp ?? "");
+            \t\t- weekday: \(weekDay ?? "");
+            \t\t- week of month: \(weekOfMonth);
+            \t\t- quarter: \(quarter).
+            \t [END OF ENTRY DESCRIPTION]\n
             """
         }
     }

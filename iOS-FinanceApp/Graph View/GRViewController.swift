@@ -55,28 +55,33 @@ class GRViewController: UIViewController, Observer {
     func observe(segmentedControl: GRSegmentedControl) {
         kvoTokenSegmentedControl = segmentedControl.observe(\.segIndex, options: [.old, .new]) { (segmentedControl, change) in
             guard let segIndexNew = change.newValue, let segIndexOld = change.oldValue else { return }
-            print("VC: I see segmented control is now at \(segIndexNew) index. Was \(segIndexOld)")
+            print("\nGRViewController is now aware that GRSegmentedControl is now at \(segIndexNew) index (was \(segIndexOld)).\n")
             
             switch segIndexNew {
             case 0:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 0, quantity: 6)
-                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.dailyExpenseData.values.max() as! Int
-                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+                self.lineGraphView.graphPointsMaxValue = self.transmittedData!.expensesExtremums[2]
+                self.lineGraphView.graphPoints = self.transmittedData?.dailyExpenseData.map { $0.1 } as! [Int]
+                print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 1:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 1, quantity: 7)
                 self.lineGraphView.graphPointsMaxValue = self.transmittedData?.weeklyExpenseData.values.max() as! Int
-                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+                self.lineGraphView.graphPoints = self.transmittedData?.weeklyExpenseData.map { $0.1 } as! [Int]
+                print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 2:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 2, quantity: 4)
                 self.lineGraphView.graphPointsMaxValue = self.transmittedData?.monthlyExpenseData.values.max() as! Int
-                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+                self.lineGraphView.graphPoints = self.transmittedData?.monthlyExpenseData.map { $0.1 } as! [Int]
+                print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 3:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 3, quantity: 4)
                 self.lineGraphView.graphPointsMaxValue = self.transmittedData?.yearlyExpenseData.values.max() as! Int
-                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+                self.lineGraphView.graphPoints = self.transmittedData?.yearlyExpenseData.map { $0.1 } as! [Int]
+                print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 4:
                 self.lineGraphView.graphPointsMaxValue = entries.map({ $0.amount }).max() as? Int ?? 0
-                print("graph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
+                self.lineGraphView.graphPoints = entries.map({ $0.amount })
+                print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             default:
                 break
             }
@@ -86,18 +91,18 @@ class GRViewController: UIViewController, Observer {
             \.arrangedSubviewsCount,
             options: [.old, .new]) { (subViewsCount, change) in
                 guard let subViewsCountNew = change.newValue, let subViewsCountOld = change.oldValue else { return }
-                print("VC: I see there are \(subViewsCountNew) arranged subviews in GRStackView. Was \(subViewsCountOld)")
+                print("\nGRViewController is aware of \(subViewsCountNew) arranged subviews in GRStackView (was \(subViewsCountOld)).")
                 
                 switch subViewsCountNew {
                 case 6:
                     self.lineGraphView.graphPointsCount = 6
-                    print("GRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points")
+                    print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 case 7:
                     self.lineGraphView.graphPointsCount = 7
-                    print("GRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points")
+                    print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 case 4:
                     self.lineGraphView.graphPointsCount = 4
-                    print("GRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points")
+                    print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 default: break
                 }
         }

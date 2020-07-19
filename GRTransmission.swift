@@ -81,31 +81,40 @@ final class GRTransmission: Transmittable {
         get {
             return """
             ***PRINTING MESSAGE DESCRIPTION***
-            Matched entries: \(matchedEntries);
-            ------------------------------------------------\n
-            Income Entries: \(incomeEntries);
-            Expenses Entries: \(expensesEntries);
-            ------------------------------------------------\n
-            Income: \(income);
-            Expenses: \(expenses);
-            ------------------------------------------------\n
-            Income Total: \(totalForIncome);
-            Expenses Total: \(totalForExpenses);
-            ------------------------------------------------\n
-            Income Min / Med / Max: \(incomeExtremums);
-            Expenses Min / Med / Max: \(expensesExtremums);
-            ================================================\n
-            Daily Income Data \(dailyIncomeData);
-            Daily Expense Data \(dailyIncomeData);
-            ------------------------------------------------\n
-            Weekly Income Data \(weeklyIncomeData);
-            Weekly Expense Data \(weeklyExpenseData);
-            ------------------------------------------------\n
-            Monthly Income Data \(monthlyIncomeData);
-            Monthly Expense Data \(monthlyExpenseData);
-            ------------------------------------------------\n
-            Yearly Income Data \(yearlyIncomeData);
-            Yearly Expense Data \(yearlyExpenseData);
+            - All matched entries: \(matchedEntries);
+            
+            - Entries by type:
+            \t- Income Entries: \(incomeEntries);
+            \t- Expenses Entries: \(expensesEntries);
+            
+            - Values arrays by type:
+            \t- Income: \(income);
+            \t- Expenses: \(expenses);
+            
+            - Totals:
+            \t- Income Total: \(totalForIncome);
+            \t- Expenses Total: \(totalForExpenses);
+            
+            - Extremums:
+            \t- Income Min / Med / Max: \(incomeExtremums);
+            \t- Expenses Min / Med / Max: \(expensesExtremums);
+            
+            - Dictionaries:
+            \t- Daily data:
+            \t\t- Daily Income Data \(dailyIncomeData);
+            \t\t- Daily Expense Data \(dailyIncomeData);
+            
+            \t- Weekly data:
+            \t\t- Weekly Income Data \(weeklyIncomeData);
+            \t\t- Weekly Expense Data \(weeklyExpenseData);
+            
+            \t- Monthly data:
+            \t\t- Monthly Income Data \(monthlyIncomeData);
+            \t\t- Monthly Expense Data \(monthlyExpenseData);
+            
+            \t- Yearly data:
+            \t\t- Yearly Income Data \(yearlyIncomeData);
+            \t\t- Yearly Expense Data \(yearlyExpenseData);
             """
         }
         set {  }

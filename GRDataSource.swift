@@ -42,22 +42,74 @@ class GraphDataSource {
     
     func getTimeframeData(timeFrame: TimeFrame, input data: Results<Entry> = entries, cutOff: Date) {
         matchedEntries = data.filter({$0.date! >= cutOff})
+        
+        print("****** DATA SOURCE MATCHED SOME ENTRIES ******")
+        
+        print("All entries that matched:")
+        
+        matchedEntries.forEach({ entry in
+            print("name: \(entry.name ?? "")")
+            print("amount: \(entry.amount)")
+            print("date: \(entry.date ?? Date())")
+            print("\n")
+        })
+        
+        print("****** NOW SPLITTING ENTRIES BY TYPE ******")
+        
         matchedEntries.forEach {
             $0.amount > 0 ? incomeEntries.append($0) : expensesEntries.append($0)
             $0.amount > 0 ? income.append($0.amount) : expenses.append($0.amount * -1)
         }
         
-        incomeExtremums = [income.max(), income.median(), income.min()]
-        expensesExtremums = [expenses.max(), expenses.median(), expenses.min()]
+        print("""
+            \(incomeEntries.count) income entries matched
+            They are: \(incomeEntries)\n
+            """)
+        
+        print("""
+            \(expensesEntries.count) expense entries matched
+            They are: \(expensesEntries)\n
+            """)
+        
+        print("""
+            Income and expenses values arrays populated:
+            \t- Income: \(income)
+            \t- Expenses: \(expenses)\n\n
+            """)
+        
+        print("****** NOW CALCULATING MIN / MED / MAX ******")
+        
+        print("""
+            - Income:
+            \t- min: \(income.min() ?? 0);
+            \t- med: \(income.median() ?? 0);
+            \t- max: \(income.max() ?? 0);
+            - Expense:
+            \t- min: \(expenses.min() ?? 0);
+            \t- med: \(expenses.median() ?? 0);
+            \t- max: \(expenses.max() ?? 0);\n\n
+            """)
+        
+        incomeExtremums = [income.min() ?? 0, income.median() ?? 0, income.max() ?? 0]
+        expensesExtremums = [expenses.min() ?? 0, expenses.median() ?? 0, expenses.max() ?? 0]
         
         graphData.append([incomeEntries, expensesEntries])
         graphData.append([income, expenses])
         
         graphData.append([incomeExtremums, expensesExtremums])
         
+        print("****** NOW CALCULATING TOTALS FOR INCOME / EXPENSES ******")
+        
         totalForIncome = income.reduce(0, +)
         totalForExpenses = expenses.reduce(0, +)
         graphData.append([totalForIncome, totalForExpenses])
+        
+        print("""
+            Income total: \(totalForIncome);
+            Expense total: \(totalForExpenses);
+            """)
+        
+        print("\nNB: dictionaries data will be printed upon message transmission.\n\n")
         
         switch timeFrame {
         case .day:

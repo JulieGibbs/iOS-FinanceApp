@@ -50,9 +50,10 @@ class GRStackView: UIStackView {
         let _labelTexts = labelTexts[_case]
         var i = 0
         
+        print("GRStackView plotted subviews with values:")
         for label in arrangedSUbviewsToLoad {
             label.text = "\(_labelTexts[i])"
-            print(label.text)
+            print("\t- \(label.text!);")
             
             label.font = UIFont.init(name: "Avenir Next Regular", size: 7)
             label.font.withSize(6)

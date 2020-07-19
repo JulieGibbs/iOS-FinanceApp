@@ -111,11 +111,7 @@ class EIViewController: UIViewController {
                     ToC: "\(NSDate().timeIntervalSince1970)",
                     weekDay: Heplers.createDateFormatter(
                         dateStyle: .medium,
-                        timeStyle: .none)
-                        .weekdaySymbols[Calendar.current.component(
-                            .weekday, from: Date(
-                                timeIntervalSinceNow: TimeInterval(
-                                    exactly: -1*60*60*24)!))],
+                        timeStyle: .none).weekdaySymbols[Calendar.current.component(.weekday, from: Date()) - 1],
                     weekOfMonth: Calendar.current.component(.weekOfMonth, from: Date()),
                     quarter: Calendar.current.component(.quarter, from: Date()),
                     time: Calendar.current.component(.hour, from: Date()))

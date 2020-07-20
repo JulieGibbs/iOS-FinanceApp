@@ -9,15 +9,17 @@
 import Foundation
 
 extension Array where Element == Int {
-    func median() -> Int? {
-        guard count > 0 else { return nil }
+    func median() -> Float {
+        guard !self.isEmpty else {
+            return 0.00
+        }
         
-        let sortedArray = self.sorted()
+        let sorted = self.sorted()
         
-        if count % 2 != 0 {
-            return sortedArray[count / 2]
+        if sorted.count % 2 == 0 {
+            return Float((sorted[(sorted.count / 2)] + sorted[(sorted.count / 2) - 1])) / 2
         } else {
-            return sortedArray[count / 2] + sortedArray[count / 2 - 1] / 2
+            return Float(sorted[(sorted.count - 1) / 2])
         }
     }
 }

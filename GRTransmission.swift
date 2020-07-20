@@ -9,7 +9,7 @@
 import Foundation
 
 final class GRTransmission: Transmittable {
-
+    
     var matchedEntries: [Entry]
     
     var incomeEntries: [Entry]
@@ -24,14 +24,14 @@ final class GRTransmission: Transmittable {
     var incomeExtremums: [Int]
     var expensesExtremums: [Int]
     
-    var dailyIncomeData: [ClosedRange<Int> : Int]
-    var dailyExpenseData: [ClosedRange<Int> : Int]
+    var dailyIncomeData: [Dictionary<ClosedRange<Int>, Int>.Element]
+    var dailyExpenseData: [Dictionary<ClosedRange<Int>, Int>.Element]
     
-    var weeklyIncomeData: [String : Int]
-    var weeklyExpenseData: [String : Int]
+    var weeklyIncomeData: [Dictionary<Int, Int>.Element]
+    var weeklyExpenseData: [Dictionary<Int, Int>.Element]
     
-    var monthlyIncomeData: [Int : Int]
-    var monthlyExpenseData: [Int : Int]
+    var monthlyIncomeData: [Dictionary<Int, Int>.Element]
+    var monthlyExpenseData: [Dictionary<Int, Int>.Element]
     
     var yearlyIncomeData: [Int : Int]
     var yearlyExpenseData: [Int : Int]
@@ -48,7 +48,23 @@ final class GRTransmission: Transmittable {
     ///   - expensesExtremums: min / med / max for expenses
     ///   - dailyIncome: income amounts split by hours (see GRDataSource / GRStackView)
     ///   - dailyExpense: income amounts split by hours (see GRDataSource / GRStackView)
-    init(matchedEntries: [Entry], incomeEntries: [Entry], expensesEntries: [Entry], income: [Int], expenses: [Int], totalIncome: Int, totalExpenses: Int, incomeExtremums: [Int], expensesExtremums: [Int], dailyIncome: [ClosedRange<Int> : Int], dailyExpense: [ClosedRange<Int> : Int], weeklyIncome: [String : Int], weeklyExpense: [String : Int], monthlyIncome: [Int : Int], monthlyExpense: [Int : Int], yearlyIncome: [Int : Int], yearlyExpense: [Int : Int]) {
+    init(matchedEntries: [Entry],
+         incomeEntries: [Entry],
+         expensesEntries: [Entry],
+         income: [Int],
+         expenses: [Int],
+         totalIncome: Int,
+         totalExpenses: Int,
+         incomeExtremums: [Int],
+         expensesExtremums: [Int],
+         dailyIncome: [Dictionary<ClosedRange<Int>, Int>.Element],
+         dailyExpense: [Dictionary<ClosedRange<Int>, Int>.Element],
+         weeklyIncome: [Dictionary<Int, Int>.Element],
+         weeklyExpense: [Dictionary<Int, Int>.Element],
+         monthlyIncome: [Dictionary<Int, Int>.Element],
+         monthlyExpense: [Dictionary<Int, Int>.Element],
+         yearlyIncome: [Int : Int],
+         yearlyExpense: [Int : Int]) {
         
         self.matchedEntries = matchedEntries
         self.incomeEntries = incomeEntries

@@ -23,14 +23,14 @@ protocol Transmittable: class {
     var incomeExtremums: [Int] { get set }
     var expensesExtremums: [Int] { get set }
     
-    var dailyIncomeData: [ClosedRange<Int> : Int] { get set }
-    var dailyExpenseData: [ClosedRange<Int> : Int] { get set }
+    var dailyIncomeData: [Dictionary<ClosedRange<Int>, Int>.Element] { get set }
+    var dailyExpenseData: [Dictionary<ClosedRange<Int>, Int>.Element] { get set }
     
-    var weeklyIncomeData: [String : Int] { get set }
-    var weeklyExpenseData: [String : Int] { get set }
+    var weeklyIncomeData: [Dictionary<Int, Int>.Element] { get set }
+    var weeklyExpenseData: [Dictionary<Int, Int>.Element] { get set }
     
-    var monthlyIncomeData: [Int : Int] { get set }
-    var monthlyExpenseData: [Int : Int] { get set }
+    var monthlyIncomeData: [Dictionary<Int, Int>.Element] { get set }
+    var monthlyExpenseData: [Dictionary<Int, Int>.Element] { get set }
     
     var yearlyIncomeData: [Int: Int] { get set }
     var yearlyExpenseData: [Int: Int] { get set }

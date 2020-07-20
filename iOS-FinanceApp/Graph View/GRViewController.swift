@@ -47,7 +47,7 @@ class GRViewController: UIViewController, Observer {
         var index = 0
         
         for label in [lineGraphView.maxLabel, lineGraphView.medLabel, lineGraphView.minLabel] {
-            label.text = "\(message.incomeExtremums[index] ?? 0)"
+            label.text = "\(message.incomeExtremums[index] )"
             index += 1
         }
     }
@@ -60,27 +60,56 @@ class GRViewController: UIViewController, Observer {
             switch segIndexNew {
             case 0:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 0, quantity: 6)
+                
                 self.lineGraphView.graphPointsMaxValue = self.transmittedData!.expensesExtremums[2]
-                self.lineGraphView.graphPoints = self.transmittedData?.dailyExpenseData.map { $0.1 } as! [Int]
+                
+                self.lineGraphView.maxLabel.text = "\(self.transmittedData!.expensesExtremums[2])"
+                self.lineGraphView.medLabel.text = "\(self.transmittedData!.expensesExtremums[2] / 2)"
+                self.lineGraphView.minLabel.text = "\(self.transmittedData!.expensesExtremums[0])"
+                
+                self.lineGraphView.graphPoints = self.transmittedData!.dailyExpenseData.map { $0.1 }
+                
+                print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 1:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 1, quantity: 7)
-                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.weeklyExpenseData.values.max() as! Int
-                self.lineGraphView.graphPoints = self.transmittedData?.weeklyExpenseData.map { $0.1 } as! [Int]
+                
+                self.lineGraphView.maxLabel.text = "\(self.transmittedData!.expensesExtremums[2])"
+                self.lineGraphView.medLabel.text = "\(self.transmittedData!.expensesExtremums[2] / 2)"
+                self.lineGraphView.minLabel.text = "\(self.transmittedData!.expensesExtremums[0])"
+                
+                self.lineGraphView.graphPoints = self.transmittedData!.weeklyExpenseData.map { $0.1 }
+                
+                print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 2:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 2, quantity: 4)
-                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.monthlyExpenseData.values.max() as! Int
-                self.lineGraphView.graphPoints = self.transmittedData?.monthlyExpenseData.map { $0.1 } as! [Int]
+                
+                self.lineGraphView.maxLabel.text = "\(self.transmittedData!.expensesExtremums[2])"
+                self.lineGraphView.medLabel.text = "\(self.transmittedData!.expensesExtremums[2] / 2)"
+                self.lineGraphView.minLabel.text = "\(self.transmittedData!.expensesExtremums[0])"
+                
+                self.lineGraphView.graphPoints = self.transmittedData!.monthlyExpenseData.map { $0.1 }
+                
+                print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 3:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 3, quantity: 4)
-                self.lineGraphView.graphPointsMaxValue = self.transmittedData?.yearlyExpenseData.values.max() as! Int
-                self.lineGraphView.graphPoints = self.transmittedData?.yearlyExpenseData.map { $0.1 } as! [Int]
+                
+                self.lineGraphView.maxLabel.text = "\(self.transmittedData!.expensesExtremums[2])"
+                self.lineGraphView.medLabel.text = "\(self.transmittedData!.expensesExtremums[2] / 2)"
+                self.lineGraphView.minLabel.text = "\(self.transmittedData!.expensesExtremums[0])"
+                
+                self.lineGraphView.graphPoints = self.transmittedData!.yearlyExpenseData.map { $0.1 }
+                
+                print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             case 4:
-                self.lineGraphView.graphPointsMaxValue = entries.map({ $0.amount }).max() as? Int ?? 0
+                self.lineGraphView.graphPointsMaxValue = entries.map({ $0.amount }).max() ?? 0
+                
                 self.lineGraphView.graphPoints = entries.map({ $0.amount })
+                
+                print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
             default:
                 break
@@ -96,12 +125,15 @@ class GRViewController: UIViewController, Observer {
                 switch subViewsCountNew {
                 case 6:
                     self.lineGraphView.graphPointsCount = 6
+                    
                     print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 case 7:
                     self.lineGraphView.graphPointsCount = 7
+                   
                     print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 case 4:
                     self.lineGraphView.graphPointsCount = 4
+                    
                     print("\nGRLineView is ready to plot a path with \(self.lineGraphView.graphPointsCount) points.")
                 default: break
                 }

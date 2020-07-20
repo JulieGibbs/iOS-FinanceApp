@@ -9,7 +9,6 @@
 import UIKit
 
 class GRLineView: UIView {
-    // MARK: - Gradient
     var gradientStartColor: UIColor = #colorLiteral(red: 0.9568627451, green: 0.9490196078, blue: 0.4117647059, alpha: 1)
     
     var gradientEndColor: UIColor = #colorLiteral(red: 0.3607843137, green: 0.6980392157, blue: 0.4392156863, alpha: 1)
@@ -29,6 +28,8 @@ class GRLineView: UIView {
     var graphPointsCount: Int = 0
     
     var graphPointsMaxValue: Int = 0
+    
+    var graphPoints = [Int]()
     
     override func draw(_ rect: CGRect) {
         let width = rect.width
@@ -55,6 +56,7 @@ class GRLineView: UIView {
         let gradient = CGGradient(colorsSpace: colorSpace,
                                   colors: colors as CFArray,
                                   locations: colorLocations)!
+        
         let startPoint = CGPoint.zero
         
         let endPoint = CGPoint(x: 0, y: self.bounds.height)
@@ -88,7 +90,7 @@ class GRLineView: UIView {
         let graphWidth = width - margin * 2 - 4
         
         let xPoint = { (column: Int) -> CGFloat in
-            let spacing = graphWidth / CGFloat(self.graphPointsCount)
+            let spacing = graphWidth / CGFloat(self.graphPoints.count)
             
             return CGFloat(column) * spacing + margin + 2
         }
@@ -100,9 +102,10 @@ class GRLineView: UIView {
         
         // MARK: - Paths
         
-        let incomesPath = UIBezierPath()
-        
-        let expensesPath = UIBezierPath()
+        let graphPath = UIBezierPath()
+        if graphPoints.count > 0 {
+            graphPath.move(to: CGPoint(x: xPoint(0), y: yPoint(graphPoints[0])))
+        }
     }
     
     override func didMoveToSuperview() {

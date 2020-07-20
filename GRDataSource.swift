@@ -27,16 +27,28 @@ class GraphDataSource {
     var expensesExtremums = [Int]()
     
     var dailyIncomeData: [ClosedRange<Int> : Int] = [0...4 : 0, 5...8 : 0, 9...12: 0, 13...16 : 0, 17...20 : 0, 21...24 : 0]
-    var dailyExpenseData: [ClosedRange<Int> : Int] = [0...4 : 0, 5...8 : 0, 9...12: 0, 13...16 : 0, 17...20 : 0, 21...24 : 0]
+    var dailyExpensesData: [ClosedRange<Int> : Int] = [0...4 : 0, 5...8 : 0, 9...12: 0, 13...16 : 0, 17...20 : 0, 21...24 : 0]
     
-    var weeklyIncomeData: [String : Int] = ["Sunday" : 0, "Monday" : 0, "Tuesday" : 0, "Wednesday" : 0, "Thursday" : 0, "Friday" : 0, "Saturday" : 0]
-    var weeklyExpenseData: [String : Int] = ["Sunday" : 0, "Monday" : 0, "Tuesday" : 0, "Wednesday" : 0, "Thursday" : 0, "Friday" : 0, "Saturday" : 0]
+    var sortedDailyIncomeData = [Dictionary<ClosedRange<Int>, Int>.Element]()
+    var sortedDailyExpensesData = [Dictionary<ClosedRange<Int>, Int>.Element]()
+    
+    var weeklyIncomeData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0, 5 : 0, 6 : 0, 7 : 0]
+    var weeklyExpensesData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0, 5 : 0, 6 : 0, 7 : 0]
+    
+    var sortedWeeklyIncomeData = [Dictionary<Int, Int>.Element]()
+    var sortedWeeklyExpensesData = [Dictionary<Int, Int>.Element]()
     
     var monthlyIncomeData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
-    var monthlyExpenseData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
+    var monthlyExpensesData: [Int : Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
+    
+    var sortedMonthlyIncomeData = [Dictionary<Int, Int>.Element]()
+    var sortedMonthlyExpensesData = [Dictionary<Int, Int>.Element]()
     
     var yearlyIncomeData: [Int: Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
-    var yearlyExpenseData: [Int: Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
+    var yearlyExpensesData: [Int: Int] = [1 : 0, 2 : 0, 3 : 0, 4 : 0]
+    
+    var sortedYearlyIncomeData = [Dictionary<Int, Int>.Element]()
+    var sortedYearlyExpensesData = [Dictionary<Int, Int>.Element]()
     
     var graphData: [Any] = []
     
@@ -82,16 +94,16 @@ class GraphDataSource {
         print("""
             - Income:
             \t- min: \(income.min() ?? 0);
-            \t- med: \(income.median() ?? 0);
+            \t- med: \(income.median() );
             \t- max: \(income.max() ?? 0);
             - Expenseы:
             \t- min: \(expenses.min() ?? 0);
-            \t- med: \(expenses.median() ?? 0);
+            \t- med: \(expenses.median() );
             \t- max: \(expenses.max() ?? 0);\n\n
             """)
         
-        incomeExtremums = [income.min() ?? 0, Int(income.median()) ?? 0, income.max() ?? 0]
-        expensesExtremums = [expenses.min() ?? 0, Int(expenses.median()) ?? 0, expenses.max() ?? 0]
+        incomeExtremums = [income.min() ?? 0, Int(income.median()) , income.max() ?? 0]
+        expensesExtremums = [expenses.min() ?? 0, Int(expenses.median()) , expenses.max() ?? 0]
         
         graphData.append([incomeEntries, expensesEntries])
         graphData.append([income, expenses])
@@ -114,16 +126,28 @@ class GraphDataSource {
         switch timeFrame {
         case .day:
             dailyIncomeData = getDailyData(input: incomeEntries, inputDic: dailyIncomeData)
-            dailyExpenseData = getDailyData(input: expensesEntries, inputDic: dailyExpenseData)
+            dailyExpensesData = getDailyData(input: expensesEntries, inputDic: dailyExpensesData)
+            
+            sortedDailyIncomeData = dailyIncomeData.sorted(by: { $0.key.upperBound < $1.key.lowerBound })
+            sortedDailyExpensesData = dailyExpensesData.sorted(by: { $0.key.upperBound < $1.key.lowerBound })
         case .week:
             weeklyIncomeData = getWeeklyData(input: incomeEntries, inputDic: weeklyIncomeData)
-            weeklyExpenseData = getWeeklyData(input: expensesEntries, inputDic: weeklyExpenseData)
+            weeklyExpensesData = getWeeklyData(input: expensesEntries, inputDic: weeklyExpensesData)
+            
+            sortedWeeklyIncomeData = weeklyIncomeData.sorted(by: { $0.key < $1.key })
+            sortedWeeklyExpensesData = weeklyExpensesData.sorted(by: { $0.key < $1.key })
         case .month:
             monthlyIncomeData = getMonthlyData(input: incomeEntries, inputDic: monthlyIncomeData)
-            monthlyExpenseData = getMonthlyData(input: expensesEntries, inputDic: monthlyExpenseData)
+            monthlyExpensesData = getMonthlyData(input: expensesEntries, inputDic: monthlyExpensesData)
+            
+            sortedMonthlyIncomeData = monthlyIncomeData.sorted(by: { $0.key < $1.key })
+            sortedMonthlyExpensesData = monthlyExpensesData.sorted(by: { $0.key < $1.key })
         case .year:
             yearlyIncomeData = getYearlyAmounts(input: incomeEntries, inputDic: yearlyIncomeData)
-            yearlyExpenseData = getYearlyAmounts(input: expensesEntries, inputDic: yearlyExpenseData)
+            yearlyExpensesData = getYearlyAmounts(input: expensesEntries, inputDic: yearlyExpensesData)
+            
+            sortedYearlyIncomeData = yearlyIncomeData.sorted(by: { $0.key < $1.key })
+            sortedYearlyExpensesData = sortedYearlyExpensesData.sorted(by: { $0.key < $1.key })
         default:
             break
         }
@@ -138,14 +162,14 @@ class GraphDataSource {
             totalExpenses: totalForExpenses,
             incomeExtremums: incomeExtremums,
             expensesExtremums: expensesExtremums,
-            dailyIncome: dailyIncomeData,
-            dailyExpense: dailyExpenseData,
-            weeklyIncome: weeklyIncomeData,
-            weeklyExpense: weeklyExpenseData,
-            monthlyIncome: monthlyIncomeData,
-            monthlyExpense: monthlyExpenseData,
+            dailyIncome: sortedDailyIncomeData,
+            dailyExpense: sortedDailyExpensesData,
+            weeklyIncome: sortedWeeklyIncomeData,
+            weeklyExpense: sortedWeeklyExpensesData,
+            monthlyIncome: sortedMonthlyIncomeData,
+            monthlyExpense: sortedMonthlyExpensesData,
             yearlyIncome: yearlyIncomeData,
-            yearlyExpense: yearlyExpenseData)
+            yearlyExpense: yearlyExpensesData)
         
         Publisher.send(transmission)
     }
@@ -162,7 +186,7 @@ class GraphDataSource {
         return res
     }
     
-    func getWeeklyData(input: [Entry], inputDic: [String : Int]) -> [String : Int] {
+    func getWeeklyData(input: [Entry], inputDic: [Int : Int]) -> [Int : Int] {
         var res = inputDic
         
         for (day, _) in res {

@@ -109,9 +109,7 @@ class EIViewController: UIViewController {
                     category: categoryInputTextField.text!,
                     entryType: type,
                     ToC: "\(NSDate().timeIntervalSince1970)",
-                    weekDay: Heplers.createDateFormatter(
-                        dateStyle: .medium,
-                        timeStyle: .none).weekdaySymbols[Calendar.current.component(.weekday, from: Date()) - 1],
+                    weekDay: Calendar.current.component(.weekday, from: Date()),
                     weekOfMonth: Calendar.current.component(.weekOfMonth, from: Date()),
                     quarter: Calendar.current.component(.quarter, from: Date()),
                     time: Calendar.current.component(.hour, from: Date()))

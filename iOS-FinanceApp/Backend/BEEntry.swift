@@ -44,7 +44,7 @@ class Entry: Object {
     
     @objc dynamic var creationStamp: String?
     
-    @objc dynamic var weekDay: String?
+    @objc dynamic var weekDay: Int = 0
     
     @objc dynamic var weekOfMonth: Int = 0
     
@@ -63,7 +63,7 @@ class Entry: Object {
                      category: String,
                      entryType: String?,
                      ToC: String,
-                     weekDay: String,
+                     weekDay: Int,
                      weekOfMonth: Int,
                      quarter: Int,
                      time: Int) {
@@ -108,7 +108,7 @@ class Entry: Object {
             \t\t- type: \(entryType ?? "");
             \t\t- category: \(category ?? "");
             \t\t- ToC: \(creationStamp ?? "");
-            \t\t- weekday: \(weekDay ?? "");
+            \t\t- weekday: \(weekDay ?? 0);
             \t\t- week of month: \(weekOfMonth);
             \t\t- quarter: \(quarter).
             \t [END OF ENTRY DESCRIPTION]\n

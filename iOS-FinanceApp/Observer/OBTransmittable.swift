@@ -20,8 +20,8 @@ protocol Transmittable: class {
     var totalForIncome: Int { get set }
     var totalForExpenses: Int { get set }
     
-    var incomeExtremums: [Int?] { get set }
-    var expensesExtremums: [Int?] { get set }
+    var incomeExtremums: [Int] { get set }
+    var expensesExtremums: [Int] { get set }
     
     var dailyIncomeData: [ClosedRange<Int> : Int] { get set }
     var dailyExpenseData: [ClosedRange<Int> : Int] { get set }

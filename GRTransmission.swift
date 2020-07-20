@@ -21,8 +21,8 @@ final class GRTransmission: Transmittable {
     var totalForIncome: Int
     var totalForExpenses: Int
     
-    var incomeExtremums: [Int?]
-    var expensesExtremums: [Int?]
+    var incomeExtremums: [Int]
+    var expensesExtremums: [Int]
     
     var dailyIncomeData: [ClosedRange<Int> : Int]
     var dailyExpenseData: [ClosedRange<Int> : Int]
@@ -48,7 +48,7 @@ final class GRTransmission: Transmittable {
     ///   - expensesExtremums: min / med / max for expenses
     ///   - dailyIncome: income amounts split by hours (see GRDataSource / GRStackView)
     ///   - dailyExpense: income amounts split by hours (see GRDataSource / GRStackView)
-    init(matchedEntries: [Entry], incomeEntries: [Entry], expensesEntries: [Entry], income: [Int], expenses: [Int], totalIncome: Int, totalExpenses: Int, incomeExtremums: [Int?], expensesExtremums: [Int?], dailyIncome: [ClosedRange<Int> : Int], dailyExpense: [ClosedRange<Int> : Int], weeklyIncome: [String : Int], weeklyExpense: [String : Int], monthlyIncome: [Int : Int], monthlyExpense: [Int : Int], yearlyIncome: [Int : Int], yearlyExpense: [Int : Int]) {
+    init(matchedEntries: [Entry], incomeEntries: [Entry], expensesEntries: [Entry], income: [Int], expenses: [Int], totalIncome: Int, totalExpenses: Int, incomeExtremums: [Int], expensesExtremums: [Int], dailyIncome: [ClosedRange<Int> : Int], dailyExpense: [ClosedRange<Int> : Int], weeklyIncome: [String : Int], weeklyExpense: [String : Int], monthlyIncome: [Int : Int], monthlyExpense: [Int : Int], yearlyIncome: [Int : Int], yearlyExpense: [Int : Int]) {
         
         self.matchedEntries = matchedEntries
         self.incomeEntries = incomeEntries

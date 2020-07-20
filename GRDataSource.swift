@@ -23,8 +23,8 @@ class GraphDataSource {
     var totalForIncome: Int = 0
     var totalForExpenses: Int = 0
     
-    var incomeExtremums = [Int?]()
-    var expensesExtremums = [Int?]()
+    var incomeExtremums = [Int]()
+    var expensesExtremums = [Int]()
     
     var dailyIncomeData: [ClosedRange<Int> : Int] = [0...4 : 0, 5...8 : 0, 9...12: 0, 13...16 : 0, 17...20 : 0, 21...24 : 0]
     var dailyExpenseData: [ClosedRange<Int> : Int] = [0...4 : 0, 5...8 : 0, 9...12: 0, 13...16 : 0, 17...20 : 0, 21...24 : 0]
@@ -84,14 +84,14 @@ class GraphDataSource {
             \t- min: \(income.min() ?? 0);
             \t- med: \(income.median() ?? 0);
             \t- max: \(income.max() ?? 0);
-            - Expense:
+            - Expenseы:
             \t- min: \(expenses.min() ?? 0);
             \t- med: \(expenses.median() ?? 0);
             \t- max: \(expenses.max() ?? 0);\n\n
             """)
         
-        incomeExtremums = [income.min() ?? 0, income.median() ?? 0, income.max() ?? 0]
-        expensesExtremums = [expenses.min() ?? 0, expenses.median() ?? 0, expenses.max() ?? 0]
+        incomeExtremums = [income.min() ?? 0, Int(income.median()) ?? 0, income.max() ?? 0]
+        expensesExtremums = [expenses.min() ?? 0, Int(expenses.median()) ?? 0, expenses.max() ?? 0]
         
         graphData.append([incomeEntries, expensesEntries])
         graphData.append([income, expenses])
@@ -135,7 +135,7 @@ class GraphDataSource {
             income: income,
             expenses: expenses,
             totalIncome: totalForIncome,
-            totalExpenses: totalForIncome,
+            totalExpenses: totalForExpenses,
             incomeExtremums: incomeExtremums,
             expensesExtremums: expensesExtremums,
             dailyIncome: dailyIncomeData,

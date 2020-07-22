@@ -8,31 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9824BF276000B94097 /* GE_UILabel.swift */; };
-		05EAED7924BDF25200F14680 /* GREntryTypeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */; };
 		05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */; };
 		1956B550C8FEF4043E9DD8DB /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */; };
 		2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */; };
 		3F002F5D24201F19002C73F4 /* GE_Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* GE_Notifications.swift */; };
 		3F07FA2724B4F22F0045D96A /* GRStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2624B4F22F0045D96A /* GRStackView.swift */; };
-		3F07FA2924B4F8570045D96A /* GRTransmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2824B4F8570045D96A /* GRTransmission.swift */; };
 		3F15C5C424AE59230026E144 /* BERealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C324AE59230026E144 /* BERealm.swift */; };
 		3F15C5C624AE594B0026E144 /* BEEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C524AE594B0026E144 /* BEEntry.swift */; };
 		3F15C5C824AE59970026E144 /* BECategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C724AE59970026E144 /* BECategory.swift */; };
 		3F15C5CA24AE5A000026E144 /* BEDataManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5C924AE5A000026E144 /* BEDataManagement.swift */; };
 		3F15C5CC24AE5A360026E144 /* GLDate&Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5CB24AE5A360026E144 /* GLDate&Time.swift */; };
-		3F15C5D024AE5D560026E144 /* GRDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5CF24AE5D560026E144 /* GRDataSource.swift */; };
 		3F15C5D224AE88C40026E144 /* GE_Array + Median.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D124AE88C40026E144 /* GE_Array + Median.swift */; };
-		3F15C5D524AE8EBE0026E144 /* GE_Keyboard Dismiss on Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D424AE8EBE0026E144 /* GE_Keyboard Dismiss on Tap.swift */; };
 		3F15C5D724AE8F020026E144 /* GE_Alert + Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D624AE8F020026E144 /* GE_Alert + Functions.swift */; };
 		3F15C5D924AE8F610026E144 /* GE_NSException + cutsom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F15C5D824AE8F610026E144 /* GE_NSException + cutsom.swift */; };
 		3F1B00A124241C390070E0FF /* FOTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00A024241C390070E0FF /* FOTableViewCell.swift */; };
+		3F477A0824C8E79500011BE5 /* GE_KeyboardDismissonTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A0724C8E79500011BE5 /* GE_KeyboardDismissonTap.swift */; };
+		3F477A1224C8E84000011BE5 /* GRDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A0F24C8E84000011BE5 /* GRDataSource.swift */; };
+		3F477A1324C8E84000011BE5 /* GRDataSource + Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1024C8E84000011BE5 /* GRDataSource + Data.swift */; };
+		3F477A1424C8E84000011BE5 /* GREntryTypeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1124C8E84000011BE5 /* GREntryTypeToggle.swift */; };
+		3F477A1624C8E85B00011BE5 /* FO + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1524C8E85B00011BE5 /* FO + TableView.swift */; };
+		3F477A1824C8E87100011BE5 /* ED + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1724C8E87100011BE5 /* ED + TableView.swift */; };
+		3F477A1A24C8E88900011BE5 /* EI + TextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1924C8E88900011BE5 /* EI + TextFields.swift */; };
+		3F477A1C24C8E8E100011BE5 /* GRTransmission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F477A1B24C8E8E100011BE5 /* GRTransmission.swift */; };
 		3F68407524AD2E9900C92611 /* GRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68407224AD2E9900C92611 /* GRViewController.swift */; };
 		3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68407324AD2E9900C92611 /* GRLineView.swift */; };
 		3F68407724AD2E9900C92611 /* GRSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F68407424AD2E9900C92611 /* GRSegmentedControl.swift */; };
-		3F6AE09A24AA77EB00EB228B /* EI + Text Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09924AA77EB00EB228B /* EI + Text Fields.swift */; };
 		3F6AE09C24AA781C00EB228B /* EI + DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09B24AA781C00EB228B /* EI + DatePicker.swift */; };
 		3F6AE09E24AA78BD00EB228B /* EI + Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09D24AA78BD00EB228B /* EI + Validation.swift */; };
-		3F6AE0A024AA7C9700EB228B /* FO + Table View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6AE09F24AA7C9700EB228B /* FO + Table View.swift */; };
 		3F75561924B2409D0095897F /* OBObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561824B2409D0095897F /* OBObserver.swift */; };
 		3F75561B24B241450095897F /* OBTransmittable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561A24B241450095897F /* OBTransmittable.swift */; };
 		3F75561D24B2424E0095897F /* OBWeakObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75561C24B2424E0095897F /* OBWeakObserver.swift */; };
@@ -40,7 +42,6 @@
 		3F75562124B244060095897F /* GE_String + Whitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562024B244060095897F /* GE_String + Whitespaces.swift */; };
 		3F75562324B249170095897F /* OBPublisher + Subscripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562224B249170095897F /* OBPublisher + Subscripts.swift */; };
 		3F75562524B24C8B0095897F /* OBPublisher + Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F75562424B24C8B0095897F /* OBPublisher + Operators.swift */; };
-		3F838F6624A9BE7F00EA1CFB /* ED + Table View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F838F6524A9BE7F00EA1CFB /* ED + Table View.swift */; };
 		3F838F6824A9BF3900EA1CFB /* ED + Observers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F838F6724A9BF3900EA1CFB /* ED + Observers.swift */; };
 		3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */; };
 		3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */; };
@@ -57,30 +58,32 @@
 
 /* Begin PBXFileReference section */
 		05B69E9824BF276000B94097 /* GE_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_UILabel.swift; sourceTree = "<group>"; };
-		05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GREntryTypeToggle.swift; sourceTree = "<group>"; };
 		05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_SegmentedControl.swift; sourceTree = "<group>"; };
 		2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDTableViewCell.swift; sourceTree = "<group>"; };
 		3F002F5C24201F19002C73F4 /* GE_Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_Notifications.swift; sourceTree = "<group>"; };
 		3F07FA2624B4F22F0045D96A /* GRStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GRStackView.swift; path = "iOS-FinanceApp/Graph View/GRStackView.swift"; sourceTree = "<group>"; };
-		3F07FA2824B4F8570045D96A /* GRTransmission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRTransmission.swift; sourceTree = "<group>"; };
 		3F15C5C324AE59230026E144 /* BERealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BERealm.swift; sourceTree = "<group>"; };
 		3F15C5C524AE594B0026E144 /* BEEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEEntry.swift; sourceTree = "<group>"; };
 		3F15C5C724AE59970026E144 /* BECategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BECategory.swift; sourceTree = "<group>"; };
 		3F15C5C924AE5A000026E144 /* BEDataManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEDataManagement.swift; sourceTree = "<group>"; };
 		3F15C5CB24AE5A360026E144 /* GLDate&Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GLDate&Time.swift"; sourceTree = "<group>"; };
-		3F15C5CF24AE5D560026E144 /* GRDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDataSource.swift; sourceTree = "<group>"; };
 		3F15C5D124AE88C40026E144 /* GE_Array + Median.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GE_Array + Median.swift"; sourceTree = "<group>"; };
-		3F15C5D424AE8EBE0026E144 /* GE_Keyboard Dismiss on Tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GE_Keyboard Dismiss on Tap.swift"; sourceTree = "<group>"; };
 		3F15C5D624AE8F020026E144 /* GE_Alert + Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GE_Alert + Functions.swift"; sourceTree = "<group>"; };
 		3F15C5D824AE8F610026E144 /* GE_NSException + cutsom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GE_NSException + cutsom.swift"; sourceTree = "<group>"; };
 		3F1B00A024241C390070E0FF /* FOTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FOTableViewCell.swift; sourceTree = "<group>"; };
+		3F477A0724C8E79500011BE5 /* GE_KeyboardDismissonTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GE_KeyboardDismissonTap.swift; sourceTree = "<group>"; };
+		3F477A0F24C8E84000011BE5 /* GRDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRDataSource.swift; path = "iOS-FinanceApp/Graph View/GRDataSource.swift"; sourceTree = "<group>"; };
+		3F477A1024C8E84000011BE5 /* GRDataSource + Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "GRDataSource + Data.swift"; path = "iOS-FinanceApp/Graph View/GRDataSource + Data.swift"; sourceTree = "<group>"; };
+		3F477A1124C8E84000011BE5 /* GREntryTypeToggle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GREntryTypeToggle.swift; path = "iOS-FinanceApp/Graph View/GREntryTypeToggle.swift"; sourceTree = "<group>"; };
+		3F477A1524C8E85B00011BE5 /* FO + TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FO + TableView.swift"; sourceTree = "<group>"; };
+		3F477A1724C8E87100011BE5 /* ED + TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ED + TableView.swift"; sourceTree = "<group>"; };
+		3F477A1924C8E88900011BE5 /* EI + TextFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EI + TextFields.swift"; sourceTree = "<group>"; };
+		3F477A1B24C8E8E100011BE5 /* GRTransmission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRTransmission.swift; path = "iOS-FinanceApp/Graph View/GRTransmission.swift"; sourceTree = "<group>"; };
 		3F68407224AD2E9900C92611 /* GRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRViewController.swift; path = "iOS-FinanceApp/Graph View/GRViewController.swift"; sourceTree = "<group>"; };
 		3F68407324AD2E9900C92611 /* GRLineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRLineView.swift; path = "iOS-FinanceApp/Graph View/GRLineView.swift"; sourceTree = "<group>"; };
 		3F68407424AD2E9900C92611 /* GRSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GRSegmentedControl.swift; path = "iOS-FinanceApp/Graph View/GRSegmentedControl.swift"; sourceTree = "<group>"; };
-		3F6AE09924AA77EB00EB228B /* EI + Text Fields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + Text Fields.swift"; sourceTree = "<group>"; };
 		3F6AE09B24AA781C00EB228B /* EI + DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + DatePicker.swift"; sourceTree = "<group>"; };
 		3F6AE09D24AA78BD00EB228B /* EI + Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + Validation.swift"; sourceTree = "<group>"; };
-		3F6AE09F24AA7C9700EB228B /* FO + Table View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FO + Table View.swift"; sourceTree = "<group>"; };
 		3F75561824B2409D0095897F /* OBObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBObserver.swift; sourceTree = "<group>"; };
 		3F75561A24B241450095897F /* OBTransmittable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBTransmittable.swift; sourceTree = "<group>"; };
 		3F75561C24B2424E0095897F /* OBWeakObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBWeakObserver.swift; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		3F75562024B244060095897F /* GE_String + Whitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GE_String + Whitespaces.swift"; sourceTree = "<group>"; };
 		3F75562224B249170095897F /* OBPublisher + Subscripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OBPublisher + Subscripts.swift"; sourceTree = "<group>"; };
 		3F75562424B24C8B0095897F /* OBPublisher + Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OBPublisher + Operators.swift"; sourceTree = "<group>"; };
-		3F838F6524A9BE7F00EA1CFB /* ED + Table View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ED + Table View.swift"; sourceTree = "<group>"; };
 		3F838F6724A9BF3900EA1CFB /* ED + Observers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ED + Observers.swift"; sourceTree = "<group>"; };
 		3FBFDE0F241ECEE0006DAC7A /* iOS-FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-FinanceApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,9 +151,9 @@
 		3F15C5D324AE88CD0026E144 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3F477A0724C8E79500011BE5 /* GE_KeyboardDismissonTap.swift */,
 				3F15C5D624AE8F020026E144 /* GE_Alert + Functions.swift */,
 				3F15C5D124AE88C40026E144 /* GE_Array + Median.swift */,
-				3F15C5D424AE8EBE0026E144 /* GE_Keyboard Dismiss on Tap.swift */,
 				3F002F5C24201F19002C73F4 /* GE_Notifications.swift */,
 				3F15C5D824AE8F610026E144 /* GE_NSException + cutsom.swift */,
 				05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */,
@@ -177,13 +179,14 @@
 		3F822FE42484478600337513 /* Graph Scene */ = {
 			isa = PBXGroup;
 			children = (
-				3F15C5CF24AE5D560026E144 /* GRDataSource.swift */,
-				3F07FA2824B4F8570045D96A /* GRTransmission.swift */,
+				3F477A1B24C8E8E100011BE5 /* GRTransmission.swift */,
+				3F477A1024C8E84000011BE5 /* GRDataSource + Data.swift */,
+				3F477A0F24C8E84000011BE5 /* GRDataSource.swift */,
+				3F477A1124C8E84000011BE5 /* GREntryTypeToggle.swift */,
 				3F68407324AD2E9900C92611 /* GRLineView.swift */,
 				3F68407424AD2E9900C92611 /* GRSegmentedControl.swift */,
 				3F07FA2624B4F22F0045D96A /* GRStackView.swift */,
 				3F68407224AD2E9900C92611 /* GRViewController.swift */,
-				05EAED7824BDF25200F14680 /* GREntryTypeToggle.swift */,
 			);
 			name = "Graph Scene";
 			path = ..;
@@ -192,7 +195,7 @@
 		3F838F6424A9BCB400EA1CFB /* Finance Overview */ = {
 			isa = PBXGroup;
 			children = (
-				3F6AE09F24AA7C9700EB228B /* FO + Table View.swift */,
+				3F477A1524C8E85B00011BE5 /* FO + TableView.swift */,
 				3F1B00A024241C390070E0FF /* FOTableViewCell.swift */,
 				3FBFDE16241ECEE1006DAC7A /* FOViewController.swift */,
 			);
@@ -220,7 +223,9 @@
 		3FBFDE11241ECEE0006DAC7A /* iOS-FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				3FBFDE20241ECEE1006DAC7A /* Info.plist */,
 				3FBFDE12241ECEE1006DAC7A /* AppDelegate.swift */,
+				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
 				3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */,
 				B7CE14B9245AC63400B07DA1 /* Backend */,
 				3FBFDE38241ED1D9006DAC7A /* Entry Insertion */,
@@ -229,11 +234,9 @@
 				3F838F6424A9BCB400EA1CFB /* Finance Overview */,
 				05EAED7A24BDF3CC00F14680 /* Global */,
 				3F822FE42484478600337513 /* Graph Scene */,
-				3FBFDE20241ECEE1006DAC7A /* Info.plist */,
 				3FBFDE1D241ECEE1006DAC7A /* LaunchScreen.storyboard */,
 				3FBFDE18241ECEE1006DAC7A /* Main.storyboard */,
 				3F75561724B2400F0095897F /* Observer */,
-				3FBFDE14241ECEE1006DAC7A /* SceneDelegate.swift */,
 			);
 			path = "iOS-FinanceApp";
 			sourceTree = "<group>";
@@ -241,9 +244,9 @@
 		3FBFDE38241ED1D9006DAC7A /* Entry Insertion */ = {
 			isa = PBXGroup;
 			children = (
+				3F477A1924C8E88900011BE5 /* EI + TextFields.swift */,
 				3F6AE09B24AA781C00EB228B /* EI + DatePicker.swift */,
 				8F4982C824AA386E00BD2B01 /* EI + Picker.swift */,
-				3F6AE09924AA77EB00EB228B /* EI + Text Fields.swift */,
 				3F6AE09D24AA78BD00EB228B /* EI + Validation.swift */,
 				B746C6E42445E0CC0004BD75 /* EIViewController.swift */,
 			);
@@ -253,8 +256,8 @@
 		B7CE14B8245AC62400B07DA1 /* Expenses Details */ = {
 			isa = PBXGroup;
 			children = (
+				3F477A1724C8E87100011BE5 /* ED + TableView.swift */,
 				3F838F6724A9BF3900EA1CFB /* ED + Observers.swift */,
-				3F838F6524A9BE7F00EA1CFB /* ED + Table View.swift */,
 				2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */,
 				3FBFDE34241ED1A7006DAC7A /* EDViewController.swift */,
 			);
@@ -398,37 +401,38 @@
 				3F68407624AD2E9900C92611 /* GRLineView.swift in Sources */,
 				3F75562524B24C8B0095897F /* OBPublisher + Operators.swift in Sources */,
 				3F15C5C624AE594B0026E144 /* BEEntry.swift in Sources */,
+				3F477A1324C8E84000011BE5 /* GRDataSource + Data.swift in Sources */,
 				05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */,
 				3FBFDE13241ECEE1006DAC7A /* AppDelegate.swift in Sources */,
 				3F75561924B2409D0095897F /* OBObserver.swift in Sources */,
-				3F838F6624A9BE7F00EA1CFB /* ED + Table View.swift in Sources */,
 				3FBFDE35241ED1A7006DAC7A /* EDViewController.swift in Sources */,
 				3F75561F24B242C20095897F /* OBPublisher.swift in Sources */,
 				3F07FA2724B4F22F0045D96A /* GRStackView.swift in Sources */,
-				3F6AE0A024AA7C9700EB228B /* FO + Table View.swift in Sources */,
-				05EAED7924BDF25200F14680 /* GREntryTypeToggle.swift in Sources */,
 				B7BA9FB1244C318D00923A60 /* GLHelpers.swift in Sources */,
 				3F6AE09E24AA78BD00EB228B /* EI + Validation.swift in Sources */,
 				8F4982C924AA386E00BD2B01 /* EI + Picker.swift in Sources */,
-				3F15C5D024AE5D560026E144 /* GRDataSource.swift in Sources */,
 				3F15C5C824AE59970026E144 /* BECategory.swift in Sources */,
 				3F15C5D724AE8F020026E144 /* GE_Alert + Functions.swift in Sources */,
 				3F75561B24B241450095897F /* OBTransmittable.swift in Sources */,
+				3F477A1A24C8E88900011BE5 /* EI + TextFields.swift in Sources */,
 				3F15C5D924AE8F610026E144 /* GE_NSException + cutsom.swift in Sources */,
-				3F15C5D524AE8EBE0026E144 /* GE_Keyboard Dismiss on Tap.swift in Sources */,
+				3F477A1224C8E84000011BE5 /* GRDataSource.swift in Sources */,
 				3F1B00A124241C390070E0FF /* FOTableViewCell.swift in Sources */,
 				B746C6E52445E0CC0004BD75 /* EIViewController.swift in Sources */,
+				3F477A1424C8E84000011BE5 /* GREntryTypeToggle.swift in Sources */,
 				2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */,
 				3F75561D24B2424E0095897F /* OBWeakObserver.swift in Sources */,
 				3FBFDE15241ECEE1006DAC7A /* SceneDelegate.swift in Sources */,
+				3F477A0824C8E79500011BE5 /* GE_KeyboardDismissonTap.swift in Sources */,
 				3F002F5D24201F19002C73F4 /* GE_Notifications.swift in Sources */,
 				3F68407524AD2E9900C92611 /* GRViewController.swift in Sources */,
 				3F15C5D224AE88C40026E144 /* GE_Array + Median.swift in Sources */,
 				3F75562124B244060095897F /* GE_String + Whitespaces.swift in Sources */,
-				3F07FA2924B4F8570045D96A /* GRTransmission.swift in Sources */,
+				3F477A1824C8E87100011BE5 /* ED + TableView.swift in Sources */,
 				3F15C5CC24AE5A360026E144 /* GLDate&Time.swift in Sources */,
-				3F6AE09A24AA77EB00EB228B /* EI + Text Fields.swift in Sources */,
+				3F477A1624C8E85B00011BE5 /* FO + TableView.swift in Sources */,
 				3F6AE09C24AA781C00EB228B /* EI + DatePicker.swift in Sources */,
+				3F477A1C24C8E8E100011BE5 /* GRTransmission.swift in Sources */,
 				3F15C5CA24AE5A000026E144 /* BEDataManagement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

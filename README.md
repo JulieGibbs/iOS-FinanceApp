@@ -21,7 +21,7 @@ This is a simple iOS Finance Tracking app implementing finance overview, graph v
 - :inbox_tray: [E-Mail](mailto:dmi.aksyonov@gmail.com) 
 ## Contribution
 ## Demo
-![demo](./.github/assets/.demo.gif)
+![demo](.github/assets/.demo.gif)
 ## Features
 ## Compability
 

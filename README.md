@@ -7,8 +7,6 @@ This is a simple iOS Finance Tracking app implementing finance overview, graph v
 ## Apps' Structure
 - Data Model: [Realm](https://realm.io/)
 - UI: Storyboard
-- Additional frameworks included or planned:
-	- [ScrollableGraphView](https://github.com/philackm/ScrollableGraphView)
 ## Installation
 - [CocoaPods](https://cocoapods.org) - see ```Podfile```
 ## Usage
@@ -23,6 +21,7 @@ This is a simple iOS Finance Tracking app implementing finance overview, graph v
 - :inbox_tray: [E-Mail](mailto:dmi.aksyonov@gmail.com) 
 ## Contribution
 ## Demo
+<a href="url"><img src=".github/assets/demo.gif" width="250" ></a>
 ## Features
 ## Compability
 

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		05B69E9924BF276000B94097 /* GE_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B69E9824BF276000B94097 /* GE_UILabel.swift */; };
 		05EAED7C24BE05F000F14680 /* GE_SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05EAED7B24BE05F000F14680 /* GE_SegmentedControl.swift */; };
-		1956B550C8FEF4043E9DD8DB /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */; };
 		2F78EC2F24710EA90067C1E2 /* EDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78EC2E24710EA90067C1E2 /* EDTableViewCell.swift */; };
 		3F002F5D24201F19002C73F4 /* GE_Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F002F5C24201F19002C73F4 /* GE_Notifications.swift */; };
 		3F07FA2724B4F22F0045D96A /* GRStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F07FA2624B4F22F0045D96A /* GRStackView.swift */; };
@@ -50,6 +49,7 @@
 		3FBFDE1C241ECEE1006DAC7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FBFDE1B241ECEE1006DAC7A /* Assets.xcassets */; };
 		3FBFDE1F241ECEE1006DAC7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FBFDE1D241ECEE1006DAC7A /* LaunchScreen.storyboard */; };
 		3FBFDE35241ED1A7006DAC7A /* EDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBFDE34241ED1A7006DAC7A /* EDViewController.swift */; };
+		6A9C7C136CC01699E9901595 /* Pods_iOS_FinanceApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6FE012D22CE25A627AAE3F5 /* Pods_iOS_FinanceApp.framework */; };
 		8F4982C924AA386E00BD2B01 /* EI + Picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4982C824AA386E00BD2B01 /* EI + Picker.swift */; };
 		B746C6E52445E0CC0004BD75 /* EIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B746C6E42445E0CC0004BD75 /* EIViewController.swift */; };
 		B7B50201245956430008BADE /* BEDataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B50200245956430008BADE /* BEDataValidation.swift */; };
@@ -101,13 +101,13 @@
 		3FBFDE1E241ECEE1006DAC7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FBFDE20241ECEE1006DAC7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FBFDE34241ED1A7006DAC7A /* EDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDViewController.swift; sourceTree = "<group>"; };
-		5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6633FDC666AD73208D2D997B /* Pods-iOS-FinanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.debug.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.debug.xcconfig"; sourceTree = "<group>"; };
+		8A869B736EFCAEA86B4DD9D7 /* Pods-iOS-FinanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.release.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.release.xcconfig"; sourceTree = "<group>"; };
+		8E56BAAFFD8F7970BEB920AD /* Pods-iOS-FinanceApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.debug.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8F4982C824AA386E00BD2B01 /* EI + Picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EI + Picker.swift"; sourceTree = "<group>"; };
 		B746C6E42445E0CC0004BD75 /* EIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EIViewController.swift; sourceTree = "<group>"; };
 		B7B50200245956430008BADE /* BEDataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEDataValidation.swift; sourceTree = "<group>"; };
 		B7BA9FB0244C318D00923A60 /* GLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLHelpers.swift; sourceTree = "<group>"; };
-		F53DC87C49A457C6133C7008 /* Pods-iOS-FinanceApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-FinanceApp.release.xcconfig"; path = "Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp.release.xcconfig"; sourceTree = "<group>"; };
+		E6FE012D22CE25A627AAE3F5 /* Pods_iOS_FinanceApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_FinanceApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1956B550C8FEF4043E9DD8DB /* Pods_iOS_FinanceApp.framework in Frameworks */,
+				6A9C7C136CC01699E9901595 /* Pods_iOS_FinanceApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,19 +131,11 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
-		180FC1B295C9BE270FB9352F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5434B7EC93BFCADFBA8FE8A6 /* Pods_iOS_FinanceApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		3C0300666E1FABC8FE736C23 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6633FDC666AD73208D2D997B /* Pods-iOS-FinanceApp.debug.xcconfig */,
-				F53DC87C49A457C6133C7008 /* Pods-iOS-FinanceApp.release.xcconfig */,
+				8E56BAAFFD8F7970BEB920AD /* Pods-iOS-FinanceApp.debug.xcconfig */,
+				8A869B736EFCAEA86B4DD9D7 /* Pods-iOS-FinanceApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -205,10 +197,10 @@
 		3FBFDE06241ECEE0006DAC7A = {
 			isa = PBXGroup;
 			children = (
-				180FC1B295C9BE270FB9352F /* Frameworks */,
 				3FBFDE11241ECEE0006DAC7A /* iOS-FinanceApp */,
 				3C0300666E1FABC8FE736C23 /* Pods */,
 				3FBFDE10241ECEE0006DAC7A /* Products */,
+				6C775EE5597B5D6DAF333D71 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -253,6 +245,14 @@
 			path = "Entry Insertion";
 			sourceTree = "<group>";
 		};
+		6C775EE5597B5D6DAF333D71 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6FE012D22CE25A627AAE3F5 /* Pods_iOS_FinanceApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B7CE14B8245AC62400B07DA1 /* Expenses Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -283,11 +283,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FBFDE2E241ECEE1006DAC7A /* Build configuration list for PBXNativeTarget "iOS-FinanceApp" */;
 			buildPhases = (
-				B0A1A563A02E3BD4A4D56DB6 /* [CP] Check Pods Manifest.lock */,
+				6C1C89A932B5D1E30B77FBA5 /* [CP] Check Pods Manifest.lock */,
 				3FBFDE0B241ECEE0006DAC7A /* Sources */,
 				3FBFDE0C241ECEE0006DAC7A /* Frameworks */,
 				3FBFDE0D241ECEE0006DAC7A /* Resources */,
-				A3D948C524BA585CDCE89B92 /* [CP] Embed Pods Frameworks */,
+				A12E98059D5275DC08E64546 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -345,24 +345,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A3D948C524BA585CDCE89B92 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0A1A563A02E3BD4A4D56DB6 /* [CP] Check Pods Manifest.lock */ = {
+		6C1C89A932B5D1E30B77FBA5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -382,6 +365,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A12E98059D5275DC08E64546 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-FinanceApp/Pods-iOS-FinanceApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -575,7 +575,7 @@
 		};
 		3FBFDE2F241ECEE1006DAC7A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6633FDC666AD73208D2D997B /* Pods-iOS-FinanceApp.debug.xcconfig */;
+			baseConfigurationReference = 8E56BAAFFD8F7970BEB920AD /* Pods-iOS-FinanceApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -594,7 +594,7 @@
 		};
 		3FBFDE30241ECEE1006DAC7A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F53DC87C49A457C6133C7008 /* Pods-iOS-FinanceApp.release.xcconfig */;
+			baseConfigurationReference = 8A869B736EFCAEA86B4DD9D7 /* Pods-iOS-FinanceApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

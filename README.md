@@ -1,5 +1,5 @@
 # iOS-FinanceApp (WIP)
-
+![](https://github.com/daksyonov/iOS-FinanceApp/workflows/Swift/badge.svg)
 ## Project Name
 *TBD*
 ## Description

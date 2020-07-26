@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GRTransmission: Transmittable {
+final class GRTransmission2: Transmittable {
     
     var matchedEntries: [Entry]
     

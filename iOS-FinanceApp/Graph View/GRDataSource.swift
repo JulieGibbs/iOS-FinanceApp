@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 
 class GraphDataSource {
+    let shared = GRTransmission.shared
+    
     typealias EntryTotal = ([Int]) -> Int
     
     var matchedEntries = [Entry]()
@@ -54,6 +56,9 @@ class GraphDataSource {
     
     func getTimeframeData(timeFrame: TimeFrame, input data: Results<Entry> = entries, cutOff: Date) {
         matchedEntries = data.filter({$0.date! >= cutOff})
+        
+        shared.entries = entries.filter({ $0.date! >= cutOff })
+        
         
         print("****** DATA SOURCE MATCHED SOME ENTRIES ******")
         
@@ -152,7 +157,7 @@ class GraphDataSource {
             break
         }
         
-        let transmission = GRTransmission(
+        let transmission = GRTransmission2(
             matchedEntries: matchedEntries,
             incomeEntries: incomeEntries,
             expensesEntries: expensesEntries,

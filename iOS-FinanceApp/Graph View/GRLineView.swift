@@ -27,7 +27,9 @@ class GRLineView: UIView {
     
     var graphPointsCount: Int = 0
     
-    var graphPointsMaxValue: Int = 0
+    var graphPointsMaxValue: Int {
+        get { return graphPoints.max() ?? 0 }
+    }
     
     var graphPoints = [Int]()
     
@@ -45,7 +47,7 @@ class GRLineView: UIView {
         
         path.addClip()
         
-        let context = UIGraphicsGetCurrentContext()
+        guard let context = UIGraphicsGetCurrentContext() else { return }
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
@@ -61,10 +63,82 @@ class GRLineView: UIView {
         
         let endPoint = CGPoint(x: 0, y: self.bounds.height)
         
-        context?.drawLinearGradient(gradient,
-                                    start: startPoint,
-                                    end: endPoint,
-                                    options: .init(rawValue: 0))
+        context.drawLinearGradient(gradient,
+                                   start: startPoint,
+                                   end: endPoint,
+                                   options: .init(rawValue: 0))
+        
+        
+        
+        // MARK: - Graph Points
+        let margin = Constants.margin
+        
+        let graphWidth = width - margin * 2
+        
+        let xPoint = { (column: Int) -> CGFloat in
+            let spacing = graphWidth / CGFloat(self.graphPoints.count - 1)
+            return CGFloat(column) * spacing + margin + 10
+        }
+        
+        let yPoint = { (graphPoint: Int) -> CGFloat in
+            let y = CGFloat(graphPoint) / CGFloat(self.graphPointsMaxValue) * graphHeight
+            return graphHeight + Constants.topBorder - y
+        }
+        
+        // MARK: - Paths
+        UIColor.white.setFill()
+        UIColor.white.setStroke()
+        
+        let graphPath = UIBezierPath()
+        
+        if graphPoints.count > 0 {
+            graphPath.move(to: CGPoint(x: xPoint(0), y: yPoint(graphPoints[0])))
+            print("Graph Path moved to point \(graphPath.currentPoint)")
+        }
+        
+        if graphPoints.count > 0 {
+            for i in 1..<graphPoints.count {
+                let nextPoint = CGPoint(x: xPoint(i), y: yPoint(graphPoints[i]))
+                graphPath.addLine(to: nextPoint)
+                print("Graph Path moved to point \(graphPath.currentPoint)")
+            }
+        }
+        
+        context.saveGState()
+        
+        guard let clippingPath = graphPath.copy() as? UIBezierPath else {
+            return
+        }
+        
+        clippingPath.addLine(to: CGPoint(x: xPoint(graphPoints.count - 1), y: height))
+        clippingPath.addLine(to: CGPoint(x: xPoint(0), y: height))
+        clippingPath.close()
+        clippingPath.addClip()
+        
+        let highestYPoint = yPoint(graphPointsMaxValue)
+        let graphStartPoint = CGPoint(x: margin, y: highestYPoint)
+        let graphEndPoint = CGPoint(x: margin, y: bounds.height)
+        
+        context.drawLinearGradient(gradient, start: graphStartPoint, end: graphEndPoint, options: [])
+        
+        context.restoreGState()
+        
+        graphPath.lineWidth = 1.5
+        graphPath.stroke()
+        
+        for i in 0..<graphPoints.count {
+            var point = CGPoint(x: xPoint(i), y: yPoint(graphPoints[i]))
+            point.x -= Constants.circleDiameter / 2
+            point.y -= Constants.circleDiameter / 2
+            
+            let circle = UIBezierPath(
+                ovalIn: CGRect(
+                    origin: point, size: CGSize(
+                        width: Constants.circleDiameter, height: Constants.circleDiameter)
+                )
+            )
+            circle.fill()
+        }
         
         // MARK: - Lines
         let linesPath = UIBezierPath()
@@ -83,29 +157,6 @@ class GRLineView: UIView {
         
         linesPath.lineWidth = 1.0
         linesPath.stroke()
-        
-        // MARK: - Graph Points
-        let margin = height - Constants.bottomBorder
-        
-        let graphWidth = width - margin * 2 - 4
-        
-        let xPoint = { (column: Int) -> CGFloat in
-            let spacing = graphWidth / CGFloat(self.graphPoints.count)
-            
-            return CGFloat(column) * spacing + margin + 2
-        }
-        
-        let yPoint = { (graphPoint: Int) -> CGFloat in
-            let y = CGFloat(graphPoint) / CGFloat(self.graphPointsMaxValue) * graphHeight
-            return graphHeight + Constants.topBorder - y
-        }
-        
-        // MARK: - Paths
-        
-        let graphPath = UIBezierPath()
-        if graphPoints.count > 0 {
-            graphPath.move(to: CGPoint(x: xPoint(0), y: yPoint(graphPoints[0])))
-        }
     }
     
     override func didMoveToSuperview() {
@@ -235,5 +286,7 @@ extension GRLineView {
         static let topBorder: CGFloat = 60.0
         
         static let bottomBorder: CGFloat = 60.0
+        
+        static let circleDiameter: CGFloat = 5.0
     }
 }

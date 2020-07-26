@@ -45,27 +45,27 @@ class GRSegmentedControl: UISegmentedControl {
             graphDataSource.getTimeframeData(timeFrame: .day, cutOff: DateConstants.today)
             
             segIndex = sender.selectedSegmentIndex
-            print("\nGRSegemtedControl is now at \(segIndex) index.")
+            print("\nGRSegemtedControl is now at \(segIndex) index.\n")
         case 1:
             graphDataSource.getTimeframeData(timeFrame: .week, cutOff: DateConstants.weekFloor)
             
             segIndex = sender.selectedSegmentIndex
-            print("\nGRSegemtedControl is now at \(segIndex) index.")
+            print("\nGRSegemtedControl is now at \(segIndex) index.\n")
         case 2:
             graphDataSource.getTimeframeData(timeFrame: .month, cutOff: DateConstants.monthFloor)
             
             segIndex = sender.selectedSegmentIndex
-            print("\nGRSegemtedControl is now at \(segIndex) index.")
+            print("\nGRSegemtedControl is now at \(segIndex) index.\n")
         case 3:
             graphDataSource.getTimeframeData(timeFrame: .year, cutOff: DateConstants.yearFloor)
             
             segIndex = sender.selectedSegmentIndex
-            print("\nGRSegemtedControl is now at \(segIndex) index.")
+            print("\nGRSegemtedControl is now at \(segIndex) index.\n")
         default:
             print(entries)
             
             segIndex = sender.selectedSegmentIndex
-            print("\nGRSegemtedControl is now at \(segIndex) index.")
+            print("\nGRSegemtedControl is now at \(segIndex) index.\n")
         }
     }
 }

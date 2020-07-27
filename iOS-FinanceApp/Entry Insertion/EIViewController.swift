@@ -106,9 +106,9 @@ class EIViewController: UIViewController {
                     name: nameInputTextField.text!,
                     amount: Int(amntInputTextField.text!)!,
                     date: Heplers.createDateFormatter(
-                        dateStyle: .medium,
-                        timeStyle: .none)
-                        .date(from: dateInputTextField.text!)!,
+                    dateStyle: .medium,
+                    timeStyle: .none)
+                    .date(from: dateInputTextField.text!)!,
                     category: categoryInputTextField.text!,
                     entryType: type,
                     ToC: "\(NSDate().timeIntervalSince1970)",

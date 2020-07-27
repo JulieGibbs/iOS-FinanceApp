@@ -86,7 +86,6 @@ class GRViewController: UIViewController, Observer {
                 
                 print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
-                
                 self.lineGraphView.setNeedsDisplay()
             case 2:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 2, quantity: 4)
@@ -101,7 +100,6 @@ class GRViewController: UIViewController, Observer {
                 
                 print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
-                
                 self.lineGraphView.setNeedsDisplay()
             case 3:
                 self.lineGraphView.bottomStackView.switchLabelsText(_case: 3, quantity: 4)
@@ -116,7 +114,6 @@ class GRViewController: UIViewController, Observer {
                 
                 print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
-                
                 self.lineGraphView.setNeedsDisplay()
             case 4:
                 
@@ -126,7 +123,6 @@ class GRViewController: UIViewController, Observer {
                 
                 print("\nGraph points values are: \(self.lineGraphView.graphPoints)")
                 print("\nGraph points max value is: \(self.lineGraphView.graphPointsMaxValue)")
-                
                 self.lineGraphView.setNeedsDisplay()
             default:
                 break

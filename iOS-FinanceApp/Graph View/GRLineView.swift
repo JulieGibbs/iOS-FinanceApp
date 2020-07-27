@@ -68,8 +68,6 @@ class GRLineView: UIView {
                                    end: endPoint,
                                    options: .init(rawValue: 0))
         
-        
-        
         // MARK: - Graph Points
         let margin = Constants.margin
         
@@ -143,8 +141,6 @@ class GRLineView: UIView {
         // MARK: - Lines
         let linesPath = UIBezierPath()
         
-        linesPath.move(to: CGPoint(x: Constants.margin + 10, y: Constants.topBorder))
-        linesPath.addLine(to: CGPoint(x: width - Constants.margin + 10, y: Constants.topBorder))
         
         linesPath.move(to: CGPoint(x: Constants.margin + 10, y: Constants.topBorder + graphHeight / 2))
         linesPath.addLine(to: CGPoint(x: width - Constants.margin + 10, y: Constants.topBorder + graphHeight / 2))
